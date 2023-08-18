@@ -1,0 +1,46 @@
+---
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../css/styles.css';
+import bootstrap from 'bootstrap/dist/js/bootstrap.bundle?url';
+
+interface Props {
+    title: string;
+    description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <title>{title}</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="/favicon.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script
+            src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+            crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+            rel="stylesheet"
+            type="text/css"
+        />
+    </head>
+    <body>
+        <slot />
+        <!-- Bootstrap core JS-->
+        <script src={bootstrap}></script>
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+    </body>
+</html>
