@@ -1,0 +1,41 @@
+.aws-btn {
+    // cube animation
+    --cube-animation-duration: 700ms;
+    --cube-animation-perspective: 1800px;
+    --cube-animation-ease-in: cubic-bezier(0.8, 0, 1, 0.8);
+    --cube-animation-ease-out: cubic-bezier(0, 0.2, 0.2, 1);
+    --cube-translateZ-distance: -225px;
+
+    // slider animation
+    // --slider-height-percentage: 64%;
+    --slider-transition-duration: 100ms;
+    --organic-arrow-thickness: 8px;
+    --organic-arrow-border-radius: 30px;
+    --organic-arrow-height: 35px;
+    --organic-arrow-color: #007f90;
+    --control-button-width: 10%;
+    --control-button-height: 25%;
+    --control-button-background: transparent;
+    --control-bullet-color: #0095a9;
+    --control-bullet-active-color: #007f90;
+    --loader-bar-color: #0254a6;
+    --loader-bar-height: 8px;
+
+    --slider-height-percentage: 50%;
+    @media (min-width: 992px) {
+        --slider-height-percentage: 45%;
+    }
+
+    img {
+        height: 100%;
+        object-fit: contain;
+        background-color: black;
+    }
+
+    width: 100%;
+    @media (min-width: 992px) {
+        width: 80%;
+        border-radius: 25px;
+        overflow: hidden;
+    }
+}
