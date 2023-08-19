@@ -33,9 +33,9 @@
     }
 
     width: 100%;
+    border-radius: 25px;
     @media (min-width: 992px) {
         width: 80%;
-        border-radius: 25px;
         overflow: hidden;
     }
 }
