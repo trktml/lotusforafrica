@@ -1,8 +1,9 @@
 ---
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../scss/styles.scss';
-import bootstrap from 'bootstrap/dist/js/bootstrap.bundle?url';
-
+import 'bootstrap/dist/js/bootstrap.bundle?url';
+// Font Awesome icons (free version)
+import '../js/fontawesome';
 interface Props {
     title: string;
     description: string;
@@ -20,10 +21,7 @@ const { title, description } = Astro.props;
         <title>{title}</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
-        <!-- Font Awesome icons (free version)-->
-        <script
-            src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
-            crossorigin="anonymous"></script>
+
         <!-- Google fonts-->
         <link
             href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
@@ -38,8 +36,7 @@ const { title, description } = Astro.props;
     </head>
     <body>
         <slot />
-        <!-- Bootstrap core JS-->
-        <script src={bootstrap}></script>
+
         <!-- Core theme JS-->
         <script src="../js/scripts.js"></script>
     </body>
