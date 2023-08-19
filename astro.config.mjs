@@ -4,15 +4,16 @@ import purgecss from 'astro-purgecss';
 import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
 
-import critters from "astro-critters";
+import critters from 'astro-critters';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://lotusfoundationafrica.com/',
-  integrations: [react(), compress(), robotsTxt(), purgecss({
-    fontFace: true,
-    keyframes: true,
-    rejected: true,
-    variables: true
-  }), critters()]
+    site: 'https://lotusfoundationafrica.com/',
+    integrations: [
+        react(),
+        compress(),
+        robotsTxt(),
+        critters(),
+        //purgecss(),
+    ],
 });
