@@ -17,27 +17,27 @@ export default function Slider(params: any) {
         >
             <div
                 data-alt="first pool image from slider"
-                data-src="/assets/img/pools/pool-001.webp"
+                data-src="/assets/img/water-wells/well-001.webp"
             />
             <div
                 data-alt="second pool image from slider"
-                data-src="/assets/img/pools/pool-025.webp"
+                data-src="/assets/img/water-wells/well-025.webp"
             />
             <div
                 data-alt="third pool image from slider"
-                data-src="/assets/img/pools/pool-050.webp"
+                data-src="/assets/img/water-wells/well-050.webp"
             />
             <div
                 data-alt="fourth pool image from slider"
-                data-src="/assets/img/pools/pool-075.webp"
+                data-src="/assets/img/water-wells/well-075.webp"
             />
             <div
                 data-alt="fifth pool image from slider"
-                data-src="/assets/img/pools/pool-100.webp"
+                data-src="/assets/img/water-wells/well-100.webp"
             />
             <div
                 data-alt="sixth pool image from slider"
-                data-src="/assets/img/pools/pool-105.webp"
+                data-src="/assets/img/water-wells/well-105.webp"
             />
         </AutoplaySlider>
     );
