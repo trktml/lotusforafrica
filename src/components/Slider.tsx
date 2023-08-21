@@ -3,7 +3,7 @@ import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import 'react-awesome-slider/dist/styles.css';
 import 'react-awesome-slider/src/styled/cube-animation/cube-animation.scss';
 const AutoplaySlider = withAutoplay(AwesomeSlider);
-import '../scss/slider.scss';
+import '../scss/components/_slider.scss';
 
 export default function Slider(params: any) {
     return (

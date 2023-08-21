@@ -1,0 +1,29 @@
+.lotushead {
+    background: #14141e;
+    padding-top: calc(6rem + 10px);
+    padding-bottom: 6rem;
+}
+.lotushead .lotushead-heading {
+    font-size: 2.75rem;
+    line-height: 2.75rem;
+}
+.lotushead .lotushead-subheading {
+    font-size: 1.25rem;
+}
+.lotushead .lotushead-avatar {
+    width: 15rem;
+}
+
+@media (min-width: 992px) {
+    .lotushead {
+        padding-top: calc(6rem + 20px);
+        padding-bottom: 6rem;
+    }
+    .lotushead .lotushead-heading {
+        font-size: 4rem;
+        line-height: 3.5rem;
+    }
+    .lotushead .lotushead-subheading {
+        font-size: 1.5rem;
+    }
+}

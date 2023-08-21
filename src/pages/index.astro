@@ -1,11 +1,13 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import HeaderSection from '../components/HeaderSection.astro';
 import PortfolioSection from '../components/PortfolioSection.astro';
 import FooterSection from '../components/FooterSection.astro';
 import AboutSection from '../components/AboutSection.astro';
+import PoolsSection from '../components/PoolsSection.astro';
 import ContactSection from '../components/ContactSection.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import CopyrightSection from '../components/CopyrightSection.astro';
 ---
 
 <BaseLayout
@@ -16,15 +18,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <Navbar />
         <HeaderSection />
         <!-- <PortfolioSection /> -->
-        <!-- <AboutSection /> -->
-        <!-- <ContactSection /> -->
+        <PoolsSection />
+        <AboutSection />
+        <ContactSection />
         <!-- <FooterSection /> -->
-
-        <!-- Copyright Section-->
-        <div class="copyright py-4 text-center text-white">
-            <div class="container">
-                <small>Copyright &copy; Lotus for africa foundation 2023</small>
-            </div>
-        </div>
+        <CopyrightSection />
     </div>
 </BaseLayout>
