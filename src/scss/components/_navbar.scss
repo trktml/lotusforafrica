@@ -16,6 +16,7 @@
 // }
 #mainNav .navbar-nav {
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 #mainNav .navbar-nav li.nav-item a.nav-link {
     color: #fff;
@@ -45,9 +46,6 @@
     #mainNav .navbar-brand {
         font-size: 1.75em;
         transition: font-size 0.3s;
-    }
-    #mainNav .navbar-nav {
-        margin-top: 0;
     }
     #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
         color: #fff;
@@ -83,6 +81,17 @@
             color: #4477ce;
             font-size: 0.8rem;
             text-align: end;
+        }
+    }
+    #navbarResponsive {
+        @include media-breakpoint-down(lg) {
+            background-color: #212529;
+            background-color: rgb(33, 37, 41);
+            margin-left: auto;
+            padding: 5px 30px 10px 30px;
+            flex-basis: unset;
+            flex-grow: unset;
+            border-radius: 0 0 5px 20px;
         }
     }
 }
