@@ -3,20 +3,30 @@ import react from '@astrojs/react';
 import purgecss from 'astro-purgecss';
 import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
-
 import critters from 'astro-critters';
+import prefetch from '@astrojs/prefetch';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-    vite: { css: { devSourcemap: true } },
+    vite: {
+        css: {
+            devSourcemap: true,
+        },
+    },
     site: 'https://lotusfoundationafrica.com/',
-    build: { assets: 'lotus', inlineStylesheets: 'auto' },
+    build: {
+        assets: 'lotus',
+        inlineStylesheets: 'auto',
+    },
     compressHTML: true,
     integrations: [
         react(),
         compress(),
         robotsTxt(),
         critters(),
+        prefetch(),
+        sitemap(),
         //purgecss(),
     ],
 });
