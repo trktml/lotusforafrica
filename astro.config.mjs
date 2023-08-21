@@ -12,6 +12,11 @@ export default defineConfig({
     vite: {
         css: {
             devSourcemap: true,
+            preprocessorOptions: {
+                scss: {
+                    quietDeps: true,
+                },
+            },
         },
     },
     site: 'https://lotusfoundationafrica.com/',
