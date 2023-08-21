@@ -8,7 +8,10 @@ import critters from 'astro-critters';
 
 // https://astro.build/config
 export default defineConfig({
+    vite: { css: { devSourcemap: true } },
     site: 'https://lotusfoundationafrica.com/',
+    build: { assets: 'lotus', inlineStylesheets: 'auto' },
+    compressHTML: true,
     integrations: [
         react(),
         compress(),
