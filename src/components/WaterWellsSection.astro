@@ -1,6 +1,10 @@
+---
+import WaterWellCard from './WaterWellCard.astro';
+---
+
 <!-- About Section-->
 <section class="page-section text-white mb-0" id="water-wells">
-    <div class="container">
+    <div class="container-fluid">
         <!-- About Section Heading-->
         <h2 class="page-section-heading text-center text-uppercase text-white">
             Kuyular
@@ -11,6 +15,13 @@
             <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
             <div class="divider-custom-line"></div>
         </div>
+
+        <div class="row justify-content-center my-5 mx-0 mx-md-2">
+            <WaterWellCard />
+            <WaterWellCard />
+            <WaterWellCard />
+        </div>
+
         <!-- About Section Content-->
         <div class="row">
             <div class="col-lg-4 ms-auto">
