@@ -27,11 +27,14 @@ export default defineConfig({
     compressHTML: true,
     integrations: [
         react(),
-        compress(),
-        robotsTxt(),
-        critters(),
         prefetch(),
         sitemap(),
+        robotsTxt(),
+        critters(),
+        compress(),
         //purgecss(),
     ],
+    experimental: {
+        assets: true,
+    },
 });
