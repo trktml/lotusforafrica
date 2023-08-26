@@ -3,6 +3,7 @@ import '../scss/styles.scss';
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle?url';
 // Font Awesome icons (free version)
 import fontawesome from '../js/fontawesome?url';
+import favicon from '../assets/favicon.ico';
 interface Props {
     title: string;
     description: string;
@@ -19,7 +20,7 @@ const { title, description } = Astro.props;
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{title}</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="/favicon.png" />
+        <link rel="icon" type="image/x-icon" href={favicon} />
     </head>
     <body>
         <slot />

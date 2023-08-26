@@ -1,3 +1,8 @@
+---
+import { Image } from 'astro:assets';
+import navLogo from '../assets/img/logo.png';
+---
+
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav">
     <div class="container h-100">
@@ -5,10 +10,11 @@
             class="navbar-brand h-100 d-flex flex-row align-items-center"
             href="#page-top"
         >
-            <img
-                class="nav-logo h-100"
-                src="/assets/img/logo.png"
+            <Image
+                class="nav-logo h-100 object-fit-contain"
+                src={navLogo}
                 alt="navigation bar logo"
+                height="50"
             />
             <div class="nav-texts">
                 <div>Lotus for africa</div>

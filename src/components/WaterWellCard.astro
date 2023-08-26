@@ -1,3 +1,7 @@
+---
+import { Image } from 'astro:assets';
+---
+
 <div
     class="col-11 col-sm-5 col-md-3 d-flex align-items-center justify-content-around rounded-4 p-0"
 >
@@ -5,8 +9,8 @@
         class="col-11 m-2 d-flex rounded-4 flex-column"
         style="height: 250px; background-color: #353444"
     >
-        <img
-            src="/assets/img/water-wells/well-001.webp"
+        <Image
+            src={import('/assets/img/portfolio/test.webp')}
             alt="water well picture 001"
             srcset=""
             class="rounded-4"
@@ -17,6 +21,8 @@
             object-fit: cover;
             height: 70%;"
         />
-        <div class="text-white text-center mt-3" style="font-weight: bold;">Kuyu Numarası</div>
+        <div class="text-white text-center mt-3" style="font-weight: bold;">
+            Kuyu Numarası
+        </div>
     </div>
 </div>
