@@ -27,7 +27,10 @@ export default defineConfig({
     compressHTML: true,
     integrations: [
         react(),
-        prefetch(),
+        prefetch({
+            // prefetch links for all a elements
+            selector: 'a',
+        }),
         sitemap(),
         robotsTxt(),
         critters(),
@@ -35,6 +38,7 @@ export default defineConfig({
         //purgecss(),
     ],
     experimental: {
+        // for optimized images
         assets: true,
     },
 });
