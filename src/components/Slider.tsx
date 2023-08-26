@@ -1,7 +1,7 @@
 import AwesomeSlider from 'react-awesome-slider';
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import 'react-awesome-slider/dist/styles.css';
-import 'react-awesome-slider/src/styled/cube-animation/cube-animation.scss';
+import 'react-awesome-slider/src/styled/open-animation/open-animation.scss';
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 import '../scss/components/_slider.scss';
 import well1 from '../assets/img/water-wells/well-001.webp';
@@ -15,11 +15,10 @@ export default function Slider(params: any) {
     return (
         <AutoplaySlider
             play={true}
-            cancelOnInteraction={false} // should stop playing on user interaction
-            interval={2000}
+            interval={2500}
             className="aws-btn"
             bullets={false}
-            animation="cubeAnimation"
+            animation="openAnimation"
         >
             <div data-alt="slider first well image" data-src={well1.src} />
             <div data-alt="slider second well image" data-src={well2.src} />

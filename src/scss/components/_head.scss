@@ -1,7 +1,7 @@
 .lotushead {
     background: #14141e;
     padding-top: calc(6rem + 10px);
-    padding-bottom: calc(100vh - 45vh - 6rem - 10px);
+    padding-bottom: calc(100vh - 45vh - 6rem - 25px);
 }
 .lotushead .lotushead-heading {
     font-size: 2.75rem;
@@ -14,10 +14,10 @@
     width: 15rem;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 762px) {
     .lotushead {
         padding-top: calc(6rem + 20px);
-        padding-bottom: calc(100vh - 45vh - 6rem - 20px - 92px); // slider heigth:45vh, top-padding:6rem+20px, copright:92px
+        padding-bottom: calc(100vh - 45vh - 6rem - 115px); // slider heigth:45vh, top-padding:6rem+20px, copright:92px
     }
     .lotushead .lotushead-heading {
         font-size: 4rem;

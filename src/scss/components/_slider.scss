@@ -1,14 +1,5 @@
 .aws-btn {
-    // cube animation
-    --cube-animation-duration: 700ms;
-    --cube-animation-perspective: 1800px;
-    --cube-animation-ease-in: cubic-bezier(0.8, 0, 1, 0.8);
-    --cube-animation-ease-out: cubic-bezier(0, 0.2, 0.2, 1);
-    --cube-translateZ-distance: -225px;
-
-    // slider animation
-    // --slider-height-percentage: 64%;
-    --slider-transition-duration: 100ms;
+    --slider-transition-duration: 750ms;
     --organic-arrow-thickness: 5px;
     --organic-arrow-border-radius: 30px;
     --organic-arrow-height: 35px;
@@ -20,7 +11,6 @@
     --control-bullet-active-color: #8f91a8;
     --loader-bar-color: #0254a666;
     --loader-bar-height: 5px;
-
     --slider-height-percentage: 50%;
     @media (min-width: 992px) {
         --slider-height-percentage: 45%;
