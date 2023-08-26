@@ -1,17 +1,17 @@
-import AwesomeSlider from 'react-awesome-slider';
+import AwesomeSlider, { AwesomeSliderProps } from 'react-awesome-slider';
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import 'react-awesome-slider/dist/styles.css';
 import 'react-awesome-slider/src/styled/open-animation/open-animation.scss';
 const AutoplaySlider = withAutoplay(AwesomeSlider);
-import '../scss/components/_slider.scss';
 import well1 from '../assets/img/water-wells/well-001.webp';
 import well2 from '../assets/img/water-wells/well-025.webp';
 import well3 from '../assets/img/water-wells/well-050.webp';
 import well4 from '../assets/img/water-wells/well-075.webp';
 import well5 from '../assets/img/water-wells/well-100.webp';
 import well6 from '../assets/img/water-wells/well-105.webp';
+import '../scss/components/_slider.scss';
 
-export default function Slider(params: any) {
+export default function Slider(params: AwesomeSliderProps) {
     return (
         <AutoplaySlider
             play={true}
