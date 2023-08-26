@@ -6,6 +6,7 @@ import robotsTxt from 'astro-robots-txt';
 import critters from 'astro-critters';
 import prefetch from '@astrojs/prefetch';
 import sitemap from '@astrojs/sitemap';
+// import swup from '@swup/astro';
 
 // https://astro.build/config
 export default defineConfig({
@@ -27,6 +28,14 @@ export default defineConfig({
     compressHTML: true,
     integrations: [
         react(),
+        // swup({
+        //     theme: 'fade',
+        //     animationClass: false,
+        //     progress: true,
+        //     reloadScripts: false,
+        //     updateHead: false,
+        //     globalInstance: true,
+        // }),
         prefetch({
             // prefetch links for all a elements
             selector: 'a',

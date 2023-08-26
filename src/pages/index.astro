@@ -1,13 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Navbar from '../components/Navbar.astro';
-import HeaderSection from '../components/HeaderSection.astro';
-import PortfolioSection from '../components/PortfolioSection.astro';
-import FooterSection from '../components/FooterSection.astro';
-import AboutSection from '../components/AboutSection.astro';
-import WaterWellsSection from '../components/WaterWellsSection.astro';
-import ContactSection from '../components/ContactSection.astro';
-import CopyrightSection from '../components/CopyrightSection.astro';
+import Slider from '../components/Slider';
 ---
 
 <BaseLayout
@@ -15,13 +8,11 @@ import CopyrightSection from '../components/CopyrightSection.astro';
     description="Liberia'da köprü, cami ve okul yapımı gibi faaliyetler sürdüren vakıf."
 >
     <div id="page-top">
-        <Navbar />
-        <HeaderSection />
-        <!-- <PortfolioSection /> -->
-        <!-- <WaterWellsSection /> -->
-        <!-- <AboutSection /> -->
-        <!-- <ContactSection /> -->
-        <!-- <FooterSection /> -->
-        <CopyrightSection />
+        <!-- lotushead-->
+        <div class="lotushead text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <Slider client:load />
+            </div>
+        </div>
     </div>
 </BaseLayout>

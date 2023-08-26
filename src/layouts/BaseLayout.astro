@@ -1,9 +1,12 @@
 ---
 import '../scss/styles.scss';
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle?url';
+import myScripts from '../js/scripts?url';
 // Font Awesome icons (free version)
 import fontawesome from '../js/fontawesome?url';
 import favicon from '../assets/favicon.ico';
+import Navbar from './components/Navbar.astro';
+import Copyright from './components/Copyright.astro';
 interface Props {
     title: string;
     description: string;
@@ -23,11 +26,17 @@ const { title, description } = Astro.props;
         <link rel="icon" type="image/x-icon" href={favicon} />
     </head>
     <body>
-        <slot />
+        <main>
+            <Navbar />
 
-        <!-- Core theme JS -->
-        <script src="../js/scripts.js"></script>
-        <script src={bootstrap}></script>
-        <script src={fontawesome}></script>
+            <slot />
+
+            <Copyright />
+
+            <!-- Core theme JS -->
+            <script src={myScripts}></script>
+            <script src={bootstrap}></script>
+            <script src={fontawesome}></script>
+        </main>
     </body>
 </html>

@@ -1,14 +1,14 @@
 ---
 import { Image } from 'astro:assets';
-import navLogo from '../assets/img/logo.png';
+import navLogo from '../../assets/img/logo.png';
 ---
 
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav">
-    <div class="container h-100">
+    <div class="container-sm w-auto h-100">
         <a
-            class="navbar-brand h-100 d-flex flex-row align-items-center"
-            href="#page-top"
+            class="navbar-brand h-100 d-flex flex-row align-items-center me-5"
+            href="/"
         >
             <Image
                 class="nav-logo h-100 object-fit-contain"
@@ -35,9 +35,8 @@ import navLogo from '../assets/img/logo.png';
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto align-items-center">
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a
-                        class="nav-link py-1 px-0 px-lg-3 rounded"
-                        href="#water-wells">Kuyular</a
+                    <a class="nav-link py-1 px-0 px-lg-3 rounded" href="/wells"
+                        >Kuyular</a
                     >
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
