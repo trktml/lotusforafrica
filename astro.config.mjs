@@ -22,7 +22,7 @@ export default defineConfig({
     },
     site: 'https://lotusfoundationafrica.com/',
     build: {
-        assets: 'lotus',
+        assets: 'assets',
         inlineStylesheets: 'auto',
     },
     compressHTML: true,

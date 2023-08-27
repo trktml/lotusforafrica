@@ -1,6 +1,18 @@
 ---
+import { Image } from 'astro:assets';
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Slider from '../components/Slider';
+
+// images for link backrounds
+import bridgeImage from '../assets/img/link-images/bridge.webp';
+import kurbanImage from '../assets/img/link-images/kurban.webp';
+import orphanageImage from '../assets/img/link-images/orphanage.webp';
+import studentsImage from '../assets/img/link-images/students.webp';
+import wellImage from '../assets/img/link-images/well.webp';
+
+// import home.scss
+import '../scss/pages/home.scss';
 ---
 
 <BaseLayout
@@ -12,6 +24,64 @@ import Slider from '../components/Slider';
         <div class="lotushead text-white text-center">
             <div class="container d-flex align-items-center flex-column">
                 <Slider client:load />
+                <div class="row g-2 col-12 col-lg-8 mt-5 mb-5">
+                    <div
+                        class="link-cards overflow-hidden rounded-5 col-6 col-sm-3"
+                    >
+                        <a href="/wells">
+                            <div
+                                class="d-flex align-items-center justify-content-center"
+                            >
+                                <Image src={wellImage} alt="bridge picture" />
+                                <div class="link-card-text">Kuyular</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div
+                        class="link-cards overflow-hidden rounded-5 col-6 col-sm-3"
+                    >
+                        <a href="/orphanage">
+                            <div
+                                class="d-flex align-items-center justify-content-center"
+                            >
+                                <Image
+                                    src={orphanageImage}
+                                    alt="bridge picture"
+                                />
+                                <div class="link-card-text">Yetimhane</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div
+                        class="link-cards overflow-hidden rounded-5 col-6 col-sm-3"
+                    >
+                        <a href="/students">
+                            <div
+                                class="d-flex align-items-center justify-content-center"
+                            >
+                                <Image
+                                    src={studentsImage}
+                                    alt="bridge picture"
+                                />
+                                <div class="link-card-text">
+                                    Okutulan Çocuklar
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div
+                        class="link-cards overflow-hidden rounded-5 col-6 col-sm-3"
+                    >
+                        <a href="/others">
+                            <div
+                                class="d-flex align-items-center justify-content-center"
+                            >
+                                <Image src={bridgeImage} alt="bridge picture" />
+                                <div class="link-card-text">Diğer</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
