@@ -36,6 +36,7 @@
     font-size: 80%;
     padding: 0.5rem;
     font-weight: bolder;
+    background-color: #8a97a3 !important;
 }
 
 @include media-breakpoint-up(lg) {
@@ -79,7 +80,7 @@
             font-size: 1.1rem;
         }
         & :nth-child(2) {
-            color: #83A5DD;
+            color: #83a5dd;
             font-size: 0.8rem;
             text-align: end;
         }
