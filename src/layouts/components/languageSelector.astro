@@ -1,0 +1,47 @@
+---
+// translations
+import { getLocale } from 'astro-i18n-aut';
+import { defaultLocale } from '../../utils/translationTools';
+let lang = getLocale(Astro.url) ?? defaultLocale;
+---
+
+<div class="btn-group">
+    <button
+        class="btn btn-dark dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+    >
+        {
+            lang === 'en' ? (
+                <span class="fi fi-us" />
+            ) : lang === 'tr' ? (
+                <span class="fi fi-tr" />
+            ) : lang === 'nl' ? (
+                <span class="fi fi-be" />
+            ) : (
+                ''
+            )
+        }
+    </button>
+    <ul
+        class="dropdown-menu bg-secondary dropdown-menu-lg-end"
+        style="min-width: auto"
+    >
+        <li>
+            <a class="dropdown-item bg-secondary fw-bold" href="/tr"
+                ><span class="fi fi-tr"></span> Türkçe</a
+            >
+        </li>
+        <li>
+            <a class="dropdown-item bg-secondary fw-bold" href="/en"
+                ><span class="fi fi-us"></span> English</a
+            >
+        </li>
+        <li>
+            <a class="dropdown-item bg-secondary fw-bold" href="/nl"
+                ><span class="fi fi-be"></span> Nederlands</a
+            >
+        </li>
+    </ul>
+</div>

@@ -1,12 +1,22 @@
 ---
+// translations
+import { getLocale } from 'astro-i18n-aut';
+import { defaultLocale } from '../utils/translationTools';
+let lang = getLocale(Astro.url) ?? defaultLocale;
+
+// scripts and css's
 import '../scss/styles.scss';
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle?url';
 import myScripts from '../js/scripts?url';
+
 // Font Awesome icons (free version)
 import fontawesome from '../js/fontawesome?url';
 import favicon from '../assets/favicon.ico';
+
+// components
 import Navbar from './components/Navbar.astro';
 import Copyright from './components/Copyright.astro';
+
 interface Props {
     title: string;
     description: string;
@@ -16,7 +26,7 @@ const { title, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang}>
     <head>
         <meta charset="UTF-8" />
         <meta name="description" content={description} />
@@ -29,7 +39,9 @@ const { title, description } = Astro.props;
         <main>
             <Navbar />
 
-            <slot />
+            <div style="margin-top: 70px;">
+                <slot />
+            </div>
 
             <Copyright />
 

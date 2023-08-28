@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// import translations
+import translations, {
+    convertPageTitle,
+    localeLink,
+} from '../utils/translationTools';
+const t = translations(Astro.url);
+---
+
+<BaseLayout
+    title={convertPageTitle(t.wells, t.title)}
+    description={t.description}
+>
+    <div class="container">
+        {t.title}
+    </div>
+</BaseLayout>

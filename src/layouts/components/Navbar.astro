@@ -1,6 +1,16 @@
 ---
+import '/node_modules/flag-icons/css/flag-icons.min.css';
+
 import { Image } from 'astro:assets';
 import navLogo from '../../assets/img/logo.png';
+
+// import translations
+import translations, {
+    convertPageTitle,
+    localeLink,
+} from '../../utils/translationTools';
+import LanguageSelector from './languageSelector.astro';
+const t = translations(Astro.url);
 ---
 
 <!-- Navigation-->
@@ -8,7 +18,7 @@ import navLogo from '../../assets/img/logo.png';
     <div class="container-fluid col-sm-8 h-100">
         <a
             class="navbar-brand h-100 d-flex flex-row align-items-center"
-            href="/"
+            href={localeLink('/', Astro.url)}
         >
             <Image
                 class="nav-logo h-100 object-fit-contain"
@@ -36,21 +46,25 @@ import navLogo from '../../assets/img/logo.png';
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto align-items-center">
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-1 px-0 px-lg-3 rounded" href="/activities"
-                        >Faaliyetler</a
-                    >
-                </li>
-                <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-1 px-0 px-lg-3 rounded" href="#about"
-                        >Hakkımızda</a
+                    <a
+                        class="nav-link py-1 px-0 px-lg-3 rounded"
+                        href={localeLink('/activities', Astro.url)}
+                        >{t.activities}</a
                     >
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
                     <a
                         class="nav-link py-1 px-0 px-lg-3 rounded"
-                        href="#contact">İLETİŞİM</a
+                        href={localeLink('/about', Astro.url)}>{t.aboutUs}</a
                     >
                 </li>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a
+                        class="nav-link py-1 px-0 px-lg-3 rounded"
+                        href={localeLink('/contact', Astro.url)}>{t.contact}</a
+                    >
+                </li>
+                <LanguageSelector />
             </ul>
         </div>
     </div>
