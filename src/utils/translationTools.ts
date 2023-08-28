@@ -33,7 +33,12 @@ export function localeLink(link: string, astroUrl: URL): string {
         localizedLink = link;
     }
 
-    return (localizedLink.endsWith('/') && localizedLink.length > 1) ? localizedLink.slice(0, -1) : localizedLink;
+    // localizedLink add last slash
+    if (!localizedLink.endsWith('/')) {
+        localizedLink += '/';
+    }
+
+    return localizedLink;
 }
 
 export function convertPageTitle(pageTitle: string, siteTitle: string): string {

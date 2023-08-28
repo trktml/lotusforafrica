@@ -1,4 +1,6 @@
 ---
+import '/node_modules/flag-icons/css/flag-icons.min.css';
+
 // translations
 import { getLocale } from 'astro-i18n-aut';
 import { defaultLocale } from '../../utils/translationTools';
@@ -29,17 +31,17 @@ let lang = getLocale(Astro.url) ?? defaultLocale;
         style="min-width: auto"
     >
         <li>
-            <a class="dropdown-item bg-secondary fw-bold" href="/tr"
+            <a class="dropdown-item bg-secondary fw-bold" href="/tr/"
                 ><span class="fi fi-tr"></span> Türkçe</a
             >
         </li>
         <li>
-            <a class="dropdown-item bg-secondary fw-bold" href="/en"
+            <a class="dropdown-item bg-secondary fw-bold" href="/"
                 ><span class="fi fi-us"></span> English</a
             >
         </li>
         <li>
-            <a class="dropdown-item bg-secondary fw-bold" href="/nl"
+            <a class="dropdown-item bg-secondary fw-bold" href="/nl/"
                 ><span class="fi fi-be"></span> Nederlands</a
             >
         </li>

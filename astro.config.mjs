@@ -22,12 +22,12 @@ export default defineConfig({
             },
         },
     },
-    site: 'https://lotusfoundationafrica.com',
-    trailingSlash: 'never',
+    site: 'https://lotusfoundationafrica.com/',
+    trailingSlash: 'always',
     build: {
         assets: 'assets',
         inlineStylesheets: 'auto',
-        format: 'file',
+        format: 'directory',
     },
     compressHTML: true,
     integrations: [
@@ -57,8 +57,8 @@ export default defineConfig({
         }),
         robotsTxt(),
         critters(),
-        compress(),
-        //purgecss(),
+        compress({ Exclude: '.*svg' }),
+        // purgecss(),
     ],
     experimental: {
         // for optimized images

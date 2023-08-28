@@ -1,15 +1,13 @@
 ---
-import '/node_modules/flag-icons/css/flag-icons.min.css';
-
 import { Image } from 'astro:assets';
 import navLogo from '../../assets/img/logo.png';
+import LanguageSelector from './languageSelector.astro';
 
-// import translations
+// translations
 import translations, {
     convertPageTitle,
     localeLink,
 } from '../../utils/translationTools';
-import LanguageSelector from './languageSelector.astro';
 const t = translations(Astro.url);
 ---
 

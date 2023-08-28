@@ -10,51 +10,60 @@ import studentsImage from '../assets/img/link-images/students.webp';
 import wellImage from '../assets/img/link-images/well.webp';
 
 import '../scss/pages/home.scss';
+
+// translations
+import translations, {
+    convertPageTitle,
+    localeLink,
+} from '../utils/translationTools';
+const t = translations(Astro.url);
 ---
 
 <BaseLayout
     title="Activities"
     description="Liberia'da köprü, cami ve okul yapımı gibi faaliyetler sürdüren vakıf."
 >
-    <div class="container text-center justify-content-center align-items-center d-flex mt-5">
+    <div
+        class="container text-center justify-content-center align-items-center d-flex mt-5"
+    >
         <div class="row g-4 col-12 col-lg-8 mt-5 mb-5">
             <div class="link-cards overflow-hidden rounded-5 col-6">
-                <a href="/wells">
+                <a href={localeLink('/wells', Astro.url)}>
                     <div
                         class="d-flex align-items-center justify-content-center"
                     >
                         <Image src={wellImage} alt="bridge picture" />
-                        <div class="link-card-text">Kuyular</div>
+                        <div class="link-card-text">{t.wells}</div>
                     </div>
                 </a>
             </div>
             <div class="link-cards overflow-hidden rounded-5 col-6">
-                <a href="/orphanage">
+                <a href={localeLink('/orphanage', Astro.url)}>
                     <div
                         class="d-flex align-items-center justify-content-center"
                     >
                         <Image src={orphanageImage} alt="bridge picture" />
-                        <div class="link-card-text">Yetimhane</div>
+                        <div class="link-card-text">{t.orphanage}</div>
                     </div>
                 </a>
             </div>
             <div class="link-cards overflow-hidden rounded-5 col-6">
-                <a href="/students">
+                <a href={localeLink('/students', Astro.url)}>
                     <div
                         class="d-flex align-items-center justify-content-center"
                     >
                         <Image src={studentsImage} alt="bridge picture" />
-                        <div class="link-card-text">Okutulan Çocuklar</div>
+                        <div class="link-card-text">{t.students}</div>
                     </div>
                 </a>
             </div>
             <div class="link-cards overflow-hidden rounded-5 col-6">
-                <a href="/others">
+                <a href={localeLink('/others', Astro.url)}>
                     <div
                         class="d-flex align-items-center justify-content-center"
                     >
                         <Image src={bridgeImage} alt="bridge picture" />
-                        <div class="link-card-text">Diğer</div>
+                        <div class="link-card-text">{t.others}</div>
                     </div>
                 </a>
             </div>

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// import translations
+// translations
 import translations, {
     convertPageTitle,
     localeLink,
@@ -15,5 +15,6 @@ const t = translations(Astro.url);
 >
     <div class="container">
         {t.title}
+        {localeLink('/link', Astro.url)}
     </div>
 </BaseLayout>
