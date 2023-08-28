@@ -10,10 +10,11 @@ const t = translations(Astro.url);
 ---
 
 <BaseLayout
-    title={convertPageTitle(t.wells, t.title)}
+    title={convertPageTitle(t.aboutUs, t.title)}
     description={t.description}
 >
-    <div class="container">
-        {t.title}
-    </div>
+    <div
+        class="container fw-semibold py-3 px-4 rounded-3 d-flex bg-white bg-opacity-10 text-white col-11 col-lg-8"
+        set:html={t.aboutUsText.replaceAll('\n', '<br/>')}
+    />
 </BaseLayout>

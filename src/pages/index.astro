@@ -11,34 +11,42 @@ import orphanageImage from '../assets/img/link-images/orphanage.webp';
 import studentsImage from '../assets/img/link-images/students.webp';
 import wellImage from '../assets/img/link-images/well.webp';
 
-// import home.scss
+// home.scss
 import '../scss/pages/home.scss';
+
+// translations
+import translations, {
+    convertPageTitle,
+    localeLink,
+} from '../utils/translationTools';
+const t = translations(Astro.url);
 ---
 
-<BaseLayout
-    title="Lotus for africa foundation"
-    description="Liberia'da köprü, cami ve okul yapımı gibi faaliyetler sürdüren vakıf."
->
+<BaseLayout title={t.title} description={t.description}>
     <div id="page-top">
         <!-- lotushead-->
         <div class="lotushead text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-                <Slider client:only="react" />
-                <div class="row g-2 col-12 col-lg-8 mt-5 mb-5">
+                <div
+                    class="slider-wrapper row mb-3 w-100 d-flex align-items-center justify-content-center"
+                >
+                    <Slider client:only="react" />
+                </div>
+                <div class="row g-2 col-12 col-lg-8">
                     <div
-                        class="link-cards overflow-hidden rounded-5 col-6 col-sm-3"
+                        class="link-cards shadow-lg overflow-hidden rounded-5 col-6 col-sm-3"
                     >
                         <a href="/wells">
                             <div
                                 class="d-flex align-items-center justify-content-center"
                             >
                                 <Image src={wellImage} alt="bridge picture" />
-                                <div class="link-card-text">Kuyular</div>
+                                <div class="link-card-text">{t.wells}</div>
                             </div>
                         </a>
                     </div>
                     <div
-                        class="link-cards overflow-hidden rounded-5 col-6 col-sm-3"
+                        class="link-cards shadow-lg overflow-hidden rounded-5 col-6 col-sm-3"
                     >
                         <a href="/orphanage">
                             <div
@@ -48,12 +56,12 @@ import '../scss/pages/home.scss';
                                     src={orphanageImage}
                                     alt="bridge picture"
                                 />
-                                <div class="link-card-text">Yetimhane</div>
+                                <div class="link-card-text">{t.orphanage}</div>
                             </div>
                         </a>
                     </div>
                     <div
-                        class="link-cards overflow-hidden rounded-5 col-6 col-sm-3"
+                        class="link-cards shadow-lg overflow-hidden rounded-5 col-6 col-sm-3"
                     >
                         <a href="/students">
                             <div
@@ -64,20 +72,20 @@ import '../scss/pages/home.scss';
                                     alt="bridge picture"
                                 />
                                 <div class="link-card-text">
-                                    Okutulan Çocuklar
+                                    {t.students}
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div
-                        class="link-cards overflow-hidden rounded-5 col-6 col-sm-3"
+                        class="link-cards shadow-lg overflow-hidden rounded-5 col-6 col-sm-3"
                     >
                         <a href="/others">
                             <div
                                 class="d-flex align-items-center justify-content-center"
                             >
                                 <Image src={bridgeImage} alt="bridge picture" />
-                                <div class="link-card-text">Diğer</div>
+                                <div class="link-card-text">{t.others}</div>
                             </div>
                         </a>
                     </div>

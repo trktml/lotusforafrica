@@ -52,3 +52,14 @@
         }
     }
 }
+
+.slider-wrapper {
+    height: 60vw;
+    max-height: 400px;
+    @media (min-width: 576px) {
+        height: 60vw;
+    }
+    @media (min-width: 1024px) {
+        height: 30vw;
+    }
+}
