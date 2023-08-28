@@ -37,33 +37,33 @@ const t = translations(Astro.url);
             aria-controls="navbarResponsive"
             aria-expanded="false"
             aria-label="Toggle navigation"
-            >Menü
+            >Menu
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="w-100"></div>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto align-items-center">
-                <li class="nav-item mx-0 mx-lg-1">
+            <div class="navbar-nav ms-auto align-items-center">
+                <div class="nav-item mx-0 mx-lg-1">
                     <a
                         class="nav-link py-1 px-0 px-lg-3 rounded"
                         href={localeLink('/activities', Astro.url)}
                         >{t.activities}</a
                     >
-                </li>
-                <li class="nav-item mx-0 mx-lg-1">
+                </div>
+                <div class="nav-item mx-0 mx-lg-1">
                     <a
                         class="nav-link py-1 px-0 px-lg-3 rounded"
                         href={localeLink('/about', Astro.url)}>{t.aboutUs}</a
                     >
-                </li>
-                <li class="nav-item mx-0 mx-lg-1">
+                </div>
+                <div class="nav-item mx-0 mx-lg-1">
                     <a
                         class="nav-link py-1 px-0 px-lg-3 rounded"
                         href={localeLink('/contact', Astro.url)}>{t.contact}</a
                     >
-                </li>
+                </div>
                 <LanguageSelector />
-            </ul>
+            </div>
         </div>
     </div>
 </nav>

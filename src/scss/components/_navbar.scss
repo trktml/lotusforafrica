@@ -18,18 +18,18 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
-#mainNav .navbar-nav li.nav-item a.nav-link {
+#mainNav .navbar-nav div.nav-item a.nav-link {
     color: #fff;
     width: max-content;
 }
-#mainNav .navbar-nav li.nav-item a.nav-link:hover {
+#mainNav .navbar-nav div.nav-item a.nav-link:hover {
     color: #70bcff;
 }
-#mainNav .navbar-nav li.nav-item a.nav-link:active,
-#mainNav .navbar-nav li.nav-item a.nav-link:focus {
+#mainNav .navbar-nav div.nav-item a.nav-link:active,
+#mainNav .navbar-nav div.nav-item a.nav-link:focus {
     color: #fff;
 }
-#mainNav .navbar-nav li.nav-item a.nav-link.active {
+#mainNav .navbar-nav div.nav-item a.nav-link.active {
     color: #70bcff;
 }
 #mainNav .navbar-toggler {
@@ -48,13 +48,13 @@
         font-size: 1.75em;
         transition: font-size 0.3s;
     }
-    #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
+    #mainNav .navbar-nav > div.nav-item > a.nav-link.active {
         color: #fff;
         background: #70bcff;
     }
-    #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active,
-    #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus,
-    #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
+    #mainNav .navbar-nav > div.nav-item > a.nav-link.active:active,
+    #mainNav .navbar-nav > div.nav-item > a.nav-link.active:focus,
+    #mainNav .navbar-nav > div.nav-item > a.nav-link.active:hover {
         color: #fff;
         background: #70bcff;
     }
@@ -79,7 +79,7 @@
             font-size: 1.1rem;
         }
         & :nth-child(2) {
-            color: #4477ce;
+            color: #83A5DD;
             font-size: 0.8rem;
             text-align: end;
         }
