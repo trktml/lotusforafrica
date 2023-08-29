@@ -1,0 +1,56 @@
+---
+import type { Page } from 'astro';
+interface Props{
+    page:Page,
+    type:string
+}
+const {page,type} = Astro.props;
+let pageCount = Math.ceil(page.total / page.size);
+---
+<div class=`row align-items-center justify-content-center ${type==="start"?"flex-column":"flex-column-reverse"}`>
+    <div class="col d-flex align-items-center justify-content-center">
+        <nav aria-label="Wells page navigation">
+            <ul class="pagination m-2 justify-content-center">
+                <li class={`mx-1 page-item ${ page.url.prev ? '' : 'disabled' }`}>
+                    <a style="font-size: 20px;" class="page-link" href={page.url.prev}>
+                        <span class="d-block" style="transform: rotate(180deg) translate(0px, -1px);">
+                            <strong>&#10148;</strong>
+                        </span>
+                    </a>
+                </li>
+                <li class={`mx-1 page-item ${ page.url.next ? '' : 'disabled' }`}>
+                    <a style="font-size: 20px;" class="page-link" href={page.url.next}>
+                        <span class="d-block" style="transform: translate(0px, -1px);">
+                            <strong>&#10148;</strong>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="col d-flex align-items-center justify-content-center">
+        {
+            Array.from({ length: pageCount }).map((_, pageNumber) => (
+                <a
+                    style="margin:2px;"
+                    class=`d-inline-block btn ${
+                            pageNumber + 1 === page.currentPage
+                                ? 'btn-secondary'
+                                : 'btn-light'
+                        }`
+                    href={
+                            page.url.current
+                                .split('/')
+                                .slice(0, -2)
+                                .join('/') +
+                            '/' +
+                            (pageNumber + 1) +
+                            '/'
+                        }
+                >
+                    {pageNumber + 1}
+                </a>
+            ))
+        }
+    </div>
+</div>

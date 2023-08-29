@@ -7,14 +7,39 @@ import translations, {
     localeLink,
 } from '../utils/translationTools';
 const t = translations(Astro.url);
+
+import type { GetStaticPathsResult, PaginateFunction } from 'astro';
+import Pagination from '../layouts/components/Pagination.astro';
+
+export async function getStaticPaths({
+    paginate,
+}: {
+    paginate: PaginateFunction;
+}): Promise<GetStaticPathsResult> {
+    const examplePages = [
+        {
+            example: 'test1 test1',
+        },
+        {
+            example: 'test2 test2',
+        },
+        {
+            example: 'test3 test3',
+        },
+    ];
+    // Generate pages from our array of astronauts, with 2 to a page
+    return paginate(examplePages, { pageSize: 2 });
+}
+
+// All paginated data is passed on the "page" prop
+const { page } = Astro.props;
 ---
 
-<BaseLayout
-    title={convertPageTitle(t.wells, t.title)}
-    description={t.description}
->
+<BaseLayout title="TITLE" description="DESCRIPTION">
     <div class="container">
-        {t.title}
-        {localeLink('/link', Astro.url)}
+        <h1 class="text-white">HEADER</h1>
     </div>
+    <Pagination page={page} type="start" />
+
+    <Pagination page={page} type="end" />
 </BaseLayout>
