@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config';
 // import swup from '@swup/astro';
 import react from '@astrojs/react';
-import purgecss from 'astro-purgecss';
 import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
 import critters from 'astro-critters';
@@ -58,7 +57,6 @@ export default defineConfig({
         robotsTxt(),
         critters(),
         compress({ Exclude: '.*svg' }),
-        // purgecss(),
     ],
     experimental: {
         // for optimized images

@@ -1,3 +1,5 @@
+/* purgecss start ignore */
+
 @import 'react-awesome-slider/dist/styles.css';
 @import 'react-awesome-slider/src/styled/open-animation/open-animation.scss';
 
@@ -32,3 +34,5 @@
         width: 60% !important;
     }
 }
+
+/* purgecss end ignore */
