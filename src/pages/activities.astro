@@ -3,11 +3,11 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 // images
-import bridgeImage from '../assets/img/link-images/bridge.webp';
-import kurbanImage from '../assets/img/link-images/kurban.webp';
-import orphanageImage from '../assets/img/link-images/orphanage.webp';
-import studentsImage from '../assets/img/link-images/students.webp';
-import wellImage from '../assets/img/link-images/well.webp';
+import bridgeImage from '../assets/img/activities/bridge.webp';
+import kurbanImage from '../assets/img/activities/kurban.webp';
+import orphanageImage from '../assets/img/activities/orphanage.webp';
+import studentsImage from '../assets/img/activities/students.webp';
+import wellImage from '../assets/img/activities/well.webp';
 
 import '../scss/pages/home.scss';
 
@@ -20,15 +20,16 @@ const t = translations(Astro.url);
 ---
 
 <BaseLayout
-    title="Activities"
+    title={convertPageTitle(t.activities, t.title)}
     description="Liberia'da köprü, cami ve okul yapımı gibi faaliyetler sürdüren vakıf."
 >
     <div
-        class="container text-center justify-content-center align-items-center d-flex mt-5"
+        class="container flex-column text-center justify-content-center align-items-center d-flex mt-5"
     >
-        <div class="row g-4 col-12 col-lg-8 mt-5 mb-5">
+        <h1 class="text-white text-center mb-4">{t.activities}</h1>
+        <div class="row g-4 col-12 col-lg-8 mb-5">
             <div class="link-cards overflow-hidden rounded-5 col-6">
-                <a href={localeLink('/wells', Astro.url)}>
+                <a href={localeLink('/wells/1/', Astro.url)}>
                     <div
                         class="d-flex align-items-center justify-content-center"
                     >

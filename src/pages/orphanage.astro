@@ -10,10 +10,10 @@ const t = translations(Astro.url);
 ---
 
 <BaseLayout
-    title={convertPageTitle(t.wells, t.title)}
+    title={convertPageTitle(t.orphanage, t.title)}
     description={t.description}
 >
     <div class="container">
-        {t.title}
+        <h1 class="text-white text-center mb-4">{t.orphanage}</h1>
     </div>
 </BaseLayout>

@@ -6,12 +6,12 @@ const AutoplaySlider = withAutoplay(AwesomeSlider);
 import '../scss/components/slider.scss';
 
 // images
-import well1 from '../assets/img/water-wells/well-001.webp';
-import well2 from '../assets/img/water-wells/well-025.webp';
-import well3 from '../assets/img/water-wells/well-050.webp';
-import well4 from '../assets/img/water-wells/well-075.webp';
-import well5 from '../assets/img/water-wells/well-100.webp';
-import well6 from '../assets/img/water-wells/well-105.webp';
+import well1 from '../assets/img/slider/well-001.webp';
+import well2 from '../assets/img/slider/well-025.webp';
+import well3 from '../assets/img/slider/well-050.webp';
+import well4 from '../assets/img/slider/well-075.webp';
+import well5 from '../assets/img/slider/well-100.webp';
+import well6 from '../assets/img/slider/well-105.webp';
 
 export default function Slider(params: AwesomeSliderProps) {
     return (
