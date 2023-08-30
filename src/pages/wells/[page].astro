@@ -1,0 +1,111 @@
+---
+import type { GetStaticPathsResult, PaginateFunction, Page } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Pagination from '../../layouts/components/Pagination.astro';
+import { Image } from 'astro:assets';
+import fs from 'fs';
+import csv from 'csv-parser';
+import { pipeline } from 'node:stream/promises';
+
+export async function getStaticPaths({
+    paginate,
+}: {
+    paginate: PaginateFunction;
+}): Promise<GetStaticPathsResult> {
+    const wellsPerPage = 20;
+
+    const wells: ImageMetadata[] = await Astro.glob(
+        '../../assets/img/wells/thumbnails/*.webp'
+    );
+
+    // get names from csv file
+    const wellOwnerNames: any = [];
+    await new Promise<void>((resolve) =>
+        fs
+            .createReadStream('./src/assets/wellOwnerNames.csv')
+            .pipe(csv())
+            .on('data', (row) => {
+                // 2. sütunun değerini al ve diziye ekle
+                if (row['user']) {
+                    wellOwnerNames.push(row['user']);
+                }
+            })
+            .on('end', () => {
+                resolve();
+                console.log(wellOwnerNames.length);
+            })
+    );
+
+    // Generate pages from our wells arrays, with merged names
+    return paginate(
+        wells.map((well: any, index: number) => {
+            return {
+                wellImage: well.default,
+                wellOwnerName: wellOwnerNames[index],
+            };
+        }),
+        { pageSize: wellsPerPage }
+    );
+}
+
+const { page } = Astro.props;
+
+// translations
+import translations, {
+    convertPageTitle,
+    localeLink,
+} from '../../utils/translationTools';
+const t = translations(Astro.url);
+---
+
+<BaseLayout
+    title={convertPageTitle(t.wells, t.title)}
+    description={t.description}
+>
+    <div class="container">
+        <h1 class="text-white text-center mb-4">{t.wells}</h1>
+        <Pagination page={page} type="start" />
+
+        <div class="mb-3">
+            <div
+                class="row align-items-center justify-content-center gx-3 gy-3 m-0 align-items-stretch"
+            >
+                {
+                    page.data.map(
+                        ({ wellImage, wellOwnerName }: any, index: number) => (
+                            <div class="col-lg-3 col-6 text-white d-flex">
+                                <div
+                                    class="rounded-4 p-2 position-relative text-center d-flex flex-column flex-grow-1"
+                                    style="background-color: #353444"
+                                >
+                                    <Image
+                                        src={wellImage}
+                                        alt={wellImage.src}
+                                        width={wellImage.width}
+                                        class="rounded-4 w-100 object-fit-cover"
+                                        style="height: 250px;"
+                                    />
+                                    <span
+                                        class="badge text-bg-light position-absolute"
+                                        style="top:20px; right:20px; font-size: 15px;"
+                                    >
+                                        {(page.currentPage === 1
+                                            ? 0
+                                            : (page.currentPage - 1) *
+                                              page.size) +
+                                            index +
+                                            1}
+                                    </span>
+                                    <div class="fw-bold mt-1">
+                                        {wellOwnerName}
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    )
+                }
+            </div>
+        </div>
+        <Pagination page={page} type="end" />
+    </div>
+</BaseLayout>

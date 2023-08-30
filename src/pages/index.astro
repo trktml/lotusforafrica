@@ -5,11 +5,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Slider from '../components/Slider';
 
 // images for link backrounds
-import bridgeImage from '../assets/img/link-images/bridge.webp';
-import kurbanImage from '../assets/img/link-images/kurban.webp';
-import orphanageImage from '../assets/img/link-images/orphanage.webp';
-import studentsImage from '../assets/img/link-images/students.webp';
-import wellImage from '../assets/img/link-images/well.webp';
+import bridgeImage from '../assets/img/activities/bridge.webp';
+import kurbanImage from '../assets/img/activities/kurban.webp';
+import orphanageImage from '../assets/img/activities/orphanage.webp';
+import studentsImage from '../assets/img/activities/students.webp';
+import wellImage from '../assets/img/activities/well.webp';
 
 // home.scss
 import '../scss/pages/home.scss';
@@ -36,7 +36,7 @@ const t = translations(Astro.url);
                     <div
                         class="link-cards shadow-lg overflow-hidden rounded-5 col-6 col-sm-3"
                     >
-                        <a href={localeLink('/wells', Astro.url)}>
+                        <a href={localeLink('/wells/1/', Astro.url)}>
                             <div
                                 class="d-flex align-items-center justify-content-center"
                             >
