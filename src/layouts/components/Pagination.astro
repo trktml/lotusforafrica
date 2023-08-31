@@ -12,14 +12,14 @@ let pageCount = Math.ceil(page.total / page.size);
         <nav aria-label="Wells page navigation">
             <ul class="pagination m-2 justify-content-center">
                 <li class={`mx-1 page-item ${ page.url.prev ? '' : 'disabled' }`}>
-                    <a style="font-size: 20px;" class="page-link" href={page.url.prev}>
+                    <a style="font-size: 20px;" class="page-link" href={page.url.prev ? page.url.prev : "#"}>
                         <span class="d-block" style="transform: rotate(180deg) translate(0px, -1px);">
                             <strong>&#10148;</strong>
                         </span>
                     </a>
                 </li>
                 <li class={`mx-1 page-item ${ page.url.next ? '' : 'disabled' }`}>
-                    <a style="font-size: 20px;" class="page-link" href={page.url.next}>
+                    <a style="font-size: 20px;" class="page-link" href={page.url.next ? page.url.next : "#"}>
                         <span class="d-block" style="transform: translate(0px, -1px);">
                             <strong>&#10148;</strong>
                         </span>

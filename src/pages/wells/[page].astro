@@ -48,6 +48,9 @@ export async function getStaticPaths({
     );
 }
 
+interface Props {
+    page: Page;
+}
 const { page } = Astro.props;
 
 // translations
@@ -56,6 +59,11 @@ import translations, {
     localeLink,
 } from '../../utils/translationTools';
 const t = translations(Astro.url);
+
+let calculatePageNumber = (index: number) =>
+    (page.currentPage === 1 ? 0 : (page.currentPage - 1) * page.size) +
+    index +
+    1;
 ---
 
 <BaseLayout
@@ -89,12 +97,7 @@ const t = translations(Astro.url);
                                         class="badge text-bg-light position-absolute"
                                         style="top:20px; right:20px; font-size: 15px;"
                                     >
-                                        {(page.currentPage === 1
-                                            ? 0
-                                            : (page.currentPage - 1) *
-                                              page.size) +
-                                            index +
-                                            1}
+                                        {calculatePageNumber(index)}
                                     </span>
                                     <div class="fw-bold mt-1">
                                         {wellOwnerName}
