@@ -60,7 +60,7 @@ import translations, {
 } from '../../utils/translationTools';
 const t = translations(Astro.url);
 
-let calculatePageNumber = (index: number) =>
+let calculateWellNumber = (index: number) =>
     (page.currentPage === 1 ? 0 : (page.currentPage - 1) * page.size) +
     index +
     1;
@@ -97,7 +97,7 @@ let calculatePageNumber = (index: number) =>
                                         class="badge text-bg-light position-absolute"
                                         style="top:20px; right:20px; font-size: 15px;"
                                     >
-                                        {calculatePageNumber(index)}
+                                        {calculateWellNumber(index)}
                                     </span>
                                     <div class="fw-bold mt-1">
                                         {wellOwnerName}
