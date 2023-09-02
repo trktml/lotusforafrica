@@ -1,0 +1,46 @@
+---
+import logo from '../assets/img/logo.png';
+import { Image } from 'astro:assets';
+
+interface Props {
+    source: ImageMetadata | string;
+    title: string;
+    type: string;
+}
+
+const { source, title, type } = Astro.props;
+
+const isVideo = typeof source === 'string';
+const isImage = !isVideo;
+---
+
+<div class="cd-timeline-block">
+    <div class="cd-timeline-img cd-movie">
+        <Image
+            width={30}
+            height={30}
+            src={logo}
+            alt="site logo for timeline image"
+        />
+    </div>
+    <div class="cd-timeline-content">
+        <h2>{title}</h2>
+        <div>
+            {
+                isImage && (
+                    <a href={source.src}>
+                        <Image
+                            width={500}
+                            src={source}
+                            alt="site logo for timeline image"
+                            class="content-image"
+                        />
+                    </a>
+                )
+            }
+
+            {isVideo && <video src={source} controls={false} />}
+        </div>
+        <!-- <span class="cd-date">Feb 26</span> -->
+    </div>
+</div>

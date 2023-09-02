@@ -1,0 +1,79 @@
+---
+import { Image } from 'astro:assets';
+interface Props {
+    fullImage: ImageMetadata;
+    thumbnailImage: ImageMetadata;
+    wellNumber: number;
+    wellOwnerName: string;
+}
+const { thumbnailImage, fullImage, wellNumber, wellOwnerName } = Astro.props;
+
+// import translations
+import translations, {
+    convertPageTitle,
+    localeLink,
+} from '../utils/translationTools';
+const t = translations(Astro.url);
+
+const modalId = 'wellModal-' + wellNumber;
+---
+
+<div class="col-lg-3 col-6 text-white d-flex">
+    <div
+        class="rounded-4 p-2 position-relative text-center d-flex flex-column flex-grow-1"
+        style="background-color: #353444"
+    >
+        <!-- Button trigger modal -->
+        <a type="button" data-bs-toggle="modal" data-bs-target={'#' + modalId}>
+            <Image
+                src={thumbnailImage}
+                alt={thumbnailImage.src}
+                width={thumbnailImage.width}
+                height={thumbnailImage.height}
+                class="rounded-4 w-100 object-fit-cover"
+                style="height: 250px;"
+            />
+        </a>
+
+        <span
+            class="badge text-bg-light position-absolute"
+            style="top:20px; right:20px; font-size: 15px;"
+        >
+            {wellNumber}
+        </span>
+        <div class="fw-bold mt-1">
+            {wellOwnerName}
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div
+    class="modal fade"
+    id={modalId}
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark">
+            <div class="modal-footer border-0">
+                <button
+                    type="button"
+                    class="btn bg-white text-black fw-bold"
+                    data-bs-dismiss="modal">X</button
+                >
+            </div>
+            <div class="modal-body">
+                <Image
+                    src={fullImage}
+                    alt={fullImage.src}
+                    width={fullImage.width}
+                    height={fullImage.height}
+                    class="rounded-4 w-100 object-fit-contain"
+                    style="height: 70vh;"
+                />
+            </div>
+        </div>
+    </div>
+</div>

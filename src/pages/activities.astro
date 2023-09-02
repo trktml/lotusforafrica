@@ -1,73 +1,44 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-// images
 import bridgeImage from '../assets/img/activities/bridge.webp';
 import kurbanImage from '../assets/img/activities/kurban.webp';
 import orphanageImage from '../assets/img/activities/orphanage.webp';
 import studentsImage from '../assets/img/activities/students.webp';
 import wellImage from '../assets/img/activities/well.webp';
-
-import '../scss/pages/home.scss';
+import activitiesStyles from '../scss/pages/activities.scss?url';
 
 // translations
 import translations, {
     convertPageTitle,
     localeLink,
 } from '../utils/translationTools';
+import TimelineContent from '../components/TimelineContent.astro';
 const t = translations(Astro.url);
 ---
 
 <BaseLayout
     title={convertPageTitle(t.activities, t.title)}
-    description="Liberia'da köprü, cami ve okul yapımı gibi faaliyetler sürdüren vakıf."
+    description={t.description}
 >
-    <div
-        class="container flex-column text-center justify-content-center align-items-center d-flex mt-5"
-    >
-        <h1 class="text-white text-center mb-4">{t.activities}</h1>
-        <div class="row g-4 col-12 col-lg-8 mb-5">
-            <div class="link-cards overflow-hidden rounded-5 col-6">
-                <a href={localeLink('/wells/1/', Astro.url)}>
-                    <div
-                        class="d-flex align-items-center justify-content-center"
-                    >
-                        <Image src={wellImage} alt="bridge picture" />
-                        <div class="link-card-text">{t.wells}</div>
-                    </div>
-                </a>
-            </div>
-            <div class="link-cards overflow-hidden rounded-5 col-6">
-                <a href={localeLink('/orphanage', Astro.url)}>
-                    <div
-                        class="d-flex align-items-center justify-content-center"
-                    >
-                        <Image src={orphanageImage} alt="bridge picture" />
-                        <div class="link-card-text">{t.orphanage}</div>
-                    </div>
-                </a>
-            </div>
-            <div class="link-cards overflow-hidden rounded-5 col-6">
-                <a href={localeLink('/students', Astro.url)}>
-                    <div
-                        class="d-flex align-items-center justify-content-center"
-                    >
-                        <Image src={studentsImage} alt="bridge picture" />
-                        <div class="link-card-text">{t.students}</div>
-                    </div>
-                </a>
-            </div>
-            <div class="link-cards overflow-hidden rounded-5 col-6">
-                <a href={localeLink('/others', Astro.url)}>
-                    <div
-                        class="d-flex align-items-center justify-content-center"
-                    >
-                        <Image src={bridgeImage} alt="bridge picture" />
-                        <div class="link-card-text">{t.others}</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
+    <template shadowRoot="closed">
+        <section id="cd-timeline" class="cd-container">
+            <TimelineContent
+                source={orphanageImage}
+                title={t.orphanage}
+                type="image"
+            />
+            <TimelineContent
+                source={studentsImage}
+                title={t.students}
+                type="image"
+            />
+            <TimelineContent
+                source={bridgeImage}
+                title={t.others}
+                type="image"
+            />
+        </section>
+        <link rel="stylesheet" href={activitiesStyles} />
+    </template>
 </BaseLayout>

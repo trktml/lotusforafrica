@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPathsResult, PaginateFunction, Page } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import WellCardWithModal from '../../components/WellCardWithModal.astro';
 import Pagination from '../../layouts/components/Pagination.astro';
 import { Image } from 'astro:assets';
 import fs from 'fs';
@@ -14,8 +15,11 @@ export async function getStaticPaths({
 }): Promise<GetStaticPathsResult> {
     const wellsPerPage = 20;
 
-    const wells: ImageMetadata[] = await Astro.glob(
+    const wellsThumbnails: ImageMetadata[] = await Astro.glob(
         '../../assets/img/wells/thumbnails/*.webp'
+    );
+    const wellsFull: ImageMetadata[] = await Astro.glob(
+        '../../assets/img/wells/full/*.webp'
     );
 
     // get names from csv file
@@ -32,15 +36,16 @@ export async function getStaticPaths({
             })
             .on('end', () => {
                 resolve();
-                console.log(wellOwnerNames.length);
+                console.log("wellOwnerNames imported: " + wellOwnerNames.length);
             })
     );
 
     // Generate pages from our wells arrays, with merged names
     return paginate(
-        wells.map((well: any, index: number) => {
+        wellsThumbnails.map((well: any, index: number) => {
             return {
-                wellImage: well.default,
+                wellThumbnailImage: well.default,
+                wellsFullImage: wellsFull[index],
                 wellOwnerName: wellOwnerNames[index],
             };
         }),
@@ -80,35 +85,26 @@ let calculateWellNumber = (index: number) =>
             >
                 {
                     page.data.map(
-                        ({ wellImage, wellOwnerName }: any, index: number) => (
-                            <div class="col-lg-3 col-6 text-white d-flex">
-                                <div
-                                    class="rounded-4 p-2 position-relative text-center d-flex flex-column flex-grow-1"
-                                    style="background-color: #353444"
-                                >
-                                    <Image
-                                        src={wellImage}
-                                        alt={wellImage.src}
-                                        width={wellImage.width}
-                                        class="rounded-4 w-100 object-fit-cover"
-                                        style="height: 250px;"
-                                    />
-                                    <span
-                                        class="badge text-bg-light position-absolute"
-                                        style="top:20px; right:20px; font-size: 15px;"
-                                    >
-                                        {calculateWellNumber(index)}
-                                    </span>
-                                    <div class="fw-bold mt-1">
-                                        {wellOwnerName}
-                                    </div>
-                                </div>
-                            </div>
+                        (
+                            {
+                                wellThumbnailImage,
+                                wellsFullImage,
+                                wellOwnerName,
+                            }: any,
+                            index: number
+                        ) => (
+                            <WellCardWithModal
+                                thumbnailImage={wellThumbnailImage}
+                                fullImage={wellsFullImage.default}
+                                wellNumber={calculateWellNumber(index)}
+                                wellOwnerName={wellOwnerName}
+                            />
                         )
                     )
                 }
             </div>
         </div>
+
         <Pagination page={page} type="end" />
     </div>
 </BaseLayout>

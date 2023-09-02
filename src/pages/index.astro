@@ -11,7 +11,6 @@ import orphanageImage from '../assets/img/activities/orphanage.webp';
 import studentsImage from '../assets/img/activities/students.webp';
 import wellImage from '../assets/img/activities/well.webp';
 
-// home.scss
 import '../scss/pages/home.scss';
 
 // translations
@@ -40,7 +39,7 @@ const t = translations(Astro.url);
                             <div
                                 class="d-flex align-items-center justify-content-center"
                             >
-                                <Image src={wellImage} alt="bridge picture" />
+                                <Image src={wellImage} alt="wells picture" />
                                 <div class="link-card-text">{t.wells}</div>
                             </div>
                         </a>
@@ -54,7 +53,7 @@ const t = translations(Astro.url);
                             >
                                 <Image
                                     src={orphanageImage}
-                                    alt="bridge picture"
+                                    alt="orphanage picture"
                                 />
                                 <div class="link-card-text">{t.orphanage}</div>
                             </div>
@@ -69,7 +68,7 @@ const t = translations(Astro.url);
                             >
                                 <Image
                                     src={studentsImage}
-                                    alt="bridge picture"
+                                    alt="students picture"
                                 />
                                 <div class="link-card-text">
                                     {t.students}
@@ -84,7 +83,7 @@ const t = translations(Astro.url);
                             <div
                                 class="d-flex align-items-center justify-content-center"
                             >
-                                <Image src={bridgeImage} alt="bridge picture" />
+                                <Image src={bridgeImage} alt="others picture" />
                                 <div class="link-card-text">{t.others}</div>
                             </div>
                         </a>

@@ -1,0 +1,36 @@
+---
+interface Props {
+    modalId: string;
+}
+
+const { modalId } = Astro.props;
+---
+
+<!-- Button trigger modal -->
+<a type="button" data-bs-toggle="modal" data-bs-target={'#' + modalId}>
+    <slot />
+</a>
+
+<!-- Modal -->
+<div
+    class="modal fade"
+    id={modalId}
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark">
+            <div class="modal-footer border-0">
+                <button
+                    type="button"
+                    class="btn bg-white text-black fw-bold"
+                    data-bs-dismiss="modal">X</button
+                >
+            </div>
+            <div class="modal-body">
+                <slot />
+            </div>
+        </div>
+    </div>
+</div>
