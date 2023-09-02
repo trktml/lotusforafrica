@@ -4,6 +4,16 @@ import tr from './translations/tr.json';
 import en from './translations/en.json';
 import nl from './translations/nl.json';
 
+const handler = {
+    get(target: any, prop: any, receiver: any) {
+        return target[prop].replaceAll('\n', '<br/>');
+    },
+};
+
+const tr_proxy = new Proxy(tr, handler);
+const en_proxy = new Proxy(en, handler);
+const nl_proxy = new Proxy(nl, handler);
+
 export const defaultLocale = 'en';
 export const locales = {
     en: 'en', // the `defaultLocale` value must present in `locales` keys
@@ -13,13 +23,14 @@ export const locales = {
 
 export default function t(astroUrl: URL): Translations {
     let locale = getLocale(astroUrl);
+
     switch (locale) {
         case 'tr':
-            return tr as Translations;
+            return tr_proxy as Translations;
         case 'nl':
-            return nl as Translations;
+            return nl_proxy as Translations;
         default:
-            return en as Translations;
+            return en_proxy as Translations;
     }
 }
 
