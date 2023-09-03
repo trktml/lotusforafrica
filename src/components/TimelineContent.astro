@@ -1,14 +1,14 @@
 ---
 import logo from '../assets/img/logo.png';
 import { Image } from 'astro:assets';
+import t from '../utils/translationTools';
 
 interface Props {
     source: ImageMetadata | string;
-    title: string;
-    type: string;
+    title?: string;
 }
 
-const { source, title, type } = Astro.props;
+const { source, title } = Astro.props;
 
 const isVideo = typeof source === 'string';
 const isImage = !isVideo;
@@ -24,22 +24,34 @@ const isImage = !isVideo;
         />
     </div>
     <div class="cd-timeline-content">
-        <h2>{title}</h2>
+        <h3 style="color: white; margin: 0; margin-bottom: 5px">{title}</h3>
         <div>
             {
-                isImage && (
+                isImage && title && (
                     <a href={source.src}>
                         <Image
                             width={500}
                             src={source}
-                            alt="site logo for timeline image"
+                            alt={title}
                             class="content-image"
                         />
                     </a>
                 )
             }
 
-            {isVideo && <video src={source} controls={false} />}
+            {
+                isVideo && (
+                    <video
+                        style="width: 100%; height: 70vh; object-fit: cover;"
+                        src={source}
+                        controls={false}
+                        autoplay
+                        muted
+                        loop
+                        preload="none"
+                    />
+                )
+            }
         </div>
         <!-- <span class="cd-date">Feb 26</span> -->
     </div>

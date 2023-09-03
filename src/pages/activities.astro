@@ -1,11 +1,29 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+// images and videos
 import bridgeImage from '../assets/img/activities/bridge.webp';
 import kurbanImage from '../assets/img/activities/kurban.webp';
 import orphanageImage from '../assets/img/activities/orphanage.webp';
 import studentsImage from '../assets/img/activities/students.webp';
-import wellImage from '../assets/img/activities/well.webp';
+import manConstructingWaterWell from '../assets/img/activities/man-constructing-water-well.webp';
+import manConstructingWaterWellVideo from '../assets/img/activities/man-constructing-water-well.mp4';
+import wellWithChildVideo from '../assets/img/activities/well-with-child.mp4';
+import riceDistributionVideo from '../assets/img/activities/rice-distribution.mp4';
+import riceDistribution from '../assets/img/activities/rice-distribution.webp';
+import riceDistributionChildren from '../assets/img/activities/rice-distribution-children.webp';
+import drawingWellVideo from '../assets/img/activities/drawing-well.mp4';
+import officialLeaveRecords from '../assets/img/activities/official-leave-records.webp';
+import officialLeaveRecordsMulti from '../assets/img/activities/official-leave-records-multi.webp';
+import officialLeaveRecordsLiberia from '../assets/img/activities/official-leave-records-liberia.webp';
+import foodDistribution from '../assets/img/activities/food-distribution.webp';
+import foodDistributionPeople from '../assets/img/activities/food-distribution-people.webp';
+import foodDistributionFamily from '../assets/img/activities/hot-food-distribution.webp';
+import foodDistributionChildren from '../assets/img/activities/hot-food-distribution-children.webp';
+import sacrificeAnAnimalForGod from '../assets/img/activities/sacrifice-an-animal-for-god.mp4';
+import animalsToSacrificeForGod from '../assets/img/activities/animals-to-sacrifice-for-god.mp4';
+
 import activitiesStyles from '../scss/pages/activities.css?url';
 
 // translations
@@ -23,20 +41,72 @@ const t = translations(Astro.url);
 >
     <template shadowRoot="closed">
         <section id="cd-timeline" class="cd-container">
-            <TimelineContent
-                source={orphanageImage}
-                title={t.orphanage}
-                type="image"
-            />
-            <TimelineContent
-                source={studentsImage}
-                title={t.students}
-                type="image"
-            />
+            <TimelineContent source={wellWithChildVideo} title={t.wells} />
+            <TimelineContent source={studentsImage} title={t.students} />
             <TimelineContent
                 source={bridgeImage}
-                title={t.others}
-                type="image"
+                title={t.bridgeConstruction}
+            />
+            <TimelineContent source={orphanageImage} title={t.orphanageHelp} />
+            <TimelineContent
+                source={manConstructingWaterWell}
+                title={t.waterWellConstruction}
+            />
+            <TimelineContent
+                source={riceDistributionVideo}
+                title={t.riceDistribution}
+            />
+            <TimelineContent
+                source={riceDistribution}
+                title={t.riceDistribution}
+            />
+            <TimelineContent
+                source={riceDistributionChildren}
+                title={t.riceDistribution}
+            />
+            <TimelineContent
+                source={manConstructingWaterWellVideo}
+                title={t.waterWellConstruction}
+            />
+            <TimelineContent
+                source={drawingWellVideo}
+                title={t.waterWellConstruction}
+            />
+            <TimelineContent
+                source={officialLeaveRecords}
+                title={t.officialLeaveRecords}
+            />
+            <TimelineContent
+                source={officialLeaveRecordsMulti}
+                title={t.officialLeaveRecords}
+            />
+            <TimelineContent
+                source={officialLeaveRecordsLiberia}
+                title={t.officialLeaveRecords}
+            />
+            <TimelineContent
+                source={foodDistribution}
+                title={t.foodDistribution}
+            />
+            <TimelineContent
+                source={foodDistributionPeople}
+                title={t.foodDistribution}
+            />
+            <TimelineContent
+                source={foodDistributionFamily}
+                title={t.foodDistribution}
+            />
+            <TimelineContent
+                source={foodDistributionChildren}
+                title={t.foodDistribution}
+            />
+            <TimelineContent
+                source={sacrificeAnAnimalForGod}
+                title={t.sacrificeAnAnimalForGod}
+            />
+            <TimelineContent
+                source={animalsToSacrificeForGod}
+                title={t.sacrificeAnAnimalForGod}
             />
         </section>
         <link rel="stylesheet" href={activitiesStyles} />

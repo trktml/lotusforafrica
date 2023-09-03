@@ -9,4 +9,11 @@ declare interface Translations {
     aboutUsText: string,
     activities: string,
     contact: string,
+    orphanageHelp: string,
+    bridgeConstruction: string,
+    waterWellConstruction: string,
+    riceDistribution: string,
+    officialLeaveRecords: string,
+    foodDistribution: string,
+    sacrificeAnAnimalForGod: string
 }
