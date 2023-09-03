@@ -36,7 +36,9 @@ export async function getStaticPaths({
             })
             .on('end', () => {
                 resolve();
-                console.log("wellOwnerNames imported: " + wellOwnerNames.length);
+                console.log(
+                    'wellOwnerNames imported: ' + wellOwnerNames.length
+                );
             })
     );
 
@@ -77,6 +79,14 @@ let calculateWellNumber = (index: number) =>
 >
     <div class="container">
         <h1 class="text-white text-center mb-4">{t.wells}</h1>
+        {
+            page.currentPage === 1 && (
+                <p class="text-white text-center bg-dark rounded-3 p-3">
+                    {t.waterWellsText}
+                </p>
+            )
+        }
+
         <Pagination page={page} type="start" />
 
         <div class="mb-3">
