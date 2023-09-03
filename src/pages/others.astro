@@ -1,5 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+import bridgeImage from '../assets/img/activities/bridge.webp';
 
 // import translations
 import translations, {
@@ -13,7 +16,28 @@ const t = translations(Astro.url);
     title={convertPageTitle(t.others, t.title)}
     description={t.description}
 >
-    <div class="container">
-        <h1 class="text-white text-center mb-4">{t.others}</h1>
+    <h1 class="text-white text-center mb-4">{t.others}</h1>
+    <div class="container col-11 col-lg-8 text-white bg-dark rounded-3 p-4">
+        <p class="mb-4">
+            {t.othersText}
+        </p>
+        <Image
+            src={bridgeImage}
+            alt="others picture"
+            width={500}
+            class="page-image"
+        />
     </div>
 </BaseLayout>
+
+<style>
+    .page-image {
+        width: 60vh;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin: auto;
+        display: block;
+        border-radius: 5px;
+    }
+</style>

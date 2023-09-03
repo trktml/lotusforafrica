@@ -5,7 +5,9 @@ declare interface Translations {
     wells: string,
     orphanage: string,
     students: string,
+    studentsText: string,
     others: string,
+    othersText: string,
     aboutUsText: string,
     activities: string,
     contact: string,
@@ -15,5 +17,10 @@ declare interface Translations {
     riceDistribution: string,
     officialLeaveRecords: string,
     foodDistribution: string,
-    sacrificeAnAnimalForGod: string
+    sacrificeAnAnimalForGod: string,
+    waterWellsText: string,
+    wellConstructionStages: string,
+    charterOfTheFoundation: string,
+    ourStory: string,
+    orphanageText: string
 }

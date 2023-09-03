@@ -19,6 +19,8 @@ import translations, {
     localeLink,
 } from '../utils/translationTools';
 const t = translations(Astro.url);
+
+const imageWidth = 300;
 ---
 
 <BaseLayout title={t.title} description={t.description}>
@@ -39,7 +41,11 @@ const t = translations(Astro.url);
                             <div
                                 class="d-flex align-items-center justify-content-center"
                             >
-                                <Image src={wellImage} alt="wells picture" />
+                                <Image
+                                    src={wellImage}
+                                    alt="wells picture"
+                                    width={imageWidth}
+                                />
                                 <div class="link-card-text">{t.wells}</div>
                             </div>
                         </a>
@@ -54,6 +60,7 @@ const t = translations(Astro.url);
                                 <Image
                                     src={orphanageImage}
                                     alt="orphanage picture"
+                                    width={imageWidth}
                                 />
                                 <div class="link-card-text">{t.orphanage}</div>
                             </div>
@@ -69,6 +76,7 @@ const t = translations(Astro.url);
                                 <Image
                                     src={studentsImage}
                                     alt="students picture"
+                                    width={imageWidth}
                                 />
                                 <div class="link-card-text">
                                     {t.students}
@@ -83,7 +91,11 @@ const t = translations(Astro.url);
                             <div
                                 class="d-flex align-items-center justify-content-center"
                             >
-                                <Image src={bridgeImage} alt="others picture" />
+                                <Image
+                                    src={bridgeImage}
+                                    alt="others picture"
+                                    width={imageWidth}
+                                />
                                 <div class="link-card-text">{t.others}</div>
                             </div>
                         </a>

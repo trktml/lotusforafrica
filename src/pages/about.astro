@@ -1,12 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+// import official foundation documents
+import foundationImage1 from '../assets/img/foundation/01.jpg';
+import foundationImage2 from '../assets/img/foundation/02.jpg';
+import foundationImage3 from '../assets/img/foundation/03.jpg';
+import foundationImage4 from '../assets/img/foundation/04.jpg';
+import foundationImage5 from '../assets/img/foundation/05.jpg';
+import foundationImage6 from '../assets/img/foundation/06.jpg';
+
 // import translations
 import translations, {
     convertPageTitle,
     localeLink,
 } from '../utils/translationTools';
+import { Image } from 'astro:assets';
 const t = translations(Astro.url);
+
+const imageWidth = 500;
 ---
 
 <BaseLayout
@@ -15,7 +26,71 @@ const t = translations(Astro.url);
 >
     <h1 class="text-white text-center mb-4">{t.aboutUs}</h1>
     <div
-        class="container fw-semibold py-3 px-4 rounded-3 d-flex bg-white bg-opacity-10 text-white col-11 col-lg-8"
+        class="container bg-white bg-opacity-10 text-white rounded-top-3 col-11 col-lg-8 pt-4"
+    >
+        <h4 class="text-white-50 m-0 mx-3">{t.charterOfTheFoundation}</h4>
+        <a href={foundationImage1.src}>
+            <Image
+                src={foundationImage1}
+                alt="foundation image 1"
+                width={imageWidth}
+                class="foundation-image"
+            />
+        </a>
+        <a href={foundationImage2.src}>
+            <Image
+                src={foundationImage2}
+                alt="foundation image 2"
+                width={imageWidth}
+                class="foundation-image"
+            />
+        </a>
+        <a href={foundationImage3.src}>
+            <Image
+                src={foundationImage3}
+                alt="foundation image 3"
+                width={imageWidth}
+                class="foundation-image"
+            />
+        </a>
+        <a href={foundationImage4.src}>
+            <Image
+                src={foundationImage4}
+                alt="foundation image 4"
+                width={imageWidth}
+                class="foundation-image"
+            />
+        </a>
+        <a href={foundationImage5.src}>
+            <Image
+                src={foundationImage5}
+                alt="foundation image 5"
+                width={imageWidth}
+                class="foundation-image"
+            />
+        </a>
+        <a href={foundationImage6.src}>
+            <Image
+                src={foundationImage6}
+                alt="foundation image 6"
+                width={imageWidth}
+                class="foundation-image"
+            />
+        </a>
+        <h4 class="text-white-50 m-0 mx-3 mt-4">{t.ourStory}</h4>
+    </div>
+
+    <div
+        class="container fw-semibold py-3 px-4 rounded-bottom-3 d-flex bg-white bg-opacity-10 text-white col-11 col-lg-8"
         set:html={t.aboutUsText}
     />
 </BaseLayout>
+
+<style>
+    .foundation-image {
+        width: 33%;
+        padding: 1vw;
+        object-fit: contain;
+        height: auto;
+    }
+</style>
