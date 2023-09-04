@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 // import translations
@@ -13,7 +14,36 @@ const t = translations(Astro.url);
     title={convertPageTitle(t.contact, t.title)}
     description={t.description}
 >
-    <div class="container">
-        <h1 class="text-white text-center mb-4">{t.contact}</h1>
+    <h1 class="text-white text-center mb-4">{t.contact}</h1>
+    <div
+        class="container fw-semibold py-3 px-4 rounded-3 dark-bg text-white col-11 col-lg-8"
+    >
+        <div class="col-12 d-flex align-items-center gap-2">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACkElEQVR4nO2Zy2oUQRSGC40BceJe4xUfQEF8Bo1CcCVqNlmoKPEGPoPZhIBLJWLWiuJCg26ihMTLImsdRVATcRlycVx18knpGWiK7qq+VNe0Oj/MZrpOnf/rqqlTnFGqq39IwB7gCvAcaAI/5NOU7y4Du1XdBPQDd4AIt9aBB8A+VQcBJ4E18msVGOy0+WvyRotqHbjayTdfxnwcIuxKALsKbhvbdtoZEuAe/jUR8qjMctro43NWPq0M4yO9siEA9Dlv0wYwBjRiMQ1gPAPESAiAZw4TY5ZYF8RUCIAPjm3TsMT2ObZTMwSAPjHSNJshfs4Sv/q3A6yEAHhvMaC3R58ldjvw0xL/LgTAY+wat8TecsQ+CgEw4jDxGyK+EvLmXea1LoUAOCBnvUst2e9zjm3Tlp5zf+UAAjGDf00HMS8AQxUAnAoJsAX47NH8F6A3GIBAXPQIcC6oeQHoBT55MP9Rr2hwAIE46gHgeEfMxyAeljB/v6PmBWCHvsMUMK/vVP2qDgJuFAC4ruoioAd4ncP8Kx2j6iTdMgSWMphfDnZlaAvYCoxKwWnfgxaBAWPcmQwAp42YE8A3ebYhOW7qnMqHgM3AyxQzCwnjJy3mJxPGL6aMfQFs8gEwbDGUBLAtBXhaP8sBoDXsA2CeZC0AxyyrNiSroZtgZ/V3KWMHLBDzZc0fSuhj7i01qbtlGRk5D5eZUPf843ri1XGCgKdGztuqiKSbZlbYyrvIwKCRc83WKLBNdMGY6HuI4sOf389XI/f5IhO9NSYZrcRxgqQOxPVG5ZEcheafFxOBVqAHuGvkjnIVthSATirKXZnlwlUXzRRZyiMZ+zlVq1W4Fkghm3I0dKvSiuQ+WMh8V139J/oFe85tgEoyaBwAAAAASUVORK5CYII="
+            />
+            <div class="d-inline-block">
+                24th Street, Sinkor, Airfeld-Shortcut<br />Monrovia, Republic of
+                Liberia
+                <br />
+                <div style="font-size: min(15px, 3vw);" class="fw-light">
+                    {'(' + t.centerOfficeUnderConstruction + ')'}
+                </div>
+            </div>
+        </div>
+        <div class="col-12 d-flex align-items-center gap-2 mt-5">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC2ElEQVR4nO2ZTYiNURjH7ww3ExJ3ZshHEppSYqZIoSyUDSslFhYWRBRZyIxRVrgLoVEjFj7SND4WFjILycL31MhCSES+mmZ83GKGMPx06pm63d7rfd7znnPfq+5/e+95zv937j3n/Z/nTaUqqqgiJwKagBagA+gBPgLfgD9AH/AYuAS0AouA6nIwPRE4ALwkunqBLDA9CeN1wBFgkPj6BRw3i1Eq86tk9VwrB6zzaXwEcAz/OgmMdG1+lGzAUqkLGONy5a9Sel0xc7sAOERyOhHX/FqS1xpb8+M8nTZR9QGotwE4rJzgOXAd6PcI0R7V/GTgp6JwdjgSAFOAAU8A342nKAAm04TpGlBVMM6c4b50UGu+Sv4WYVoWMLbRI8CbwgUrBjBfmV8Cn5bAHY8QTRqAHYpCvf8Yv8kjQIsG4Jyi0BBQU2R8m0eADg3AfWWxpQFjVwqcLz3QALxVFjsTMPYdftWvAfisLGY2cmPB2D2eAXIaAHOx0OpefmI0JxNwyyPAgAbgVZyTAZgEPPME0OdyEw/LbNoVBTWmmg1X5PsPgX3AawuAbg3AaYvCZt80FNSpkSto/qlk0u00+TwNbACeRpjnogZgO/aP+pkB9eYBnZJWlwR8Xm0u8xLYwtSsAZiDvd4DC0InsT++F2qLxdmEple0RRW8REBGOnhhf1PdHRnYTXzdABYr52tW1GtTmZeC9cBX3OimBLxMwDxpefiFxY/fwGw1gBTfj1v9EJis/MLmyqrtqV6OZF4AdlEeGgRm2QCY1SoH7bQxn5GwlrS6rLpzwPqknQPdwNjI5gXgfMLme4BaW/PpiJHatTqB0VbmBWB5QsZzwDZr43kAR0MmGpLIbVLrF4evmOpimxeAJwGTmEZXO7AamJD33fESAx5ZGDcXp72mJenEeJ6pU5IqLwAbgRnKcQ3AVmkv3gVeAJ+ku2wy/23gLLAZmFsWr1krqij1/+sv0yB7rC2L6wUAAAAASUVORK5CYII="
+            />
+            <div>+231 88 869 3902</div>
+        </div>
+        <div class="col-12 d-flex align-items-center gap-2 mt-5">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABdklEQVR4nO2YvUoDQRCAB9MJ+gT+lEFsBMG3sLS1tE0lvoKvYGNvEJKHSCMEtLRURCsVc2AX+WRhD47jstm728suZD4IBC63M9/MzsJGRFEURVFKALvAPZARnwwYAX2pkfwX6fFtcvMRMJVPlaGPQArbZhEzH4GkkQYCz8AAuAXmK8hxbmMNbOzWAgeFZ8fAtMPkpyZGId5hCIG90vOerU7IWcnsmr1SrP0QApOq48set+Z8bsvIsf4khIDhF7gqV8j+/hR4aZD4O3BWsd4GcLGow00Fcp6Ak4p3NoFrzyH/A26ArYp1joAH18ttBYoJbDdI4LFtASSAQM4HcO7YArMaW/DVN2hIgZzxkiF3Dem4brAuBJwVdnSo0THclYBzj9cZ0tgClUNe85SKLpDzBlzaj/keBFmhQCeICkRGtAOREe1AZEQ7EBlZhw5kpMuPj0CIi3pX3PkI9O0fqanxCewsFSjcloala2EsZqby3skriqIoa8U/Zgl7cxhvHeEAAAAASUVORK5CYII="
+            />
+            <div>mstoneiron66@gmail.com</div>
+        </div>
     </div>
 </BaseLayout>
+
+<style></style>

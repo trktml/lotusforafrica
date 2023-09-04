@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// import translations
+import translations, {
+    convertPageTitle,
+    localeLink,
+} from '../utils/translationTools';
+const t = translations(Astro.url);
+---
+
+<BaseLayout
+    title={convertPageTitle(t.aboutUsText, t.title)}
+    description={t.description}
+>
+    <h1 class="text-white text-center mb-4">{t.title}</h1>
+    <div
+        class="container fw-semibold py-3 px-4 rounded-bottom-3 d-flex dark-bg text-white col-11 col-lg-8"
+        set:html={t.aboutUsText}
+    />
+</BaseLayout>
+
+<style></style>

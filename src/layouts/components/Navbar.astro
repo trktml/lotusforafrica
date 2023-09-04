@@ -9,6 +9,10 @@ import translations, {
     localeLink,
 } from '../../utils/translationTools';
 const t = translations(Astro.url);
+
+const isActive = (page: string): boolean => {
+    return window.location.href.includes(page);
+};
 ---
 
 <!-- Navigation-->
@@ -67,3 +71,26 @@ const t = translations(Astro.url);
         </div>
     </div>
 </nav>
+
+<script>
+    // add active class
+    var currentUrl = window.location.href;
+
+    var navLinks = document.querySelectorAll('#mainNav a');
+
+    navLinks.forEach(function (link) {
+        var linkUrl = link.getAttribute('href') + '';
+
+        if (currentUrl.includes(linkUrl)) {
+            link.classList.add('active');
+        } else if (
+            !currentUrl.includes('en') &&
+            !currentUrl.includes('tr') &&
+            !currentUrl.includes('nl')
+        ) {
+            if (link.getAttribute('href') === '/en/') {
+                link.classList.add('active');
+            }
+        }
+    });
+</script>

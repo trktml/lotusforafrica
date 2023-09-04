@@ -22,5 +22,7 @@ declare interface Translations {
     wellConstructionStages: string,
     charterOfTheFoundation: string,
     ourStory: string,
-    orphanageText: string
+    orphanageText: string,
+    contactAddressesForCharity: string,
+    centerOfficeUnderConstruction: string,
 }
