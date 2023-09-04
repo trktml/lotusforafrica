@@ -25,10 +25,8 @@ export default defineConfig({
     trailingSlash: 'always',
     build: {
         assets: 'assets',
-        inlineStylesheets: 'auto',
         format: 'directory',
     },
-    compressHTML: true,
     integrations: [
         react(),
         i18n({
@@ -58,8 +56,4 @@ export default defineConfig({
         critters(),
         compress({ Exclude: '.*svg' }),
     ],
-    experimental: {
-        // for optimized images
-        assets: true,
-    },
 });
