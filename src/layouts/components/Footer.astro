@@ -8,14 +8,14 @@ const t = translations(Astro.url);
 ---
 
 <footer class="footer">
-    <div class="container col-12 col-sm-8">
+    <div class="container col-12 col-md-8 col-lg-6">
         <div class="divider">
             <div class="fancy">{t.contactAddressesForCharity}</div>
             <div class="hr anim"></div>
         </div>
         <div class="text-center">
             <a
-                class="col-4 col-sm-2"
+                class="col-3 col-md-2"
                 target="_blank"
                 href="https://twitter.com/TTasdemir66"
             >
@@ -26,30 +26,7 @@ const t = translations(Astro.url);
                 TwitterX
             </a>
             <a
-                class="col-4 col-sm-2"
-                target="_blank"
-                href="https://api.whatsapp.com/send?phone=231888693902"
-            >
-                <img
-                    style="width: 45px;"
-                    alt="svgImg"
-                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNDEiIGhlaWdodD0iNDEiIHZpZXdCb3g9IjAsMCwyNTYsMjU2IgpzdHlsZT0iZmlsbDojMDAwMDAwOyI+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM4LjQsMzguNCkgc2NhbGUoMC43LDAuNykiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0tMjcuNDI4NTcsMzEwLjg1NzE0Yy0xNS4xNDgzOCwwIC0yNy40Mjg1NywtMTIuMjgwMTkgLTI3LjQyODU3LC0yNy40Mjg1N3YtMzEwLjg1NzE0YzAsLTE1LjE0ODM4IDEyLjI4MDE5LC0yNy40Mjg1NyAyNy40Mjg1NywtMjcuNDI4NTdoMzEwLjg1NzE0YzE1LjE0ODM4LDAgMjcuNDI4NTcsMTIuMjgwMTkgMjcuNDI4NTcsMjcuNDI4NTd2MzEwLjg1NzE0YzAsMTUuMTQ4MzggLTEyLjI4MDE5LDI3LjQyODU3IC0yNy40Mjg1NywyNy40Mjg1N3oiIGlkPSJzaGFwZSI+PC9wYXRoPjwvZz48ZyBmaWxsPSIjMDAwMDAwIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWNhcD0iYnV0dCIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtZGFzaGFycmF5PSIiIHN0cm9rZS1kYXNob2Zmc2V0PSIwIiBmb250LWZhbWlseT0ibm9uZSIgZm9udC13ZWlnaHQ9Im5vbmUiIGZvbnQtc2l6ZT0ibm9uZSIgdGV4dC1hbmNob3I9Im5vbmUiIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTogbm9ybWFsIj48ZyB0cmFuc2Zvcm09InNjYWxlKDUuMTIsNS4xMikiPjxwYXRoIGQ9Ik0yNSwyYy0xMi42ODIsMCAtMjMsMTAuMzE4IC0yMywyM2MwLDMuOTYgMS4wMjMsNy44NTQgMi45NjMsMTEuMjlsLTIuOTI2LDEwLjQ0Yy0wLjA5NiwwLjM0MyAtMC4wMDMsMC43MTEgMC4yNDUsMC45NjZjMC4xOTEsMC4xOTcgMC40NTEsMC4zMDQgMC43MTgsMC4zMDRjMC4wOCwwIDAuMTYxLC0wLjAxIDAuMjQsLTAuMDI5bDEwLjg5NiwtMi42OTljMy4zMjcsMS43ODYgNy4wNzQsMi43MjggMTAuODY0LDIuNzI4YzEyLjY4MiwwIDIzLC0xMC4zMTggMjMsLTIzYzAsLTEyLjY4MiAtMTAuMzE4LC0yMyAtMjMsLTIzek0zNi41NywzMy4xMTZjLTAuNDkyLDEuMzYyIC0yLjg1MiwyLjYwNSAtMy45ODYsMi43NzJjLTEuMDE4LDAuMTQ5IC0yLjMwNiwwLjIxMyAtMy43MiwtMC4yMzFjLTAuODU3LC0wLjI3IC0xLjk1NywtMC42MjggLTMuMzY2LC0xLjIyOWMtNS45MjMsLTIuNTI2IC05Ljc5MSwtOC40MTUgLTEwLjA4NywtOC44MDRjLTAuMjk1LC0wLjM4OSAtMi40MTEsLTMuMTYxIC0yLjQxMSwtNi4wM2MwLC0yLjg2OSAxLjUyNSwtNC4yOCAyLjA2NywtNC44NjRjMC41NDIsLTAuNTg0IDEuMTgxLC0wLjczIDEuNTc1LC0wLjczYzAuMzk0LDAgMC43ODcsMC4wMDUgMS4xMzIsMC4wMjFjMC4zNjMsMC4wMTggMC44NSwtMC4xMzcgMS4zMjksMS4wMDFjMC40OTIsMS4xNjggMS42NzMsNC4wMzcgMS44MTksNC4zM2MwLjE0OCwwLjI5MiAwLjI0NiwwLjYzMyAwLjA1LDEuMDIyYy0wLjE5NiwwLjM4OSAtMC4yOTQsMC42MzIgLTAuNTksMC45NzNjLTAuMjk2LDAuMzQxIC0wLjYyLDAuNzYgLTAuODg2LDEuMDIyYy0wLjI5NiwwLjI5MSAtMC42MDMsMC42MDYgLTAuMjU5LDEuMTljMC4zNDQsMC41ODQgMS41MjksMi40OTMgMy4yODUsNC4wMzljMi4yNTUsMS45ODYgNC4xNTgsMi42MDIgNC43NDgsMi44OTRjMC41OSwwLjI5MiAwLjkzNSwwLjI0MyAxLjI3OSwtMC4xNDZjMC4zNDQsLTAuMzkgMS40NzYsLTEuNzAzIDEuODY5LC0yLjI4NmMwLjM5MywtMC41ODMgMC43ODcsLTAuNDg3IDEuMzI5LC0wLjI5MmMwLjU0MiwwLjE5NCAzLjQ0NSwxLjYwNCA0LjAzNSwxLjg5NmMwLjU5LDAuMjkyIDAuOTg0LDAuNDM4IDEuMTMyLDAuNjgxYzAuMTQ4LDAuMjQyIDAuMTQ4LDEuNDEgLTAuMzQ0LDIuNzcxeiI+PC9wYXRoPjwvZz48L2c+PC9nPgo8L3N2Zz4="
-                />
-                WhatsApp
-            </a>
-            <a
-                class="col-4 col-sm-2"
-                target="_blank"
-                href="https://www.instagram.com/66mt/"
-            >
-                <img
-                    alt="svgImg"
-                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAsMCwyNTYsMjU2IgpzdHlsZT0iZmlsbDojMDAwMDAwOyI+CjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxnIHRyYW5zZm9ybT0ic2NhbGUoNS4xMiw1LjEyKSI+PHBhdGggZD0iTTE2LDNjLTcuMTcsMCAtMTMsNS44MyAtMTMsMTN2MThjMCw3LjE3IDUuODMsMTMgMTMsMTNoMThjNy4xNywwIDEzLC01LjgzIDEzLC0xM3YtMThjMCwtNy4xNyAtNS44MywtMTMgLTEzLC0xM3pNMzcsMTFjMS4xLDAgMiwwLjkgMiwyYzAsMS4xIC0wLjksMiAtMiwyYy0xLjEsMCAtMiwtMC45IC0yLC0yYzAsLTEuMSAwLjksLTIgMiwtMnpNMjUsMTRjNi4wNywwIDExLDQuOTMgMTEsMTFjMCw2LjA3IC00LjkzLDExIC0xMSwxMWMtNi4wNywwIC0xMSwtNC45MyAtMTEsLTExYzAsLTYuMDcgNC45MywtMTEgMTEsLTExek0yNSwxNmMtNC45NiwwIC05LDQuMDQgLTksOWMwLDQuOTYgNC4wNCw5IDksOWM0Ljk2LDAgOSwtNC4wNCA5LC05YzAsLTQuOTYgLTQuMDQsLTkgLTksLTl6Ij48L3BhdGg+PC9nPjwvZz4KPC9zdmc+"
-                />
-                Instagram
-            </a>
-            <a
-                class="col-4 col-sm-2"
+                class="col-3 col-md-2"
                 target="_blank"
                 href="https://www.facebook.com/mehmet.tasdemir.54943"
             >
@@ -59,7 +36,7 @@ const t = translations(Astro.url);
                 />
                 Facebook
             </a>
-            <a class="col-4 col-sm-2" target="_blank" href="">
+            <a class="col-3 col-md-2" target="_blank" href="">
                 <img
                     alt="svgImg"
                     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAsMCwyNTYsMjU2IgpzdHlsZT0iZmlsbDojMDAwMDAwOyI+CjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxnIHRyYW5zZm9ybT0ic2NhbGUoNS4xMiw1LjEyKSI+PHBhdGggZD0iTTE0LDRjLTUuNTExMzMsMCAtMTAsNC40ODg2NyAtMTAsMTB2MjJjMCw1LjUxMTMzIDQuNDg4NjcsMTAgMTAsMTBoMjJjNS41MTEzMywwIDEwLC00LjQ4ODY3IDEwLC0xMHYtMjJjMCwtNS41MTEzMyAtNC40ODg2NywtMTAgLTEwLC0xMHpNMTMsMTZoMjRjMC4xOCwwIDAuMzQ5NzcsMC4wMjAzMSAwLjUwOTc3LDAuMDcwMzFsLTkuODMwMDgsOS44MjAzMWMtMS40OCwxLjQ4IC0zLjg4OTE0LDEuNDggLTUuMzY5MTQsMGwtOS44MjAzMSwtOS44MjAzMWMwLjE2LC0wLjA1IDAuMzI5NzcsLTAuMDcwMzEgMC41MDk3NywtMC4wNzAzMXpNMTEuMDcwMzEsMTcuNDkwMjNsNy41MTk1Myw3LjUwOTc3bC03LjUxOTUzLDcuNTA5NzdjLTAuMDUsLTAuMTYgLTAuMDcwMzEsLTAuMzI5NzcgLTAuMDcwMzEsLTAuNTA5Nzd2LTE0YzAsLTAuMTggMC4wMjAzMSwtMC4zNDk3NyAwLjA3MDMxLC0wLjUwOTc3ek0zOC45Mjk2OSwxNy40OTAyM2MwLjA1LDAuMTYgMC4wNzAzMSwwLjMyOTc3IDAuMDcwMzEsMC41MDk3N3YxNGMwLDAuMTggLTAuMDIwMzEsMC4zNDk3NyAtMC4wNzAzMSwwLjUwOTc3bC03LjUyOTMsLTcuNTA5Nzd6TTIwLDI2LjQxMDE2bDAuODkwNjMsMC45MDAzOWMxLjEzLDEuMTMgMi42MTk2MSwxLjY4OTQ1IDQuMDk5NjEsMS42ODk0NWMxLjQ5LDAgMi45Njk2MSwtMC41NTk0NSA0LjA5OTYxLC0xLjY4OTQ1bDAuOTAwMzksLTAuOTAwMzlsNy41MTk1Myw3LjUxOTUzYy0wLjE2LDAuMDUgLTAuMzI5NzcsMC4wNzAzMSAtMC41MDk3NywwLjA3MDMxaC0yNGMtMC4xOCwwIC0wLjM0OTc3LC0wLjAyMDMxIC0wLjUwOTc3LC0wLjA3MDMxeiI+PC9wYXRoPjwvZz48L2c+Cjwvc3ZnPg=="
@@ -67,7 +44,7 @@ const t = translations(Astro.url);
                 Mail
             </a>
             <a
-                class="col-4 col-sm-2"
+                class="col-3 col-md-2"
                 target="_blank"
                 href="https://goo.gl/maps/4THpagjgGQ5j6r4i6"
             >
@@ -244,7 +221,7 @@ const t = translations(Astro.url);
 
         position: relative;
         z-index: 99;
-        font-size: min(20px, 3vh);
+        font-size: min(20px, 5vw);
         width: fit-content;
         padding: 0 1em;
         line-height: 1.5em;
