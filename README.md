@@ -1,6 +1,6 @@
 # lotusafrica
 
-lotusfoundationafrica.com website codes
+https://lotusforafrica.org/ website codes
 
 Notes:
 
