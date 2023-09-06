@@ -24,7 +24,11 @@ const modalId = 'wellModal-' + wellNumber;
         style="background-color: #353444"
     >
         <!-- Button trigger modal -->
-        <a type="button" data-bs-toggle="modal" data-bs-target={'#' + modalId}>
+        <div
+            class="well-card-image-modal-toggler"
+            data-bs-toggle="modal"
+            data-bs-target={'#' + modalId}
+        >
             <Image
                 src={thumbnailImage}
                 alt={thumbnailImage.src}
@@ -33,7 +37,7 @@ const modalId = 'wellModal-' + wellNumber;
                 class="rounded-4 w-100 object-fit-cover"
                 style="height: 250px;"
             />
-        </a>
+        </div>
 
         <span
             class="badge text-bg-light position-absolute"
@@ -77,3 +81,9 @@ const modalId = 'wellModal-' + wellNumber;
         </div>
     </div>
 </div>
+
+<style>
+    .well-card-image-modal-toggler {
+        cursor: pointer;
+    }
+</style>

@@ -16,10 +16,10 @@ export async function getStaticPaths({
     const wellsPerPage = 20;
 
     const wellsThumbnails: ImageMetadata[] = await Astro.glob(
-        '../../assets/img/wells/thumbnails/*.webp'
+        '../../assets/img/wells/thumbnails/*.webp',
     );
     const wellsFull: ImageMetadata[] = await Astro.glob(
-        '../../assets/img/wells/full/*.webp'
+        '../../assets/img/wells/full/*.webp',
     );
 
     // get names from csv file
@@ -37,9 +37,9 @@ export async function getStaticPaths({
             .on('end', () => {
                 resolve();
                 console.log(
-                    'wellOwnerNames imported: ' + wellOwnerNames.length
+                    'wellOwnerNames imported: ' + wellOwnerNames.length,
                 );
-            })
+            }),
     );
 
     // Generate pages from our wells arrays, with merged names
@@ -51,7 +51,7 @@ export async function getStaticPaths({
                 wellOwnerName: wellOwnerNames[index],
             };
         }),
-        { pageSize: wellsPerPage }
+        { pageSize: wellsPerPage },
     );
 }
 
@@ -100,7 +100,7 @@ let calculateWellNumber = (index: number) =>
                                 wellsFullImage,
                                 wellOwnerName,
                             }: any,
-                            index: number
+                            index: number,
                         ) => (
                             <WellCardWithModal
                                 thumbnailImage={wellThumbnailImage}
@@ -108,7 +108,7 @@ let calculateWellNumber = (index: number) =>
                                 wellNumber={calculateWellNumber(index)}
                                 wellOwnerName={wellOwnerName}
                             />
-                        )
+                        ),
                     )
                 }
             </div>
