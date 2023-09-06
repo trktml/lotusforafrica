@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-// import swup from '@swup/astro';
 import react from '@astrojs/react';
 import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
@@ -21,7 +20,7 @@ export default defineConfig({
             },
         },
     },
-    site: 'https://lotusfoundationafrica.com/',
+    site: 'https://lotusforafrica.org/',
     trailingSlash: 'always',
     build: {
         assets: 'assets',
@@ -33,14 +32,6 @@ export default defineConfig({
             locales,
             defaultLocale,
         }),
-        // swup({
-        //     theme: 'fade',
-        //     animationClass: false,
-        //     progress: true,
-        //     reloadScripts: false,
-        //     updateHead: false,
-        //     globalInstance: true,
-        // }),
         prefetch({
             // prefetch links for all a elements
             selector: 'a',
