@@ -38,7 +38,7 @@ const t = translations(Astro.url);
     title={convertPageTitle(t.activities, t.title)}
     description={t.description}
 >
-    <template shadowRoot="closed">
+    <template shadowrootmode="closed">
         <section id="cd-timeline" class="cd-container">
             <TimelineContent source={wellWithChildVideo} title={t.wells} />
             <TimelineContent source={studentsImage} title={t.students} />
