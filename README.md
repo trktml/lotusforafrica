@@ -1,4 +1,4 @@
-# lotusafrica
+# lotusforafrica
 
 https://lotusforafrica.org/ website codes
 
