@@ -7,12 +7,12 @@ import '../scss/components/slider.scss';
 
 // images
 import well1 from '../assets/img/slider/well-001.webp';
-import well2 from '../assets/img/slider/well-025.webp';
-import well3 from '../assets/img/slider/well-050.webp';
-import well4 from '../assets/img/slider/well-075.webp';
-import well6 from '../assets/img/slider/well-106.webp';
-import well7 from '../assets/img/slider/well-107.webp';
-import well8 from '../assets/img/slider/well-108.webp';
+import well2 from '../assets/img/slider/well-050.webp';
+import well3 from '../assets/img/slider/well-075.webp';
+import well4 from '../assets/img/slider/well-106.webp';
+import well5 from '../assets/img/slider/well-107.webp';
+import well6 from '../assets/img/slider/well-108.webp';
+import well7 from '../assets/img/slider/well-109.webp';
 
 export default function Slider(params: AwesomeSliderProps) {
     return (
@@ -23,13 +23,13 @@ export default function Slider(params: AwesomeSliderProps) {
             bullets={false}
             animation="openAnimation"
         >
-            <div data-alt="slider sixth well image" data-src={well8.src} />
-            <div data-alt="slider sixth well image" data-src={well7.src} />
-            <div data-alt="slider sixth well image" data-src={well6.src} />
-            <div data-alt="slider fourth well image" data-src={well4.src} />
-            <div data-alt="slider third well image" data-src={well3.src} />
-            <div data-alt="slider second well image" data-src={well2.src} />
-            <div data-alt="slider first well image" data-src={well1.src} />
+            <div data-alt="slider 109. well image" data-src={well7.src} />
+            <div data-alt="slider 108. well image" data-src={well6.src} />
+            <div data-alt="slider 107. well image" data-src={well5.src} />
+            <div data-alt="slider 106. well image" data-src={well4.src} />
+            <div data-alt="slider 75. well image" data-src={well3.src} />
+            <div data-alt="slider 50. well image" data-src={well2.src} />
+            <div data-alt="slider 1. well image" data-src={well1.src} />
         </AutoplaySlider>
     );
 }
