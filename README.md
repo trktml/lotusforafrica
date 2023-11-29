@@ -8,5 +8,27 @@ Notes:
 - react-awesome-slider: https://github.com/rcaferati/react-awesome-slider
 - home page inspired from: https://github.com/StartBootstrap/startbootstrap-freelancer
 
-- I plan to be inspired by this design for the water well cards (nft sites awesome):
-![design ispiration](https://reactjsexample.com/content/images/2022/06/Code-2022-26-19-29-1.jpg)
+# Image compress and resize notes:
+
+<br>
+
+- `npm i -g sharp`
+
+- `npm i -g squoosh-cli`
+
+<br>
+
+- Thumbnails: `sharp --input './*.*' --output resized resize 426`
+
+- Normal: `sharp --input './*.*' --output resized resize 1280`
+
+- Compress: `squoosh-cli ./resized -d ./resized-compressed --webp '{effort:6,quality:50}'`
+
+<br>
+
+- Thumbnails --> Compress --> src\assets\img\wells\thumbnails
+- Normal --> Compress --> src\assets\img\wells\full
+
+<br>
+
+- for slider: https://imageresizer.com/ 1920 1080 --> src\assets\img\slider
