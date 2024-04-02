@@ -6,12 +6,12 @@ const AutoplaySlider = withAutoplay(AwesomeSlider);
 import '../scss/components/slider.scss';
 
 // images
-import well1 from '../assets/img/slider/well-001.webp';
-import well2 from '../assets/img/slider/well-050.webp';
-import well3 from '../assets/img/slider/well-075.webp';
-import well4 from '../assets/img/slider/well-120.webp';
-import well5 from '../assets/img/slider/well-121.webp';
-import well6 from '../assets/img/slider/well-122.webp';
+import well1 from '../assets/img/slider/001-well.webp';
+import well2 from '../assets/img/slider/050-well.webp';
+import well3 from '../assets/img/slider/075-well.webp';
+import well4 from '../assets/img/slider/121-well.webp';
+import well5 from '../assets/img/slider/122-well.webp';
+import well6 from '../assets/img/slider/123-well.webp';
 
 export default function Slider(params: AwesomeSliderProps) {
     return (
@@ -22,9 +22,9 @@ export default function Slider(params: AwesomeSliderProps) {
             bullets={false}
             animation="openAnimation"
         >
-            <div data-alt="slider 122. well image" data-src={well6.src} />
-            <div data-alt="slider 121. well image" data-src={well5.src} />
-            <div data-alt="slider 120. well image" data-src={well4.src} />
+            <div data-alt="slider 123. well image" data-src={well6.src} />
+            <div data-alt="slider 122. well image" data-src={well5.src} />
+            <div data-alt="slider 121. well image" data-src={well4.src} />
             <div data-alt="slider 75. well image" data-src={well3.src} />
             <div data-alt="slider 50. well image" data-src={well2.src} />
             <div data-alt="slider 1. well image" data-src={well1.src} />
