@@ -29,7 +29,7 @@ export async function getStaticPaths({
             .createReadStream('./src/assets/wellOwnerNames.csv')
             .pipe(csv())
             .on('data', (row) => {
-                // 2. sütunun değerini al ve diziye ekle
+                // Take the value from the 2nd column and add it to the array
                 if (row['user']) {
                     wellOwnerNames.push(row['user']);
                 }
