@@ -36,4 +36,4 @@ Notes:
 <br>
 
 # Pagespeed score
-![pagespeed-score](.\src\assets\img\pagespeed-score.png)
+![pagespeed-score](./src/assets/img/pagespeed-score.png)
