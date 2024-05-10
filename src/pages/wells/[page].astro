@@ -44,7 +44,7 @@ export async function getStaticPaths({
 
     // Generate pages from our wells arrays, with merged names
     return paginate(
-        wellsThumbnails.map((well: any, index: number) => {
+        wellsThumbnails.reverse().map((well: any, index: number) => {
             return {
                 wellThumbnailImage: well.default,
                 wellsFullImage: wellsFull[index],
