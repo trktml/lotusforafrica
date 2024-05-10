@@ -32,3 +32,8 @@ Notes:
 <br>
 
 - for slider: https://imageresizer.com/ 1920 1080 --> src\assets\img\slider
+
+<br>
+
+# Pagespeed score
+![pagespeed-score](.\src\assets\img\pagespeed-score.png)
