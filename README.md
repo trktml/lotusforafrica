@@ -32,6 +32,7 @@ Notes:
 <br>
 
 - for slider: https://imageresizer.com/ 1920 1080 --> src\assets\img\slider
+- alternative: https://www.img2go.com/resize-image
 
 <br>
 
