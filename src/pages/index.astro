@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 
-import BaseLayout from '../layouts/BaseLayout.astro';
+import IndexLayout from '../layouts/IndexLayout.astro';
 import Slider from '../components/Slider';
 
 // images for link backrounds
@@ -22,7 +22,7 @@ const t = translations(Astro.url);
 const imageWidth = 300;
 ---
 
-<BaseLayout title={t.title} description={t.description}>
+<IndexLayout title={t.title} description={t.description}>
     <div id="page-top">
         <!-- lotushead-->
         <div class="lotushead text-white text-center">
@@ -103,4 +103,4 @@ const imageWidth = 300;
             </div>
         </div>
     </div>
-</BaseLayout>
+</IndexLayout>
