@@ -34,7 +34,7 @@ Write-Host "[Thumbnails] Squoosh-cli ile compress ediliyor..."
 squoosh-cli .\resized -d .\resized-compressed --webp "{effort:6,quality:50}"
 
 Write-Host "[Thumbnails] Sonuçlar thumbnails klasörüne kopyalanıyor..."
-Copy-Item ".\resized-compressed\*.*" ".\thumbnails\" -Force
+Copy-Item ".\resized-compressed\*.*" ".\src\assets\img\wells\thumbnails\" -Force
 
 # 3) Geçici klasörleri tekrar temizleyip oluştur
 Remove-Item "resized" -Recurse -Force
@@ -52,7 +52,7 @@ Write-Host "[Normal] Squoosh-cli ile compress ediliyor..."
 squoosh-cli .\resized -d .\resized-compressed --webp "{effort:6,quality:50}"
 
 Write-Host "[Normal] Sonuçlar normal klasörüne kopyalanıyor..."
-Copy-Item ".\resized-compressed\*.*" ".\normal\" -Force
+Copy-Item ".\resized-compressed\*.*" ".\src\assets\img\wells\full\" -Force
 
 # 4) Geçici klasörleri tekrar temizleyip oluştur
 Remove-Item "resized" -Recurse -Force
@@ -70,7 +70,7 @@ Write-Host "[Slider] Squoosh-cli ile compress ediliyor..."
 squoosh-cli .\resized -d .\resized-compressed --webp "{effort:6,quality:50}"
 
 Write-Host "[Slider] Sonuçlar slider klasörüne kopyalanıyor..."
-Copy-Item ".\resized-compressed\*.*" ".\slider\" -Force
+Copy-Item ".\resized-compressed\*.*" ".\src\assets\img\slider\" -Force
 
 # 5) Geçici klasörleri son kez temizle
 Remove-Item "resized" -Recurse -Force
