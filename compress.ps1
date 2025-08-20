@@ -1,10 +1,10 @@
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
+$PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
 # compress.ps1
 
 # ---------------------------------------------
 # Türkçe karakterlerin doğru görüntülenmesi için:
 # ---------------------------------------------
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-chcp 65001
 
 Write-Host "============================================="
 Write-Host " compress.ps1"
@@ -28,7 +28,7 @@ New-Item -ItemType Directory -Path "resized-compressed" | Out-Null
 # THUMBNAILS OLUŞTURMA
 # =============================================
 Write-Host "[Thumbnails] Sharp ile 426 px genişlikte resize ediliyor..."
-sharp --input "./*.*" --output "resized" resize 426
+sharp --input "./*.jpg" --output "resized" resize 426
 
 Write-Host "[Thumbnails] Squoosh-cli ile compress ediliyor..."
 squoosh-cli .\resized -d .\resized-compressed --webp "{effort:6,quality:50}"
@@ -46,7 +46,7 @@ New-Item -ItemType Directory -Path "resized-compressed" | Out-Null
 # NORMAL OLUŞTURMA
 # =============================================
 Write-Host "[Normal] Sharp ile 1280 px genişlikte resize ediliyor..."
-sharp --input "./*.*" --output "resized" resize 1280
+sharp --input "./*.jpg" --output "resized" resize 1280
 
 Write-Host "[Normal] Squoosh-cli ile compress ediliyor..."
 squoosh-cli .\resized -d .\resized-compressed --webp "{effort:6,quality:50}"
@@ -75,6 +75,7 @@ Copy-Item ".\resized-compressed\*.*" ".\slider\" -Force
 # 5) Geçici klasörleri son kez temizle
 Remove-Item "resized" -Recurse -Force
 Remove-Item "resized-compressed" -Recurse -Force
+Remove-Item "./*.jpg" -Recurse -Force
 
 Write-Host "[Tamamlandı] Thumbnails, normal ve slider klasörleri oluşturuldu!"
 Read-Host "Devam etmek için Enter'a basın..."
