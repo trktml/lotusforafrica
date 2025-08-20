@@ -1,10 +1,7 @@
-[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
-$PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
-# compress.ps1
+chcp 65001
+$OutputEncoding = [Console]::OutputEncoding = [Text.UTF8Encoding]::UTF8
 
-# ---------------------------------------------
-# Türkçe karakterlerin doğru görüntülenmesi için:
-# ---------------------------------------------
+# compress.ps1
 
 Write-Host "============================================="
 Write-Host " compress.ps1"
@@ -35,6 +32,7 @@ squoosh-cli .\resized -d .\resized-compressed --webp "{effort:6,quality:50}"
 
 Write-Host "[Thumbnails] Sonuçlar thumbnails klasörüne kopyalanıyor..."
 Copy-Item ".\resized-compressed\*.*" ".\src\assets\img\wells\thumbnails\" -Force
+Copy-Item ".\resized-compressed\*.*" ".\thumbnails\" -Force
 
 # 3) Geçici klasörleri tekrar temizleyip oluştur
 Remove-Item "resized" -Recurse -Force
@@ -53,6 +51,7 @@ squoosh-cli .\resized -d .\resized-compressed --webp "{effort:6,quality:50}"
 
 Write-Host "[Normal] Sonuçlar normal klasörüne kopyalanıyor..."
 Copy-Item ".\resized-compressed\*.*" ".\src\assets\img\wells\full\" -Force
+Copy-Item ".\resized-compressed\*.*" ".\normal\" -Force
 
 # 4) Geçici klasörleri tekrar temizleyip oluştur
 Remove-Item "resized" -Recurse -Force
@@ -73,8 +72,11 @@ Write-Host "[Slider] Sonuçlar slider klasörüne kopyalanıyor..."
 Copy-Item ".\resized-compressed\*.*" ".\src\assets\img\slider\" -Force
 
 # 5) Geçici klasörleri son kez temizle
-Remove-Item "resized" -Recurse -Force
-Remove-Item "resized-compressed" -Recurse -Force
+if (Test-Path "thumbnails") { Remove-Item "thumbnails" -Recurse -Force }
+if (Test-Path "normal")     { Remove-Item "normal" -Recurse -Force }
+if (Test-Path "slider")     { Remove-Item "slider" -Recurse -Force }
+if (Test-Path "resized")    { Remove-Item "resized" -Recurse -Force }
+if (Test-Path "resized-compressed") { Remove-Item "resized-compressed" -Recurse -Force }
 Remove-Item "./*.jpg" -Recurse -Force
 
 Write-Host "[Tamamlandı] Thumbnails, normal ve slider klasörleri oluşturuldu!"
