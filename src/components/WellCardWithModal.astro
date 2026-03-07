@@ -24,20 +24,21 @@ const modalId = 'wellModal-' + wellNumber;
         style="background-color: #353444"
     >
         <!-- Button trigger modal -->
-        <div
-            class="well-card-image-modal-toggler"
+        <button
+            class="well-card-image-modal-toggler border-0 p-0 bg-transparent w-100"
             data-bs-toggle="modal"
             data-bs-target={'#' + modalId}
+            aria-label={`${t.wells} ${wellNumber} - ${wellOwnerName}`}
         >
             <Image
                 src={thumbnailImage}
-                alt={thumbnailImage.src}
+                alt={`${t.wells} ${wellNumber} - ${wellOwnerName}`}
                 width={thumbnailImage.width}
                 height={thumbnailImage.height}
                 class="rounded-4 w-100 object-fit-cover"
                 style="height: 250px;"
             />
-        </div>
+        </button>
 
         <span
             class="badge text-bg-light position-absolute"
@@ -65,13 +66,14 @@ const modalId = 'wellModal-' + wellNumber;
                 <button
                     type="button"
                     class="btn bg-white text-black fw-bold"
-                    data-bs-dismiss="modal">X</button
+                    data-bs-dismiss="modal"
+                    aria-label="Close">X</button
                 >
             </div>
             <div class="modal-body">
                 <Image
                     src={fullImage}
-                    alt={fullImage.src}
+                    alt={`${t.wells} ${wellNumber} - ${wellOwnerName}`}
                     width={fullImage.width}
                     height={fullImage.height}
                     class="rounded-4 w-100 object-fit-contain"
