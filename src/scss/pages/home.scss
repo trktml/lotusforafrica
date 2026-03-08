@@ -1,43 +1,61 @@
 .link-cards {
     position: relative;
     display: inline-block;
-    border-radius: 5px;
-    transition: all 0.3s ease-in-out;
-    height: 130px;
+    border-radius: 1.25rem !important;
+    overflow: hidden;
+    transition: var(--transition);
+    height: 160px;
+    border: 1px solid var(--glass-border);
 
     &:hover {
-        transform: scale(1.05, 1.05);
-        filter: blur(0);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        border-color: var(--primary-color);
+
+        img {
+            transform: scale(1.1);
+        }
+
+        .link-card-text {
+            background-color: rgba(112, 188, 255, 0.9);
+            color: #000;
+        }
     }
 
     & > a > div {
         height: 100%;
         position: relative;
     }
+
     .link-card-text {
-        display: inline-block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         position: absolute;
         bottom: 0;
         width: 100%;
         z-index: 2;
         text-decoration: none;
-        box-shadow: 0 0 20px 2px rgb(0, 0, 0);
-        background-color: rgba(0, 0, 0, 0.7);
-        padding-bottom: 8px;
-        padding-top: 5px;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        padding: 10px;
+        transition: var(--transition);
 
         // font
-        color: rgb(255, 255, 255);
+        color: #fff;
         font-size: 4vw;
         font-weight: 700;
-        text-shadow: 0 0 3px rgba(255, 255, 255, 0.7);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
         @media (min-width: 576px) {
             font-size: 12px;
         }
         @media (min-width: 768px) {
-            font-size: 16px;
+            font-size: 14px;
         }
     }
+
     & img {
         z-index: 1;
         position: absolute;
@@ -46,16 +64,18 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: all 0.3s ease-in-out;
-        &:hover {
-            top: -3px;
-        }
+        transition: var(--transition);
     }
 }
 
 .slider-wrapper {
     height: 60vw;
     max-height: 400px;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+
     @media (min-width: 576px) {
         height: 60vw;
     }

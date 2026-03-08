@@ -1,3 +1,5 @@
-## 2025-05-14 - [Accessibility Improvements]
-**Learning:** Standard interactive elements like image-based modal triggers should use semantic buttons instead of divs to ensure they are focusable and usable by keyboard users and screen readers.
-**Action:** Always prefer <button> over <div> or <a> for elements whose primary function is to trigger an action (like opening a modal) on the same page.
+## 2024-05-24 - Modernizing UI with Glassmorphism and Semantic HTML
+
+**Learning:** Implementing modern UI trends like glassmorphism (using `backdrop-filter` and semi-transparent borders) significantly improves the visual appeal of dark-themed websites. Also, using semantic HTML for interaction triggers (e.g., `<button>` for modals) is crucial for accessibility.
+
+**Action:** Applied glassmorphism variables and styles across the navbar, link cards, and modals. Refactored `CardWithModal.astro` to use `<button>` instead of `<a>` for modal triggers to comply with accessibility best practices.

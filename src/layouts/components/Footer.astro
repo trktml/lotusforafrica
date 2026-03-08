@@ -75,17 +75,28 @@ const t = translations(Astro.url);
         margin: auto;
         padding: 0px;
         display: block;
+        transition: var(--transition);
     }
     .footer {
-        margin-top: 30px;
-        padding: 10px;
+        margin-top: 60px;
+        padding: 40px 10px;
         color: #fff;
+        background-color: rgba(0, 0, 0, 0.2);
     }
     a {
         display: inline-block;
         text-decoration: none;
-        color: white;
-        padding: 10px;
+        color: rgba(255, 255, 255, 0.7);
+        padding: 15px;
+        transition: var(--transition);
+
+        &:hover {
+            color: var(--primary-color);
+            transform: translateY(-5px);
+            img {
+                filter: drop-shadow(0 0 8px var(--primary-color));
+            }
+        }
     }
 
     // divider styles
@@ -94,7 +105,7 @@ const t = translations(Astro.url);
         display: block;
     }
 
-    $bg: #10111f;
+    $bg: #0f101a;
     $barsize: 15px;
 
     .hr {
