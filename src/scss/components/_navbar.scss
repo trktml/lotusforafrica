@@ -4,6 +4,7 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     background-color: rgba(15, 16, 26, 0.85);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--glass-border);
     transition: var(--transition);

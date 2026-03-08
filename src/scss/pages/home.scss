@@ -37,6 +37,7 @@
         z-index: 2;
         text-decoration: none;
         background-color: rgba(0, 0, 0, 0.6);
+        -webkit-backdrop-filter: blur(4px);
         backdrop-filter: blur(4px);
         padding: 10px;
         transition: var(--transition);

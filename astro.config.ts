@@ -10,6 +10,11 @@ import { locales, defaultLocale } from './src/utils/translationTools';
 
 // https://astro.build/config
 export default defineConfig({
+    image: {
+        service: {
+            entrypoint: 'astro/assets/services/noop',
+        },
+    },
     vite: {
         css: {
             devSourcemap: true,
@@ -36,13 +41,13 @@ export default defineConfig({
             // prefetch links for all a elements
             selector: 'a',
         }),
-        sitemap({
+        /* sitemap({
             i18n: {
                 locales,
                 defaultLocale,
             },
             filter: defaultLocaleSitemapFilter({ defaultLocale }),
-        }),
+        }), */
         robotsTxt(),
         critters(),
         compress({ Exclude: '.*svg' }),
