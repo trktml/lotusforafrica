@@ -11,29 +11,31 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/prefetch": "^0.3.0",
-    "@astrojs/react": "^2.3.2",
-    "@astrojs/sitemap": "^2.0.2",
-    "@fontsource/caveat": "^5.0.8",
-    "@types/react": "^18.2.20",
-    "@types/react-dom": "^18.2.7",
-    "astro": "^3.0.8",
-    "astro-compress": "^2.0.13",
-    "astro-critters": "^2.0.10",
-    "astro-i18n-aut": "^0.3.2",
-    "astro-robots-txt": "^0.5.0",
-    "bootstrap": "^5.3.1",
-    "csv-parser": "^3.0.0",
-    "flag-icons": "^6.11.0",
+    "@astrojs/react": "2.3.2",
+    "@astrojs/sitemap": "3.1.6",
+    "@fontsource/caveat": "5.2.8",
+    "@types/react": "18.3.30",
+    "@types/react-dom": "18.3.7",
+    "astro": "3.6.5",
+    "astro-compress": "2.0.13",
+    "astro-critters": "2.0.10",
+    "astro-i18n-aut": "0.3.2",
+    "astro-robots-txt": "0.5.0",
+    "bootstrap": "5.3.8",
+    "csv-parser": "3.2.1",
+    "flag-icons": "6.15.0",
     "prop-types": "^15.8.1",
-    "react": "^18.2.0",
+    "react": "18.3.1",
     "react-awesome-slider": "^4.1.0",
-    "react-dom": "^18.2.0",
-    "sharp": "^0.32.5"
+    "react-dom": "18.3.1",
+    "sharp": "0.32.6",
+    "string-width": "4.2.3"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.15",
-    "cssnano": "^6.0.1",
-    "sass": "^1.66.1"
+    "@types/node": "^25.9.1",
+    "autoprefixer": "^10.5.0",
+    "cssnano": "6.1.2",
+    "sass": "^1.100.0",
+    "typescript": "^6.0.3"
   }
 }
