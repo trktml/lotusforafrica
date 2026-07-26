@@ -6,14 +6,19 @@
     --organic-arrow-border-radius: 20px;
     --organic-arrow-height: 30px;
     --organic-arrow-color: #ffffff;
-    --control-button-width: 10%;
+    --control-button-width: 12%;
     --control-button-height: 25%;
     --control-button-background: transparent;
     --control-bullet-color: rgba(255, 255, 255, 0.5);
     --control-bullet-active-color: #ffffff;
     --loader-bar-color: var(--accent-gold);
     --loader-bar-height: 4px;
-    --slider-height-percentage: 56.25%;
+    --slider-height-percentage: 65%;
+
+    @media (min-width: 576px) {
+        --slider-height-percentage: 56.25%;
+        --control-button-width: 10%;
+    }
 
     @media (min-width: 992px) {
         --slider-height-percentage: 50%;
