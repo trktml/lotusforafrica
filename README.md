@@ -1,40 +1,69 @@
 # lotusforafrica
 
-https://lotusforafrica.org/ website codes
+Website source code for [lotusforafrica.org](https://lotusforafrica.org/).
 
-Notes:
+Built with **Astro**, **React**, and **Bun**.
 
-- for multi language support: https://github.com/jlarmstrongiv/astro-i18n-aut
-- react-awesome-slider: https://github.com/rcaferati/react-awesome-slider
-- home page inspired from: https://github.com/StartBootstrap/startbootstrap-freelancer
+---
 
-# Image compress and resize notes:
+## 🚀 Quick Start
 
-<br>
+### Prerequisites
+- [Bun](https://bun.sh/) (v1.0+)
 
-- `npm i -g sharp`
+### Setup & Development
 
-- `npm i -g squoosh-cli`
+```bash
+# Install dependencies
+bun install
 
-<br>
+# Start development server
+bun dev
 
-- Thumbnails: `sharp --input './*.*' --output resized resize 426`
+# Build for production
+bun run build
 
-- Normal: `sharp --input './*.*' --output resized resize 1280`
+# Preview production build
+bun run preview
+```
 
-- Compress: `squoosh-cli ./resized -d ./resized-compressed --webp '{effort:6,quality:50}'`
+---
 
-<br>
+## 🚰 Adding New Water Wells
 
-- Thumbnails --> Compress --> src\assets\img\wells\thumbnails
-- Normal --> Compress --> src\assets\img\wells\full
+Image processing and CSV registry updates for new water wells are automated using Bun and Sharp.
 
-<br>
+### Usage Options
 
-- for slider: https://imageresizer.com/ 1920 1080 --> src\assets\img\slider
-- alternative: https://www.img2go.com/resize-image
+1. **Batch mode (`raw_images` folder)**:
+   Place images in the `./raw_images` directory and run:
+   ```bash
+   bun run add-well
+   ```
 
-<br>
+2. **Single file mode**:
+   Pass the file path and (optionally) owner name:
+   ```bash
+   bun run add-well ./path/to/photo.jpg "Owner Name"
+   ```
 
-# Pagespeed score
+### What `add-well` does automatically:
+- Generates 426px thumbnail image (`src/assets/img/wells/thumbnails/XXX-well.webp`)
+- Generates 1280px full image (`src/assets/img/wells/full/XXX-well.webp`)
+- Generates 1920x1080 slider image (`src/assets/img/slider/XXX-well.webp`)
+- Appends well entry to `src/assets/wellOwnerNames.csv`
+- Moves raw image to `raw_images/processed/`
+
+---
+
+## 📌 Project Notes & References
+
+- **Multi-language support**: [astro-i18n-aut](https://github.com/jlarmstrongiv/astro-i18n-aut)
+- **Slider Component**: [react-awesome-slider](https://github.com/rcaferati/react-awesome-slider)
+- **Homepage design inspiration**: [StartBootstrap Freelancer](https://github.com/StartBootstrap/startbootstrap-freelancer)
+
+---
+
+## ⚡ Pagespeed Score
+
 ![pagespeed-score](./src/assets/img/pagespeed-score.png)
