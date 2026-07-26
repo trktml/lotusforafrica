@@ -1,99 +1,102 @@
 #mainNav {
-    padding-top: 0rem;
-    padding-bottom: 0rem;
-    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-        Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
-        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-        'Noto Color Emoji';
-    font-weight: 700;
-    @include media-breakpoint-down(lg) {
-        background-color: #212529;
-    }
-}
-// #mainNav .navbar-brand {
-//     color: #fff;
-//     font-size: 4vw;
-// }
-#mainNav .navbar-nav {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-#mainNav .navbar-nav div.nav-item a.nav-link {
-    color: #fff;
-    width: max-content;
-}
-#mainNav .navbar-nav div.nav-item a.nav-link:hover {
-    color: #70bcff;
-}
-#mainNav .navbar-nav div.nav-item a.nav-link:active,
-#mainNav .navbar-nav div.nav-item a.nav-link:focus {
-    color: #fff;
-}
-#mainNav .navbar-nav div.nav-item a.nav-link.active {
-    color: #70bcff;
-}
-#mainNav .navbar-toggler {
-    font-size: 80%;
-    padding: 0.5rem;
-    font-weight: bolder;
-    background-color: #8a97a3 !important;
-}
+    height: 65px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    background: #0b192c;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 14px rgba(11, 25, 44, 0.2);
+    transition: all 0.25s ease;
 
-@include media-breakpoint-up(lg) {
-    #mainNav {
-        padding-top: 0rem;
-        padding-bottom: 0rem;
-        transition: padding-top 0.3s, padding-bottom 0.3s;
+    .navbar-brand {
+        text-decoration: none;
+        .nav-logo {
+            filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+        }
     }
-    #mainNav .navbar-brand {
-        font-size: 1.75em;
-        transition: font-size 0.3s;
-    }
-    #mainNav .navbar-nav > div.nav-item > a.nav-link.active {
-        color: #000000;
-        background: #70bcff;
-    }
-    #mainNav .navbar-nav > div.nav-item > a.nav-link.active:active,
-    #mainNav .navbar-nav > div.nav-item > a.nav-link.active:focus,
-    #mainNav .navbar-nav > div.nav-item > a.nav-link.active:hover {
-        color: #fff;
-        background: #70bcff;
-    }
-    #mainNav.navbar-shrink {
-        padding-top: 0rem;
-        padding-bottom: 0rem;
-        height: 55px;
-        background-color: #212529;
-    }
-    #mainNav.navbar-shrink .navbar-brand {
-        font-size: 1.5em;
-    }
-}
 
-#mainNav {
-    height: 55px;
     .nav-texts {
-        margin-left: 5px;
+        margin-left: 8px;
+        line-height: 1.1;
         & :nth-child(1) {
-            font-family: 'Caveat';
-            color: white;
-            font-size: 1.1rem;
+            font-family: 'Caveat', cursive;
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
         & :nth-child(2) {
-            color: #83a5dd;
-            font-size: 0.8rem;
-            text-align: end;
+            color: #fbbf24;
+            font-size: 0.72rem;
+            letter-spacing: 1.2px;
+            font-weight: 700;
+            text-align: right;
         }
     }
+
+    .navbar-nav {
+        margin: 0;
+        gap: 0.25rem;
+
+        div.nav-item a.nav-link {
+            color: #f1f5f9;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+            padding: 0.45rem 0.9rem !important;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+
+            &:hover {
+                color: #ffffff;
+                background: rgba(255, 255, 255, 0.12);
+            }
+
+            &.active {
+                color: #ffffff;
+                background: #1d4ed8;
+                box-shadow: 0 2px 8px rgba(29, 78, 216, 0.35);
+            }
+        }
+    }
+
+    .navbar-toggler {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.75rem;
+        font-weight: 600;
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        border-radius: 6px;
+        &:hover {
+            background: rgba(255, 255, 255, 0.2) !important;
+        }
+    }
+
     #navbarResponsive {
         @include media-breakpoint-down(lg) {
-            background-color: #212529;
-            background-color: rgb(33, 37, 41);
-            margin-left: auto;
-            padding: 5px 30px 10px 30px;
-            flex-basis: unset;
-            flex-grow: unset;
-            border-radius: 0 0 5px 20px;
+            background: #0b192c;
+            margin-top: 10px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+            .navbar-nav {
+                align-items: flex-start !important;
+                gap: 0.5rem;
+                div.nav-item a.nav-link {
+                    width: 100%;
+                }
+            }
         }
     }
+
+    &.navbar-shrink {
+        height: 60px;
+        background: #060e1a;
+    }
 }
+
+

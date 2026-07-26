@@ -25,55 +25,101 @@ const getPages = (current: number, total: number) => {
 
 const pagesToDisplay = getPages(page.currentPage, pageCount);
 ---
-<div class=`row align-items-center justify-content-center ${type==="start"?"flex-column":"flex-column-reverse"}`>
-    <div class="col d-flex align-items-center justify-content-center">
-        <nav aria-label="Wells page navigation">
-            <ul class="pagination m-2 justify-content-center">
-                <li class={`mx-1 page-item ${ page.url.prev ? '' : 'disabled' }`}>
-                    <a style="font-size: 20px;" class="page-link" href={page.url.prev ? page.url.prev : "#"} aria-label="Previous page">
-                        <span class="d-block" style="transform: rotate(180deg) translate(0px, -1px);">
-                            <strong>&#10148;</strong>
-                        </span>
-                    </a>
-                </li>
-                <li class={`mx-1 page-item ${ page.url.next ? '' : 'disabled' }`}>
-                    <a style="font-size: 20px;" class="page-link" href={page.url.next ? page.url.next : "#"} aria-label="Next page">
-                        <span class="d-block" style="transform: translate(0px, -1px);">
-                            <strong>&#10148;</strong>
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    <div class="col d-flex align-items-center justify-content-center flex-wrap">
+<div class={`d-flex flex-column align-items-center gap-3 my-4 ${type==="start"?"":"flex-column-reverse"}`}>
+    <div class="d-flex align-items-center justify-content-center flex-wrap gap-2">
+        <!-- Prev Arrow -->
+        <a
+            class={`pagination-nav-btn btn border-0 ${page.url.prev ? '' : 'disabled opacity-50'}`}
+            href={page.url.prev ? page.url.prev : '#'}
+            aria-label="Previous page"
+        >
+            ‹ Prev
+        </a>
+
+        <!-- Page Numbers -->
         {
             pagesToDisplay.map((p) => {
                 if (p === '...') {
-                    return <span style="margin:2px;" class="d-inline-block btn disabled btn-light align-self-center">...</span>;
+                    return (
+                        <span class="pagination-ellipsis px-2 text-muted">
+                            ...
+                        </span>
+                    );
                 }
+                const isCurrent = p === page.currentPage;
                 return (
                     <a
-                        style="margin:2px;"
-                        class=`d-inline-block btn ${
-                                p === page.currentPage
-                                    ? 'btn-secondary'
-                                    : 'btn-light'
-                            }`
+                        class={`pagination-num-btn btn ${
+                            isCurrent ? 'active' : ''
+                        }`}
                         href={
-                                page.url.current
-                                    .split('/')
-                                    .slice(0, -2)
-                                    .join('/') +
-                                '/' +
-                                p +
-                                '/'
-                            }
+                            page.url.current
+                                .split('/')
+                                .slice(0, -2)
+                                .join('/') +
+                            '/' +
+                            p +
+                            '/'
+                        }
                     >
                         {p}
                     </a>
                 );
             })
         }
+
+        <!-- Next Arrow -->
+        <a
+            class={`pagination-nav-btn btn border-0 ${page.url.next ? '' : 'disabled opacity-50'}`}
+            href={page.url.next ? page.url.next : '#'}
+            aria-label="Next page"
+        >
+            Next ›
+        </a>
     </div>
 </div>
+
+<style>
+    .pagination-num-btn {
+        min-width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        background: #ffffff;
+        color: #1e293b;
+        border: 1px solid #e2e8f0;
+        font-weight: 600;
+        font-size: 0.88rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+    .pagination-num-btn:hover {
+        background: #f1f5f9;
+        color: #0f172a;
+        border-color: #cbd5e1;
+    }
+    .pagination-num-btn.active {
+        background: #0f172a;
+        color: #ffffff;
+        border-color: #0f172a;
+        box-shadow: 0 2px 6px rgba(15, 23, 42, 0.2);
+    }
+    .pagination-nav-btn {
+        padding: 5px 14px;
+        border-radius: 8px;
+        background: #ffffff;
+        color: #1e293b;
+        border: 1px solid #e2e8f0 !important;
+        font-weight: 600;
+        font-size: 0.85rem;
+        transition: all 0.2s ease;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+    .pagination-nav-btn:hover:not(.disabled) {
+        background: #f1f5f9;
+        color: #0f172a;
+        border-color: #cbd5e1 !important;
+    }
+</style>

@@ -23,23 +23,32 @@ const imageWidth = 300;
 ---
 
 <IndexLayout title={t.title} description={t.description}>
-    <div id="page-top">
-        <!-- lotushead-->
-        <div class="lotushead text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-                <div
-                    class="slider-wrapper row w-100 d-flex align-items-center justify-content-center"
-                >
-                    <Slider client:only="react" />
+    <div id="page-top" class="py-4 py-md-5">
+        <div class="container d-flex align-items-center flex-column">
+            <!-- Hero Header -->
+            <div class="text-center mb-4">
+                <div class="hero-badge">
+                    <span>🤝 LOTUS FOR AFRICA FOUNDATION</span>
                 </div>
-                <div class="row g-2 col-12 col-lg-8">
-                    <div
-                        class="link-cards shadow-lg overflow-hidden rounded-5 col-6 col-sm-3"
-                    >
+                <h1 class="hero-title">
+                    Empowering Communities Across Africa
+                </h1>
+                <p class="hero-subtitle">
+                    Providing clean water, supporting orphanages, educating students, and building sustainable infrastructure for a brighter future.
+                </p>
+            </div>
+
+            <!-- Image Slider Container -->
+            <div class="slider-wrapper row w-100 col-12 col-lg-10 align-items-center justify-content-center p-2 mb-5">
+                <Slider client:only="react" />
+            </div>
+
+            <!-- Categories / Quick Navigation Grid -->
+            <div class="row g-3 col-12 col-lg-10 justify-content-center">
+                <div class="col-6 col-md-3">
+                    <div class="link-cards">
                         <a href={localeLink('/wells/1/', Astro.url)}>
-                            <div
-                                class="d-flex align-items-center justify-content-center"
-                            >
+                            <div class="link-card-inner">
                                 <Image
                                     src={wellImage}
                                     alt="wells picture"
@@ -49,13 +58,11 @@ const imageWidth = 300;
                             </div>
                         </a>
                     </div>
-                    <div
-                        class="link-cards shadow-lg overflow-hidden rounded-5 col-6 col-sm-3"
-                    >
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="link-cards">
                         <a href={localeLink('/orphanage', Astro.url)}>
-                            <div
-                                class="d-flex align-items-center justify-content-center"
-                            >
+                            <div class="link-card-inner">
                                 <Image
                                     src={orphanageImage}
                                     alt="orphanage picture"
@@ -65,13 +72,11 @@ const imageWidth = 300;
                             </div>
                         </a>
                     </div>
-                    <div
-                        class="link-cards shadow-lg overflow-hidden rounded-5 col-6 col-sm-3"
-                    >
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="link-cards">
                         <a href={localeLink('/students', Astro.url)}>
-                            <div
-                                class="d-flex align-items-center justify-content-center"
-                            >
+                            <div class="link-card-inner">
                                 <Image
                                     src={studentsImage}
                                     alt="students picture"
@@ -83,13 +88,11 @@ const imageWidth = 300;
                             </div>
                         </a>
                     </div>
-                    <div
-                        class="link-cards shadow-lg overflow-hidden rounded-5 col-6 col-sm-3"
-                    >
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="link-cards">
                         <a href={localeLink('/others', Astro.url)}>
-                            <div
-                                class="d-flex align-items-center justify-content-center"
-                            >
+                            <div class="link-card-inner">
                                 <Image
                                     src={bridgeImage}
                                     alt="others picture"

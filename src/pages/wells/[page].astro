@@ -97,20 +97,29 @@ let calculateWellNumber = (index: number) =>
     title={convertPageTitle(t.wells, t.title)}
     description={t.description}
 >
-    <h1 class="text-white text-center mb-4">{t.wells}</h1>
-    {
-        page.currentPage === 1 && (
-            <p class="text-white col-11 col-lg-8 m-auto mb-4 dark-bg rounded-3 p-3">
-                {t.waterWellsText}
-            </p>
-        )
-    }
-    <div class="container">
+    <div class="container py-4">
+        <div class="text-center mb-4">
+            <h1 class="fw-bold display-5 text-dark mb-2">{t.wells}</h1>
+            <div class="foundation-badge">
+                💧 {wellsThumbnails.length} Completed Projects
+            </div>
+        </div>
+
+        {
+            page.currentPage === 1 && (
+                <div class="col-11 col-lg-9 m-auto mb-5 foundation-card p-4 text-center">
+                    <p class="mb-0 text-muted leading-relaxed" style="font-size: 1.05rem;">
+                        {t.waterWellsText}
+                    </p>
+                </div>
+            )
+        }
+
         <Pagination page={page} type="start" />
 
-        <div class="mb-3">
+        <div class="my-4">
             <div
-                class="row align-items-center justify-content-center gx-3 gy-3 m-0 align-items-stretch"
+                class="row align-items-center justify-content-center gx-3 gy-4 m-0 align-items-stretch"
             >
                 {
                     page.data.map(

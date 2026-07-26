@@ -7,9 +7,9 @@ import { defaultLocale } from '../../utils/translationTools';
 let lang = getLocale(Astro.url) ?? defaultLocale;
 ---
 
-<div class="btn-group">
+<div class="btn-group ms-lg-2">
     <button
-        class="btn btn-dark dropdown-toggle"
+        class="btn lang-btn dropdown-toggle border-0 rounded-3 px-3 py-1 text-white d-flex align-items-center gap-2"
         type="button"
         data-bs-toggle="dropdown"
         aria-expanded="false"
@@ -17,34 +17,53 @@ let lang = getLocale(Astro.url) ?? defaultLocale;
     >
         {
             lang === 'en' ? (
-                <span class="fi fi-us" />
+                <span class="fi fi-us me-1" />
             ) : lang === 'tr' ? (
-                <span class="fi fi-tr" />
+                <span class="fi fi-tr me-1" />
             ) : lang === 'nl' ? (
-                <span class="fi fi-be" />
+                <span class="fi fi-be me-1" />
             ) : (
                 ''
             )
         }
+        <span class="text-uppercase fw-bold" style="font-size: 0.82rem;">{lang}</span>
     </button>
     <ul
-        class="dropdown-menu bg-secondary dropdown-menu-lg-end"
-        style="min-width: auto"
+        class="dropdown-menu shadow-lg dropdown-menu-lg-end p-1 border-0 rounded-3"
+        style="min-width: 140px; margin-top: 8px; background: #0b192c;"
     >
         <li>
-            <a class="dropdown-item bg-secondary fw-bold" href="/tr/"
-                ><span class="fi fi-tr"></span> Türkçe</a
-            >
+            <a class="dropdown-item rounded-2 py-2 text-white fw-semibold d-flex align-items-center gap-2" href="/tr/">
+                <span class="fi fi-tr"></span> Türkçe
+            </a>
         </li>
         <li>
-            <a class="dropdown-item bg-secondary fw-bold" href="/en/"
-                ><span class="fi fi-us"></span> English</a
-            >
+            <a class="dropdown-item rounded-2 py-2 text-white fw-semibold d-flex align-items-center gap-2" href="/en/">
+                <span class="fi fi-us"></span> English
+            </a>
         </li>
         <li>
-            <a class="dropdown-item bg-secondary fw-bold" href="/nl/"
-                ><span class="fi fi-be"></span> Nederlands</a
-            >
+            <a class="dropdown-item rounded-2 py-2 text-white fw-semibold d-flex align-items-center gap-2" href="/nl/">
+                <span class="fi fi-be"></span> Nederlands
+            </a>
         </li>
     </ul>
 </div>
+
+<style>
+    .lang-btn {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        transition: all 0.2s ease;
+    }
+    .lang-btn:hover, .lang-btn:focus {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    .dropdown-item {
+        font-size: 0.88rem;
+    }
+    .dropdown-item:hover {
+        background: #2563eb !important;
+        color: #ffffff !important;
+    }
+</style>

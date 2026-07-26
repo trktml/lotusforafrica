@@ -16,28 +16,43 @@ const t = translations(Astro.url);
     title={convertPageTitle(t.orphanage, t.title)}
     description={t.description}
 >
-    <h1 class="text-white text-center mb-4">{t.orphanage}</h1>
-    <div class="container col-11 col-lg-8 text-white dark-bg rounded-3 p-4">
-        <p class="mb-4">
-            {t.orphanageText}
-        </p>
-        <Image
-            src={orphanageImage}
-            alt="orphanage picture"
-            width={500}
-            class="page-image"
-        />
+    <div class="container py-4 col-11 col-lg-9">
+        <div class="text-center mb-4">
+            <h1 class="fw-bold display-5 text-dark mb-2">{t.orphanage}</h1>
+            <div class="foundation-badge">
+                ❤️ Orphan Support Initiative
+            </div>
+        </div>
+
+        <div class="foundation-card p-4 p-md-5">
+            <div class="row align-items-center g-4">
+                <div class="col-12 col-md-6">
+                    <p class="fs-5 text-muted leading-relaxed mb-0">
+                        {t.orphanageText}
+                    </p>
+                </div>
+                <div class="col-12 col-md-6 text-center">
+                    <div class="overflow-hidden rounded-3 shadow-sm border border-slate-200">
+                        <Image
+                            src={orphanageImage}
+                            alt="orphanage picture"
+                            width={500}
+                            class="img-fluid w-100 feature-img"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </BaseLayout>
 
 <style>
-    .page-image {
-        width: 60vh;
-        max-width: 100%;
-        height: auto;
-        object-fit: contain;
-        margin: auto;
-        display: block;
-        border-radius: 5px;
+    .feature-img {
+        max-height: 400px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    .feature-img:hover {
+        transform: scale(1.05);
     }
 </style>

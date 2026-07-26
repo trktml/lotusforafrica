@@ -24,73 +24,113 @@ const imageWidth = 500;
     title={convertPageTitle(t.aboutUs, t.title)}
     description={t.description}
 >
-    <h1 class="text-white text-center mb-4">{t.aboutUs}</h1>
-    <div
-        class="container dark-bg text-white rounded-top-3 col-11 col-lg-8 pt-4"
-    >
-        <h2 class="text-white-50 m-0 mx-3">{t.charterOfTheFoundation}</h2>
-        <a href={foundationImage1.src}>
-            <Image
-                src={foundationImage1}
-                alt="foundation image 1"
-                width={imageWidth}
-                class="foundation-image"
-            />
-        </a>
-        <a href={foundationImage2.src}>
-            <Image
-                src={foundationImage2}
-                alt="foundation image 2"
-                width={imageWidth}
-                class="foundation-image"
-            />
-        </a>
-        <a href={foundationImage3.src}>
-            <Image
-                src={foundationImage3}
-                alt="foundation image 3"
-                width={imageWidth}
-                class="foundation-image"
-            />
-        </a>
-        <a href={foundationImage4.src}>
-            <Image
-                src={foundationImage4}
-                alt="foundation image 4"
-                width={imageWidth}
-                class="foundation-image"
-            />
-        </a>
-        <a href={foundationImage5.src}>
-            <Image
-                src={foundationImage5}
-                alt="foundation image 5"
-                width={imageWidth}
-                class="foundation-image"
-            />
-        </a>
-        <a href={foundationImage6.src}>
-            <Image
-                src={foundationImage6}
-                alt="foundation image 6"
-                width={imageWidth}
-                class="foundation-image"
-            />
-        </a>
-        <h2 class="text-white-50 m-0 mx-3 mt-4">{t.ourStory}</h2>
-    </div>
+    <div class="container py-4 col-11 col-lg-9">
+        <!-- Page Title -->
+        <div class="text-center mb-5">
+            <h1 class="fw-bold display-5 text-dark mb-2">{t.aboutUs}</h1>
+            <p class="text-muted fs-6">Learn more about our foundation's history, mission, and official charter.</p>
+        </div>
 
-    <div
-        class="container fw-semibold py-3 px-4 rounded-bottom-3 d-flex dark-bg text-white col-11 col-lg-8"
-        set:html={t.aboutUsText}
-    />
+        <!-- Official Foundation Charter Gallery Card -->
+        <div class="foundation-card p-4 mb-5">
+            <h2 class="fs-4 text-dark fw-bold mb-4 d-flex align-items-center gap-2">
+                📜 {t.charterOfTheFoundation}
+            </h2>
+            <div class="row g-3">
+                <div class="col-6 col-md-4">
+                    <a href={foundationImage1.src} class="doc-card d-block overflow-hidden rounded-3">
+                        <Image
+                            src={foundationImage1}
+                            alt="foundation image 1"
+                            width={imageWidth}
+                            class="img-fluid w-100 doc-img"
+                        />
+                    </a>
+                </div>
+                <div class="col-6 col-md-4">
+                    <a href={foundationImage2.src} class="doc-card d-block overflow-hidden rounded-3">
+                        <Image
+                            src={foundationImage2}
+                            alt="foundation image 2"
+                            width={imageWidth}
+                            class="img-fluid w-100 doc-img"
+                        />
+                    </a>
+                </div>
+                <div class="col-6 col-md-4">
+                    <a href={foundationImage3.src} class="doc-card d-block overflow-hidden rounded-3">
+                        <Image
+                            src={foundationImage3}
+                            alt="foundation image 3"
+                            width={imageWidth}
+                            class="img-fluid w-100 doc-img"
+                        />
+                    </a>
+                </div>
+                <div class="col-6 col-md-4">
+                    <a href={foundationImage4.src} class="doc-card d-block overflow-hidden rounded-3">
+                        <Image
+                            src={foundationImage4}
+                            alt="foundation image 4"
+                            width={imageWidth}
+                            class="img-fluid w-100 doc-img"
+                        />
+                    </a>
+                </div>
+                <div class="col-6 col-md-4">
+                    <a href={foundationImage5.src} class="doc-card d-block overflow-hidden rounded-3">
+                        <Image
+                            src={foundationImage5}
+                            alt="foundation image 5"
+                            width={imageWidth}
+                            class="img-fluid w-100 doc-img"
+                        />
+                    </a>
+                </div>
+                <div class="col-6 col-md-4">
+                    <a href={foundationImage6.src} class="doc-card d-block overflow-hidden rounded-3">
+                        <Image
+                            src={foundationImage6}
+                            alt="foundation image 6"
+                            width={imageWidth}
+                            class="img-fluid w-100 doc-img"
+                        />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Our Story Section -->
+        <div class="foundation-card p-4 p-md-5">
+            <h2 class="fs-4 text-dark fw-bold mb-4 d-flex align-items-center gap-2">
+                📖 {t.ourStory}
+            </h2>
+            <div
+                class="story-content text-dark leading-relaxed"
+                set:html={t.aboutUsText}
+            />
+        </div>
+    </div>
 </BaseLayout>
 
 <style>
-    .foundation-image {
-        width: 33%;
-        padding: 1vw;
-        object-fit: contain;
-        height: auto;
+    .doc-card {
+        border: 1px solid #e2e8f0;
+        transition: all 0.25s ease;
+        background: #ffffff;
+    }
+    .doc-card:hover {
+        transform: translateY(-2px);
+        border-color: #cbd5e1;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+    .doc-img {
+        height: 240px;
+        object-fit: cover;
+    }
+    .story-content {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: #334155;
     }
 </style>

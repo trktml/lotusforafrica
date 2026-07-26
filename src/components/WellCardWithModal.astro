@@ -18,14 +18,13 @@ const t = translations(Astro.url);
 const modalId = 'wellModal-' + wellNumber;
 ---
 
-<div class="col-lg-3 col-6 text-white d-flex">
+<div class="col-lg-3 col-6 d-flex">
     <div
-        class="rounded-4 p-2 position-relative text-center d-flex flex-column flex-grow-1"
-        style="background-color: #353444"
+        class="foundation-card p-2 position-relative text-center d-flex flex-column flex-grow-1 overflow-hidden"
     >
         <!-- Button trigger modal -->
         <button
-            class="well-card-image-modal-toggler border-0 p-0 bg-transparent w-100"
+            class="well-card-image-modal-toggler border-0 p-0 bg-transparent w-100 position-relative overflow-hidden rounded-3"
             data-bs-toggle="modal"
             data-bs-target={'#' + modalId}
             aria-label={`${t.wells} ${wellNumber} - ${wellOwnerName}`}
@@ -35,18 +34,22 @@ const modalId = 'wellModal-' + wellNumber;
                 alt={`${t.wells} ${wellNumber} - ${wellOwnerName}`}
                 width={thumbnailImage.width}
                 height={thumbnailImage.height}
-                class="rounded-4 w-100 object-fit-cover"
-                style="height: 250px;"
+                class="well-thumb-img rounded-3 w-100 object-fit-cover"
+                style="height: 220px;"
             />
+            <div class="well-card-overlay d-flex align-items-center justify-content-center">
+                <span class="btn btn-sm btn-dark rounded-2 px-3 py-1 fw-bold shadow-sm" style="font-size: 0.82rem;">
+                    View Photo
+                </span>
+            </div>
         </button>
 
         <span
-            class="badge text-bg-light position-absolute"
-            style="top:20px; right:20px; font-size: 15px;"
+            class="well-badge position-absolute"
         >
-            {wellNumber}
+            #{wellNumber}
         </span>
-        <div class="fw-bold mt-1">
+        <div class="fw-bold mt-2 text-truncate px-1" style="font-size: 0.92rem; color: #0b192c;">
             {wellOwnerName}
         </div>
     </div>
@@ -57,27 +60,29 @@ const modalId = 'wellModal-' + wellNumber;
     class="modal fade"
     id={modalId}
     tabindex="-1"
-    aria-labelledby="exampleModalLabel"
+    aria-labelledby="wellModalLabel"
     aria-hidden="true"
 >
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content dark-bg">
-            <div class="modal-footer border-0">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 shadow-lg overflow-hidden rounded-4" style="background: #ffffff;">
+            <div class="modal-header border-bottom-0 pb-0 d-flex align-items-center justify-content-between px-4 pt-3">
+                <h5 class="modal-title fw-bold text-dark fs-5">
+                    <span class="text-primary me-2">#{wellNumber}</span> {wellOwnerName}
+                </h5>
                 <button
                     type="button"
-                    class="btn bg-white text-black fw-bold"
+                    class="btn-close"
                     data-bs-dismiss="modal"
-                    aria-label="Close">X</button
-                >
+                    aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body p-3 text-center">
                 <Image
                     src={fullImage}
                     alt={`${t.wells} ${wellNumber} - ${wellOwnerName}`}
                     width={fullImage.width}
                     height={fullImage.height}
-                    class="rounded-4 w-100 object-fit-contain"
-                    style="height: 70vh;"
+                    class="rounded-3 w-100 object-fit-contain shadow-sm"
+                    style="max-height: 75vh;"
                 />
             </div>
         </div>
@@ -87,5 +92,33 @@ const modalId = 'wellModal-' + wellNumber;
 <style>
     .well-card-image-modal-toggler {
         cursor: pointer;
+    }
+    .well-thumb-img {
+        transition: transform 0.3s ease;
+    }
+    .well-card-image-modal-toggler:hover .well-thumb-img {
+        transform: scale(1.05);
+    }
+    .well-card-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(11, 25, 44, 0.35);
+        opacity: 0;
+        transition: opacity 0.25s ease;
+    }
+    .well-card-image-modal-toggler:hover .well-card-overlay {
+        opacity: 1;
+    }
+    .well-badge {
+        top: 12px;
+        right: 12px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 4px 10px;
+        border-radius: 6px;
+        background: #1d4ed8;
+        color: #ffffff;
+        box-shadow: 0 2px 6px rgba(29, 78, 216, 0.3);
+        z-index: 2;
     }
 </style>
