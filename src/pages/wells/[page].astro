@@ -8,11 +8,17 @@ import fs from 'fs';
 import csv from 'csv-parser';
 import { pipeline } from 'node:stream/promises';
 
-const wellsThumbnails: ImageMetadata[] = await Astro.glob(
-    '../../assets/img/wells/thumbnails/*.webp'
+const wellsThumbnails = Object.values(
+    import.meta.glob<{ default: ImageMetadata }>(
+        '../../assets/img/wells/thumbnails/*.webp',
+        { eager: true }
+    )
 );
-const wellsFull: ImageMetadata[] = await Astro.glob(
-    '../../assets/img/wells/full/*.webp'
+const wellsFull = Object.values(
+    import.meta.glob<{ default: ImageMetadata }>(
+        '../../assets/img/wells/full/*.webp',
+        { eager: true }
+    )
 );
 
 export async function getStaticPaths({
@@ -22,11 +28,17 @@ export async function getStaticPaths({
 }): Promise<GetStaticPathsResult> {
     const wellsPerPage = 20;
 
-    const wellsThumbnails: ImageMetadata[] = await Astro.glob(
-        '../../assets/img/wells/thumbnails/*.webp'
+    const wellsThumbnails = Object.values(
+        import.meta.glob<{ default: ImageMetadata }>(
+            '../../assets/img/wells/thumbnails/*.webp',
+            { eager: true }
+        )
     );
-    const wellsFull: ImageMetadata[] = await Astro.glob(
-        '../../assets/img/wells/full/*.webp'
+    const wellsFull = Object.values(
+        import.meta.glob<{ default: ImageMetadata }>(
+            '../../assets/img/wells/full/*.webp',
+            { eager: true }
+        )
     );
 
     // get names from csv file

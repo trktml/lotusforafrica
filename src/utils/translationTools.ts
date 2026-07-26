@@ -14,12 +14,8 @@ const tr_proxy = new Proxy(tr, handler);
 const en_proxy = new Proxy(en, handler);
 const nl_proxy = new Proxy(nl, handler);
 
-export const defaultLocale = 'en';
-export const locales = {
-    en: 'en', // the `defaultLocale` value must present in `locales` keys
-    tr: 'tr',
-    nl: 'nl',
-};
+import { defaultLocale, locales } from './locales';
+export { defaultLocale, locales };
 
 export default function t(astroUrl: URL): Translations {
     let locale = getLocale(astroUrl);

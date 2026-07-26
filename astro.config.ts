@@ -1,11 +1,10 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
-import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
 import critters from 'astro-critters';
 import sitemap from '@astrojs/sitemap';
 import { i18n } from 'astro-i18n-aut/integration';
-import { locales, defaultLocale } from './src/utils/translationTools';
+import { locales, defaultLocale } from './src/utils/locales';
 
 // https://astro.build/config
 export default defineConfig({
@@ -39,6 +38,5 @@ export default defineConfig({
         }),
         robotsTxt(),
         critters(),
-        compress({ Exclude: '.*svg' }),
     ],
 });

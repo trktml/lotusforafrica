@@ -1,8 +1,13 @@
-import AwesomeSlider, { type AwesomeSliderProps } from 'react-awesome-slider';
-import withAutoplay from 'react-awesome-slider/dist/autoplay';
+import _AwesomeSlider, { type AwesomeSliderProps } from 'react-awesome-slider';
+import _withAutoplay from 'react-awesome-slider/dist/autoplay';
+
+const AwesomeSlider = (_AwesomeSlider as any)?.default ?? _AwesomeSlider;
+const withAutoplay = (_withAutoplay as any)?.default ?? _withAutoplay;
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 // css files
+import 'react-awesome-slider/dist/styles.css';
+import 'react-awesome-slider/dist/custom-animations/open-animation.css';
 import '../scss/components/slider.scss';
 
 // images

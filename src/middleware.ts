@@ -1,6 +1,4 @@
 import { sequence } from "astro/middleware";
-import { i18nMiddleware } from "astro-i18n-aut";
-
-const i18n = i18nMiddleware({ defaultLocale: "en" });
+import { onRequest as i18n } from "astro-i18n-aut/middleware";
 
 export const onRequest = sequence(i18n);
