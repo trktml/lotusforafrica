@@ -13,22 +13,22 @@ import favicon from '../assets/favicon.ico';
 import Navbar from './components/Navbar.astro';
 import Copyright from './components/Copyright.astro';
 import Footer from './components/Footer.astro';
+import SEO from '../components/SEO.astro';
 
 interface Props {
     title: string;
     description: string;
+    image?: string;
+    type?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, image, type } = Astro.props;
 ---
 
 <!doctype html>
 <html lang={lang} translate="no">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="description" content={description} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>{title}</title>
+        <SEO title={title} description={description} image={image} type={type} />
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href={favicon} />
     </head>

@@ -14,7 +14,7 @@ const t = translations(Astro.url);
 
 <BaseLayout
     title={convertPageTitle(t.orphanage, t.title)}
-    description={t.description}
+    description={t.orphanageDescription}
 >
     <div class="container py-4 col-11 col-lg-9">
         <div class="text-center mb-4">
@@ -32,7 +32,7 @@ const t = translations(Astro.url);
                     <div class="overflow-hidden rounded-3 shadow-sm border border-slate-200">
                         <Image
                             src={orphanageImage}
-                            alt="orphanage picture"
+                            alt={t.orphanageHelp}
                             width={500}
                             class="img-fluid w-100 feature-img"
                         />

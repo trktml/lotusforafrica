@@ -14,7 +14,7 @@ const t = translations(Astro.url);
 
 <BaseLayout
     title={convertPageTitle(t.students, t.title)}
-    description={t.description}
+    description={t.studentsDescription}
 >
     <div class="container py-4 col-11 col-lg-9">
         <div class="text-center mb-4">
@@ -32,7 +32,7 @@ const t = translations(Astro.url);
                     <div class="overflow-hidden rounded-3 shadow-sm border border-slate-200">
                         <Image
                             src={studentsImage}
-                            alt="students picture"
+                            alt={t.students}
                             width={500}
                             class="img-fluid w-100 feature-img"
                         />

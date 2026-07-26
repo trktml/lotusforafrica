@@ -1,0 +1,166 @@
+---
+import { getLocale } from 'astro-i18n-aut';
+import { defaultLocale } from '../utils/locales';
+
+interface Props {
+    title: string;
+    description: string;
+    image?: string;
+    type?: string;
+}
+
+const {
+    title,
+    description,
+    image = '/og-image.jpg',
+    type = 'website',
+} = Astro.props;
+
+const siteUrl = Astro.site?.origin || 'https://lotusforafrica.org';
+const currentPath = Astro.url.pathname;
+const lang = getLocale(Astro.url) ?? defaultLocale;
+
+// Calculate canonical URL
+const canonicalURL = new URL(currentPath, siteUrl).href;
+
+// Extract base path without language prefix to generate alternate hreflang URLs
+let basePath = currentPath;
+if (basePath.startsWith('/tr/')) {
+    basePath = basePath.replace(/^\/tr/, '');
+} else if (basePath.startsWith('/nl/')) {
+    basePath = basePath.replace(/^\/nl/, '');
+} else if (basePath === '/tr' || basePath === '/nl') {
+    basePath = '/';
+}
+if (!basePath.startsWith('/')) {
+    basePath = '/' + basePath;
+}
+
+// Generate hreflang URLs
+const hreflangs = {
+    en: new URL(basePath, siteUrl).href,
+    tr: new URL(`/tr${basePath === '/' ? '/' : basePath}`, siteUrl).href,
+    nl: new URL(`/nl${basePath === '/' ? '/' : basePath}`, siteUrl).href,
+    'x-default': new URL(basePath, siteUrl).href,
+};
+
+// Social preview image (absolute URL)
+const socialImageURL = image.startsWith('http')
+    ? image
+    : new URL(image, siteUrl).href;
+
+// Map locale to OG locale format
+const localeMap: Record<string, string> = {
+    en: 'en_US',
+    tr: 'tr_TR',
+    nl: 'nl_NL',
+};
+const ogLocale = localeMap[lang] || 'en_US';
+
+// JSON-LD Organization Schema
+const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'NGO',
+    'name': 'Lotus For Africa Foundation',
+    'url': siteUrl,
+    'logo': new URL('/favicon.ico', siteUrl).href,
+    'description': description,
+    'sameAs': [
+        'https://twitter.com/TTasdemir66'
+    ],
+    'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': '24th Street, Sinkor, Airfeld-Shortcut',
+        'addressLocality': 'Monrovia',
+        'addressCountry': 'LR'
+    },
+    'contactPoint': {
+        '@type': 'ContactPoint',
+        'telephone': '+231888693902',
+        'contactType': 'customer service',
+        'availableLanguage': ['English', 'Turkish', 'Dutch']
+    }
+};
+
+// JSON-LD WebSite Schema
+const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    'name': 'Lotus For Africa Foundation',
+    'url': siteUrl,
+    'inLanguage': ['en', 'tr', 'nl']
+};
+
+// JSON-LD BreadcrumbList Schema for subpages
+const isHome = basePath === '/';
+const pathSegments = currentPath.split('/').filter(Boolean).filter(s => s !== 'tr' && s !== 'nl');
+const breadcrumbListSchema = !isHome && pathSegments.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+        {
+            '@type': 'ListItem',
+            'position': 1,
+            'name': 'Home',
+            'item': new URL(lang === defaultLocale ? '/' : `/${lang}/`, siteUrl).href
+        },
+        ...pathSegments.map((segment, index) => {
+            const path = '/' + pathSegments.slice(0, index + 1).join('/') + '/';
+            const pageUrl = new URL(lang === defaultLocale ? path : `/${lang}${path}`, siteUrl).href;
+            const formattedName = segment.charAt(0).toUpperCase() + segment.slice(1);
+            return {
+                '@type': 'ListItem',
+                'position': index + 2,
+                'name': formattedName,
+                'item': pageUrl
+            };
+        })
+    ]
+} : null;
+---
+
+<!-- Essential Primary Meta Tags -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#1d4ed8" />
+
+<!-- Canonical Link -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Multilingual Hreflang Tags -->
+<link rel="alternate" hreflang="en" href={hreflangs.en} />
+<link rel="alternate" hreflang="tr" href={hreflangs.tr} />
+<link rel="alternate" hreflang="nl" href={hreflangs.nl} />
+<link rel="alternate" hreflang="x-default" href={hreflangs['x-default']} />
+
+<!-- Open Graph / Facebook / WhatsApp Meta Tags -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:site_name" content="Lotus For Africa Foundation" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={socialImageURL} />
+<meta property="og:locale" content={ogLocale} />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="tr_TR" />
+<meta property="og:locale:alternate" content="nl_NL" />
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@TTasdemir66" />
+<meta name="twitter:creator" content="@TTasdemir66" />
+<meta name="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={socialImageURL} />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+{breadcrumbListSchema && (
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbListSchema)} />
+)}
