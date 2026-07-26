@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, passthroughImageService } from 'astro/config';
 import react from '@astrojs/react';
 import robotsTxt from 'astro-robots-txt';
 import critters from 'astro-critters';
@@ -9,6 +9,9 @@ import { locales, defaultLocale } from './src/utils/locales';
 
 // https://astro.build/config
 export default defineConfig({
+    image: {
+        service: passthroughImageService(),
+    },
     vite: {
         css: {
             devSourcemap: true,
