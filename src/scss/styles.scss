@@ -162,17 +162,81 @@ h1, h2, h3, h4, h5, h6, .font-heading {
     background: #94a3b8;
 }
 
-/* Twitter / X Feed Fallback Card */
+/* Twitter / X Feed Fallback Card & Profile Cards */
 .twitter-fallback-card {
     background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.x-feed-tabs {
+    display: inline-flex;
+    background: #f1f5f9;
+    padding: 4px;
+    border-radius: 30px;
+    border: 1px solid #e2e8f0;
+}
+
+.x-feed-tab {
+    border: none;
+    background: transparent;
+    color: #64748b;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 8px 20px;
+    border-radius: 24px;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+
+    &:hover {
+        color: #0f172a;
+    }
+
+    &.active {
+        background: #ffffff;
+        color: #1d4ed8;
+        font-weight: 700;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+}
+
+.x-profile-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px 20px;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #1d4ed8 0%, #3b82f6 100%);
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(29, 78, 216, 0.1);
+        border-color: #bfdbfe;
+    }
 }
 
 .x-avatar-ring {
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     background: #0f172a;
     color: #ffffff;
