@@ -40,6 +40,5 @@ export default defineConfig({
         }),
         robotsTxt(),
         critters(),
-        compress(),
     ],
 });
