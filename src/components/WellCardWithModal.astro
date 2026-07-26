@@ -34,8 +34,7 @@ const modalId = 'wellModal-' + wellNumber;
                 alt={`${t.wells} ${wellNumber} - ${wellOwnerName}`}
                 width={thumbnailImage.width}
                 height={thumbnailImage.height}
-                class="well-thumb-img rounded-3 w-100 object-fit-cover"
-                style="height: 220px;"
+                class="well-thumb-img rounded-3 w-100"
             />
             <div class="well-card-overlay d-flex align-items-center justify-content-center">
                 <span class="btn btn-sm btn-dark rounded-2 px-3 py-1 fw-bold shadow-sm" style="font-size: 0.82rem;">
@@ -49,7 +48,7 @@ const modalId = 'wellModal-' + wellNumber;
         >
             #{wellNumber}
         </span>
-        <div class="fw-bold mt-2 text-truncate px-1" style="font-size: 0.92rem; color: #0b192c;">
+        <div class="well-owner-name fw-bold mt-2 text-truncate px-1" style="color: #0b192c;">
             {wellOwnerName}
         </div>
     </div>
@@ -65,8 +64,8 @@ const modalId = 'wellModal-' + wellNumber;
 >
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content border-0 shadow-lg overflow-hidden rounded-4" style="background: #ffffff;">
-            <div class="modal-header border-bottom-0 pb-0 d-flex align-items-center justify-content-between px-4 pt-3">
-                <h5 class="modal-title fw-bold text-dark fs-5">
+            <div class="modal-header border-bottom-0 pb-0 d-flex align-items-center justify-content-between px-3 px-md-4 pt-3">
+                <h5 class="modal-title fw-bold text-dark fs-6 fs-md-5 text-truncate pe-2">
                     <span class="text-primary me-2">#{wellNumber}</span> {wellOwnerName}
                 </h5>
                 <button
@@ -75,7 +74,7 @@ const modalId = 'wellModal-' + wellNumber;
                     data-bs-dismiss="modal"
                     aria-label={t.close}></button>
             </div>
-            <div class="modal-body p-3 text-center">
+            <div class="modal-body p-2 p-md-3 text-center">
                 <Image
                     src={fullImage}
                     alt={`${t.wells} ${wellNumber} - ${wellOwnerName}`}
@@ -94,7 +93,24 @@ const modalId = 'wellModal-' + wellNumber;
         cursor: pointer;
     }
     .well-thumb-img {
+        height: 170px !important;
+        max-height: 170px !important;
+        width: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
         transition: transform 0.3s ease;
+    }
+    @media (min-width: 576px) {
+        .well-thumb-img {
+            height: 190px !important;
+            max-height: 190px !important;
+        }
+    }
+    @media (min-width: 992px) {
+        .well-thumb-img {
+            height: 220px !important;
+            max-height: 220px !important;
+        }
     }
     .well-card-image-modal-toggler:hover .well-thumb-img {
         transform: scale(1.05);
@@ -109,16 +125,33 @@ const modalId = 'wellModal-' + wellNumber;
     .well-card-image-modal-toggler:hover .well-card-overlay {
         opacity: 1;
     }
+    .well-owner-name {
+        font-size: 0.84rem;
+        line-height: 1.3;
+    }
+    @media (min-width: 576px) {
+        .well-owner-name {
+            font-size: 0.92rem;
+        }
+    }
     .well-badge {
-        top: 12px;
-        right: 12px;
-        font-size: 0.78rem;
+        top: 8px;
+        right: 8px;
+        font-size: 0.72rem;
         font-weight: 700;
-        padding: 4px 10px;
+        padding: 3px 8px;
         border-radius: 6px;
         background: #1d4ed8;
         color: #ffffff;
         box-shadow: 0 2px 6px rgba(29, 78, 216, 0.3);
         z-index: 2;
+    }
+    @media (min-width: 576px) {
+        .well-badge {
+            top: 12px;
+            right: 12px;
+            font-size: 0.78rem;
+            padding: 4px 10px;
+        }
     }
 </style>
