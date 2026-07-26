@@ -104,10 +104,13 @@ async function main() {
 
   // Scan raw_images directory for images
   const validExts = ['.jpg', '.jpeg', '.png', '.webp', '.bmp', '.tiff'];
-  const files = fs.readdirSync(RAW_DIR).filter((f) => {
-    const ext = path.extname(f).toLowerCase();
-    return validExts.includes(ext);
-  });
+  const files = fs
+    .readdirSync(RAW_DIR)
+    .filter((f) => {
+      const ext = path.extname(f).toLowerCase();
+      return validExts.includes(ext);
+    })
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
 
   if (files.length === 0) {
     console.log(`ℹ️  No images found to process!`);
