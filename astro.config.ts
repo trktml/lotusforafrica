@@ -9,9 +9,6 @@ import { locales, defaultLocale } from './src/utils/locales';
 
 // https://astro.build/config
 export default defineConfig({
-    image: {
-        service: passthroughImageService(),
-    },
     vite: {
         css: {
             devSourcemap: true,
@@ -43,8 +40,6 @@ export default defineConfig({
         }),
         robotsTxt(),
         critters(),
-        compress({
-            Image: false,
-        }),
+        compress(),
     ],
 });
