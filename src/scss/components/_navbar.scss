@@ -33,6 +33,17 @@
             font-weight: 700;
             text-align: right;
         }
+
+        @media (max-width: 480px) {
+            margin-left: 6px;
+            & :nth-child(1) {
+                font-size: 1rem;
+            }
+            & :nth-child(2) {
+                font-size: 0.6rem;
+                letter-spacing: 0.6px;
+            }
+        }
     }
 
     .navbar-nav {
@@ -86,8 +97,26 @@
             .navbar-nav {
                 align-items: flex-start !important;
                 gap: 0.5rem;
-                div.nav-item a.nav-link {
+                width: 100%;
+
+                div.nav-item {
                     width: 100%;
+                    a.nav-link {
+                        width: 100%;
+                    }
+                }
+
+                .btn-group {
+                    margin-left: 0 !important;
+                    margin-top: 0.5rem;
+                    width: 100%;
+                    .lang-btn {
+                        width: 100%;
+                        justify-content: center;
+                    }
+                    .dropdown-menu {
+                        width: 100%;
+                    }
                 }
             }
         }
