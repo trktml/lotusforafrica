@@ -4,7 +4,7 @@ import { Image } from 'astro:assets';
 import IndexLayout from '../layouts/IndexLayout.astro';
 import Slider from '../components/Slider';
 
-// images for link backrounds
+// images for link backgrounds
 import bridgeImage from '../assets/img/activities/bridge.webp';
 import orphanageImage from '../assets/img/activities/orphanage.webp';
 import studentsImage from '../assets/img/activities/students.webp';
@@ -14,44 +14,39 @@ import '../scss/pages/home.scss';
 
 // translations
 import translations, {
-    convertPageTitle,
     localeLink,
 } from '../utils/translationTools';
 const t = translations(Astro.url);
 
-const imageWidth = 300;
+const imageWidth = 500;
 ---
 
 <IndexLayout title={t.title} description={t.description}>
     <div id="page-top" class="py-4 py-md-5">
-        <div class="container d-flex align-items-center flex-column">
-            <!-- Hero Header -->
-            <div class="text-center mb-4">
-                <div class="hero-badge">
-                    <span>🤝 LOTUS FOR AFRICA FOUNDATION</span>
+        <div class="container">
+            <!-- 1. HERO SECTION -->
+            <div class="row align-items-center justify-content-center text-center mb-5">
+
+
+                <!-- Featured Image Slider Container -->
+                <div class="col-12 col-lg-10">
+                    <div class="slider-wrapper">
+                        <Slider client:only="react" />
+                    </div>
                 </div>
-                <h1 class="hero-title">
-                    Empowering Communities Across Africa
-                </h1>
-                <p class="hero-subtitle">
-                    Providing clean water, supporting orphanages, educating students, and building sustainable infrastructure for a brighter future.
-                </p>
             </div>
 
-            <!-- Image Slider Container -->
-            <div class="slider-wrapper row w-100 col-12 col-lg-10 align-items-center justify-content-center p-2 mb-5">
-                <Slider client:only="react" />
-            </div>
 
-            <!-- Categories / Quick Navigation Grid -->
-            <div class="row g-3 col-12 col-lg-10 justify-content-center">
+
+            <!-- Categories Grid -->
+            <div class="row g-3 col-12 col-lg-10 mx-auto justify-content-center mb-5">
                 <div class="col-6 col-md-3">
                     <div class="link-cards">
                         <a href={localeLink('/wells/1/', Astro.url)}>
                             <div class="link-card-inner">
                                 <Image
                                     src={wellImage}
-                                    alt="wells picture"
+                                    alt={t.wells}
                                     width={imageWidth}
                                 />
                                 <div class="link-card-text">{t.wells}</div>
@@ -65,7 +60,7 @@ const imageWidth = 300;
                             <div class="link-card-inner">
                                 <Image
                                     src={orphanageImage}
-                                    alt="orphanage picture"
+                                    alt={t.orphanage}
                                     width={imageWidth}
                                 />
                                 <div class="link-card-text">{t.orphanage}</div>
@@ -79,12 +74,10 @@ const imageWidth = 300;
                             <div class="link-card-inner">
                                 <Image
                                     src={studentsImage}
-                                    alt="students picture"
+                                    alt={t.students}
                                     width={imageWidth}
                                 />
-                                <div class="link-card-text">
-                                    {t.students}
-                                </div>
+                                <div class="link-card-text">{t.students}</div>
                             </div>
                         </a>
                     </div>
@@ -95,7 +88,7 @@ const imageWidth = 300;
                             <div class="link-card-inner">
                                 <Image
                                     src={bridgeImage}
-                                    alt="others picture"
+                                    alt={t.others}
                                     width={imageWidth}
                                 />
                                 <div class="link-card-text">{t.others}</div>
@@ -104,6 +97,11 @@ const imageWidth = 300;
                     </div>
                 </div>
             </div>
+
+
+
+
         </div>
     </div>
 </IndexLayout>
+

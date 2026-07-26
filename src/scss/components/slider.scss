@@ -1,36 +1,36 @@
 /* purgecss start ignore */
 
-
 .aws-btn {
     --slider-transition-duration: 750ms;
-    --organic-arrow-thickness: 5px;
-    --organic-arrow-border-radius: 30px;
-    --organic-arrow-height: 35px;
-    --organic-arrow-color: #8f91a8;
+    --organic-arrow-thickness: 4px;
+    --organic-arrow-border-radius: 20px;
+    --organic-arrow-height: 30px;
+    --organic-arrow-color: #ffffff;
     --control-button-width: 10%;
     --control-button-height: 25%;
     --control-button-background: transparent;
-    --control-bullet-color: #8f91a8;
-    --control-bullet-active-color: #8f91a8;
-    --loader-bar-color: #0254a666;
-    --loader-bar-height: 5px;
-    --slider-height-percentage: 50%;
+    --control-bullet-color: rgba(255, 255, 255, 0.5);
+    --control-bullet-active-color: #ffffff;
+    --loader-bar-color: var(--accent-gold);
+    --loader-bar-height: 4px;
+    --slider-height-percentage: 56.25%;
+
     @media (min-width: 992px) {
-        --slider-height-percentage: 45%;
+        --slider-height-percentage: 50%;
     }
+
+    width: 100% !important;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
 
     img {
         height: 100%;
-        object-fit: contain;
-        background-color: black;
-    }
-
-    width: 90% !important;
-    border-radius: 25px;
-    overflow: hidden;
-    @media (min-width: 992px) {
-        width: 60% !important;
+        width: 100%;
+        object-fit: cover;
+        background-color: var(--primary-navy);
     }
 }
 
 /* purgecss end ignore */
+
