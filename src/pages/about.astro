@@ -125,8 +125,18 @@ const imageWidth = 500;
         box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
     }
     .doc-img {
-        height: 240px;
+        height: 160px;
         object-fit: cover;
+    }
+    @media (min-width: 576px) {
+        .doc-img {
+            height: 200px;
+        }
+    }
+    @media (min-width: 768px) {
+        .doc-img {
+            height: 240px;
+        }
     }
     .story-content {
         font-size: 1.05rem;
