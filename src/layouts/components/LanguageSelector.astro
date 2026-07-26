@@ -5,6 +5,16 @@ import 'flag-icons/css/flag-icons.min.css';
 import { getLocale } from 'astro-i18n-aut';
 import { defaultLocale } from '../../utils/translationTools';
 let lang = getLocale(Astro.url) ?? defaultLocale;
+
+const rawPath = Astro.url.pathname;
+const cleanPath = rawPath.replace(/^\/(tr|nl|en)(\/|$)/, '/');
+
+const getLangUrl = (targetLang: string) => {
+    if (targetLang === defaultLocale) {
+        return cleanPath.startsWith('/') ? cleanPath : `/${cleanPath}`;
+    }
+    return `/${targetLang}${cleanPath}`.replace(/\/+/g, '/');
+};
 ---
 
 <div class="btn-group ms-lg-2">
@@ -33,17 +43,35 @@ let lang = getLocale(Astro.url) ?? defaultLocale;
         style="min-width: 140px; margin-top: 8px; background: #0b192c;"
     >
         <li>
-            <a class="dropdown-item rounded-2 py-2 text-white fw-semibold d-flex align-items-center gap-2" href="/tr/">
+            <a
+                class:list={[
+                    'dropdown-item rounded-2 py-2 text-white fw-semibold d-flex align-items-center gap-2',
+                    { active: lang === 'tr' },
+                ]}
+                href={getLangUrl('tr')}
+            >
                 <span class="fi fi-tr"></span> Türkçe
             </a>
         </li>
         <li>
-            <a class="dropdown-item rounded-2 py-2 text-white fw-semibold d-flex align-items-center gap-2" href="/en/">
+            <a
+                class:list={[
+                    'dropdown-item rounded-2 py-2 text-white fw-semibold d-flex align-items-center gap-2',
+                    { active: lang === 'en' },
+                ]}
+                href={getLangUrl('en')}
+            >
                 <span class="fi fi-us"></span> English
             </a>
         </li>
         <li>
-            <a class="dropdown-item rounded-2 py-2 text-white fw-semibold d-flex align-items-center gap-2" href="/nl/">
+            <a
+                class:list={[
+                    'dropdown-item rounded-2 py-2 text-white fw-semibold d-flex align-items-center gap-2',
+                    { active: lang === 'nl' },
+                ]}
+                href={getLangUrl('nl')}
+            >
                 <span class="fi fi-be"></span> Nederlands
             </a>
         </li>

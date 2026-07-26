@@ -10,8 +10,12 @@ import translations, {
 } from '../../utils/translationTools';
 const t = translations(Astro.url);
 
-const isActive = (page: string): boolean => {
-    return window.location.href.includes(page);
+const currentPath = Astro.url.pathname;
+const isActive = (path: string): boolean => {
+    const targetLink = localeLink(path, Astro.url);
+    const normCurrent = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+    const normTarget = targetLink.endsWith('/') ? targetLink : `${targetLink}/`;
+    return normCurrent === normTarget;
 };
 ---
 
@@ -40,28 +44,37 @@ const isActive = (page: string): boolean => {
             data-bs-target="#navbarResponsive"
             aria-controls="navbarResponsive"
             aria-expanded="false"
-            aria-label="Navigation menu toggle"
-            >Menu
+            aria-label={t.menu}
+            >{t.menu}
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <div class="navbar-nav ms-auto align-items-center">
                 <div class="nav-item mx-0 mx-lg-1">
                     <a
-                        class="nav-link py-1 px-0 px-lg-3 rounded"
+                        class:list={[
+                            'nav-link py-1 px-0 px-lg-3 rounded',
+                            { active: isActive('/activities') },
+                        ]}
                         href={localeLink('/activities', Astro.url)}
                         >{t.activities}</a
                     >
                 </div>
                 <div class="nav-item mx-0 mx-lg-1">
                     <a
-                        class="nav-link py-1 px-0 px-lg-3 rounded"
+                        class:list={[
+                            'nav-link py-1 px-0 px-lg-3 rounded',
+                            { active: isActive('/about') },
+                        ]}
                         href={localeLink('/about', Astro.url)}>{t.aboutUs}</a
                     >
                 </div>
                 <div class="nav-item mx-0 mx-lg-1">
                     <a
-                        class="nav-link py-1 px-0 px-lg-3 rounded"
+                        class:list={[
+                            'nav-link py-1 px-0 px-lg-3 rounded',
+                            { active: isActive('/contact') },
+                        ]}
                         href={localeLink('/contact', Astro.url)}>{t.contact}</a
                     >
                 </div>
@@ -71,25 +84,3 @@ const isActive = (page: string): boolean => {
     </div>
 </nav>
 
-<script>
-    // add active class
-    var currentUrl = window.location.href;
-
-    var navLinks = document.querySelectorAll('#mainNav a');
-
-    navLinks.forEach(function (link) {
-        var linkUrl = link.getAttribute('href') + '';
-
-        if (currentUrl.includes(linkUrl)) {
-            link.classList.add('active');
-        } else if (
-            !currentUrl.includes('en') &&
-            !currentUrl.includes('tr') &&
-            !currentUrl.includes('nl')
-        ) {
-            if (link.getAttribute('href') === '/en/') {
-                link.classList.add('active');
-            }
-        }
-    });
-</script>

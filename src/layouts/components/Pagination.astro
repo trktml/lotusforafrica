@@ -1,5 +1,8 @@
 ---
 import type { Page } from 'astro';
+import translations from '../../utils/translationTools';
+const t = translations(Astro.url);
+
 interface Props{
     page:Page,
     type:string
@@ -31,9 +34,9 @@ const pagesToDisplay = getPages(page.currentPage, pageCount);
         <a
             class={`pagination-nav-btn btn border-0 ${page.url.prev ? '' : 'disabled opacity-50'}`}
             href={page.url.prev ? page.url.prev : '#'}
-            aria-label="Previous page"
+            aria-label={t.prev}
         >
-            ‹ Prev
+            ‹ {t.prev}
         </a>
 
         <!-- Page Numbers -->
@@ -72,9 +75,9 @@ const pagesToDisplay = getPages(page.currentPage, pageCount);
         <a
             class={`pagination-nav-btn btn border-0 ${page.url.next ? '' : 'disabled opacity-50'}`}
             href={page.url.next ? page.url.next : '#'}
-            aria-label="Next page"
+            aria-label={t.next}
         >
-            Next ›
+            {t.next} ›
         </a>
     </div>
 </div>

@@ -1,8 +1,9 @@
 ---
 // translations
+import translations, { defaultLocale } from '../utils/translationTools';
 import { getLocale } from 'astro-i18n-aut';
-import { defaultLocale } from '../utils/translationTools';
 let lang = getLocale(Astro.url) ?? defaultLocale;
+const t = translations(Astro.url);
 
 // scripts and css's
 import '../scss/styles.scss';
@@ -42,20 +43,91 @@ const { title, description } = Astro.props;
 
             <div class="container my-5 col-12 col-lg-8">
                 <div class="foundation-card p-4 text-center">
-                    <span class="section-badge mb-2">LIVE FEED</span>
-                    <h3 class="fw-bold mb-3 fs-4 text-primary">Updates & Announcements</h3>
-                    <div class="d-flex justify-content-center overflow-hidden rounded-3">
+                    <span class="section-badge mb-2">{t.liveFeed}</span>
+                    <h3 class="fw-bold mb-3 fs-4 text-primary">{t.updatesAndAnnouncements}</h3>
+                    <div class="d-flex flex-column align-items-center justify-content-center overflow-hidden rounded-3 min-vh-25 position-relative">
                         <a
                             class="twitter-timeline"
                             data-theme="light"
                             data-height="500"
+                            data-chrome="noheader nofooter transparent"
                             href="https://twitter.com/TTasdemir66?ref_src=twsrc%5Etfw"
-                            >Tweets by TTasdemir66</a
+                            >{t.tweetsBy}</a
                         >
+
+                        <div id="twitter-fallback-card" class="twitter-fallback-card p-4 text-center d-none w-100 my-2">
+                            <div class="d-flex align-items-center justify-content-center mb-3 gap-3">
+                                <div class="x-avatar-ring">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                    </svg>
+                                </div>
+                                <div class="text-start">
+                                    <h5 class="fw-bold mb-0 text-dark">T. Taşdemir</h5>
+                                    <span class="text-primary small fw-semibold">@TTasdemir66</span>
+                                </div>
+                            </div>
+                            <p class="text-muted mb-4 small mx-auto" style="max-width: 480px;">
+                                {t.tweetsBy}
+                            </p>
+                            <div class="d-flex flex-wrap justify-content-center gap-3">
+                                <a
+                                    href="https://twitter.com/TTasdemir66"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="btn btn-primary rounded-pill px-4 py-2 fw-semibold d-inline-flex align-items-center gap-2 shadow-sm"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                    </svg>
+                                    {t.followOnX}
+                                </a>
+                                <a
+                                    href="https://twitter.com/TTasdemir66"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="btn btn-outline-secondary rounded-pill px-4 py-2 fw-semibold d-inline-flex align-items-center gap-2"
+                                >
+                                    {t.latestTweetsOnX} &rarr;
+                                </a>
+                            </div>
+                        </div>
+
                         <script
+                            is:inline
                             async
                             src="https://platform.twitter.com/widgets.js"
                             charset="utf-8"></script>
+                        <script is:inline>
+                            (function initTwitterWidget() {
+                                function checkWidget() {
+                                    var fallback = document.getElementById('twitter-fallback-card');
+                                    var iframe = document.querySelector('iframe[id^="twitter-widget-"]');
+                                    
+                                    if (window.twttr && window.twttr.widgets && typeof window.twttr.widgets.load === 'function') {
+                                        window.twttr.widgets.load();
+                                    }
+
+                                    setTimeout(function() {
+                                        var loadedIframe = document.querySelector('iframe[id^="twitter-widget-"]');
+                                        var rawLink = document.querySelector('a.twitter-timeline');
+                                        if (!loadedIframe || loadedIframe.offsetHeight < 80) {
+                                            if (fallback) fallback.classList.remove('d-none');
+                                            if (rawLink) rawLink.style.display = 'none';
+                                        } else {
+                                            if (fallback) fallback.classList.add('d-none');
+                                            if (rawLink) rawLink.style.display = '';
+                                        }
+                                    }, 1200);
+                                }
+
+                                if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                                    setTimeout(checkWidget, 200);
+                                } else {
+                                    document.addEventListener('DOMContentLoaded', checkWidget);
+                                }
+                            })();
+                        </script>
                     </div>
                 </div>
             </div>

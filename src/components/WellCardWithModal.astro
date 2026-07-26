@@ -39,7 +39,7 @@ const modalId = 'wellModal-' + wellNumber;
             />
             <div class="well-card-overlay d-flex align-items-center justify-content-center">
                 <span class="btn btn-sm btn-dark rounded-2 px-3 py-1 fw-bold shadow-sm" style="font-size: 0.82rem;">
-                    View Photo
+                    {t.viewPhoto}
                 </span>
             </div>
         </button>
@@ -73,7 +73,7 @@ const modalId = 'wellModal-' + wellNumber;
                     type="button"
                     class="btn-close"
                     data-bs-dismiss="modal"
-                    aria-label="Close"></button>
+                    aria-label={t.close}></button>
             </div>
             <div class="modal-body p-3 text-center">
                 <Image
