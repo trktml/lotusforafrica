@@ -3,6 +3,7 @@ import react from '@astrojs/react';
 import robotsTxt from 'astro-robots-txt';
 import critters from 'astro-critters';
 import sitemap from '@astrojs/sitemap';
+import compress from 'astro-compress';
 import { i18n } from 'astro-i18n-aut/integration';
 import { locales, defaultLocale } from './src/utils/locales';
 
@@ -39,5 +40,8 @@ export default defineConfig({
         }),
         robotsTxt(),
         critters(),
+        compress({
+            Image: false,
+        }),
     ],
 });
