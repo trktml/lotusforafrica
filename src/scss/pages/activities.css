@@ -12,9 +12,15 @@ body {
     margin: 0 auto;
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    padding: 2rem 5%;
+    padding: 1.25rem 3%;
     border-radius: 16px;
     box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+}
+
+@media only screen and (min-width: 768px) {
+    .cd-container {
+        padding: 2rem 5%;
+    }
 }
 
 .cd-container::after {
