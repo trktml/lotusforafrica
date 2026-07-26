@@ -17,7 +17,7 @@ const t = translations(Astro.url);
     <div class="container py-4 col-11 col-lg-9">
         <div class="text-center mb-5">
             <h1 class="fw-bold display-5 text-dark mb-2">{t.contact}</h1>
-            <p class="text-muted fs-6">Reach out to us for inquiries, donations, or partnerships.</p>
+            <p class="text-muted fs-6">{t.contactSubTitle}</p>
         </div>
 
         <div class="row g-4">
@@ -27,7 +27,7 @@ const t = translations(Astro.url);
                     <div class="contact-icon-badge mb-3">
                         📍
                     </div>
-                    <h3 class="fs-5 fw-bold text-dark mb-2">Location</h3>
+                    <h3 class="fs-5 fw-bold text-dark mb-2">{t.location}</h3>
                     <p class="text-muted mb-3" style="font-size: 0.95rem; color: #475569;">
                         24th Street, Sinkor, Airfeld-Shortcut<br />Monrovia, Republic of Liberia
                     </p>
@@ -43,12 +43,12 @@ const t = translations(Astro.url);
                     <div class="contact-icon-badge mb-3">
                         📞
                     </div>
-                    <h3 class="fs-5 fw-bold text-dark mb-2">Phone / WhatsApp</h3>
+                    <h3 class="fs-5 fw-bold text-dark mb-2">{t.phoneWhatsapp}</h3>
                     <a href="tel:+231888693902" class="contact-link fs-5 fw-bold text-primary mb-3">
                         +231 88 869 3902
                     </a>
                     <a href="https://api.whatsapp.com/send?phone=231888693902" target="_blank" class="btn btn-sm btn-success rounded-2 px-3 py-2 fw-bold text-white mt-auto">
-                        💬 Open WhatsApp
+                        💬 {t.openWhatsapp}
                     </a>
                 </div>
             </div>
@@ -59,12 +59,12 @@ const t = translations(Astro.url);
                     <div class="contact-icon-badge mb-3">
                         ✉️
                     </div>
-                    <h3 class="fs-5 fw-bold text-dark mb-2">Email Address</h3>
+                    <h3 class="fs-5 fw-bold text-dark mb-2">{t.emailAddress}</h3>
                     <a href="mailto:mstoneiron66@gmail.com" class="contact-link fs-6 fw-bold text-primary mb-3 text-break">
                         mstoneiron66@gmail.com
                     </a>
                     <a href="mailto:mstoneiron66@gmail.com" class="btn btn-sm btn-primary rounded-2 px-3 py-2 fw-bold text-white mt-auto">
-                        📩 Send Message
+                        📩 {t.sendMessage}
                     </a>
                 </div>
             </div>
