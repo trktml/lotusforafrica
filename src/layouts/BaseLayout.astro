@@ -6,8 +6,6 @@ let lang = getLocale(Astro.url) ?? defaultLocale;
 
 // scripts and css's
 import '../scss/styles.scss';
-import bootstrap from 'bootstrap/dist/js/bootstrap.bundle?url';
-import myScripts from '../js/scripts?url';
 
 import favicon from '../assets/favicon.ico';
 
@@ -47,8 +45,10 @@ const { title, description } = Astro.props;
             <Copyright />
 
             <!-- Core theme JS -->
-            <script src={myScripts}></script>
-            <script src={bootstrap}></script>
+            <script>
+                import 'bootstrap/dist/js/bootstrap.bundle';
+                import '../js/scripts';
+            </script>
         </main>
     </body>
 </html>
