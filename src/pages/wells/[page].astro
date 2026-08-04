@@ -43,23 +43,17 @@ export async function getStaticPaths({
 
     // get names from csv file
     const wellOwnerNames: any = [];
-    await new Promise<void>((resolve) =>
-        fs
-            .createReadStream('./src/assets/wellOwnerNames.csv')
-            .pipe(csv())
-            .on('data', (row) => {
-                // Take the value from the 2nd column and add it to the array
-                if (row['user']) {
-                    wellOwnerNames.push(row['user']);
-                }
-            })
-            .on('end', () => {
-                resolve();
-                console.log(
-                    'wellOwnerNames imported: ' + wellOwnerNames.length
-                );
-            })
-    );
+    const parser = fs
+        .createReadStream('./src/assets/wellOwnerNames.csv')
+        .pipe(csv());
+
+    for await (const row of parser) {
+        // Take the value from the 2nd column and add it to the array
+        if (row['user']) {
+            wellOwnerNames.push(row['user']);
+        }
+    }
+    console.log('wellOwnerNames imported: ' + wellOwnerNames.length);
 
     // Generate pages from our wells arrays, with merged names
     return paginate(
