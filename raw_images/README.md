@@ -1,6 +1,6 @@
 # Raw Images Directory (`raw_images/`)
 
-Place any new water well photos (JPG, PNG, WebP, etc.) into this directory to automatically process them.
+Place any new water well photos (JPG, PNG, WebP, .kuyu, etc.) into this directory to automatically process them.
 
 ## Usage
 

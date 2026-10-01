@@ -38,14 +38,20 @@ function formatWellNum(num: number): string {
 
 // Append new well owner to CSV
 function appendToCsv(wellNumStr: string, ownerName: string) {
-  const line = `well-${wellNumStr},${ownerName.trim()},\n`;
+  const line = `well-${wellNumStr},${ownerName.trim()}\n`;
   fs.appendFileSync(CSV_PATH, line, 'utf-8');
   console.log(`[CSV] Appended well-${wellNumStr} ("${ownerName}") to CSV.`);
 }
 
 async function processImage(inputPath: string, ownerNameArg?: string) {
-  const nextNum = getNextWellNumber();
-  const numStr = formatWellNum(nextNum);
+  let targetNum: number;
+  const numMatch = path.basename(inputPath).match(/^(\d+)/);
+  if (numMatch) {
+    targetNum = parseInt(numMatch[1], 10);
+  } else {
+    targetNum = getNextWellNumber();
+  }
+  const numStr = formatWellNum(targetNum);
   const targetFileName = `${numStr}-well.webp`;
 
   const thumbPath = path.join(THUMBNAIL_DIR, targetFileName);
@@ -103,7 +109,7 @@ async function main() {
   }
 
   // Scan raw_images directory for images
-  const validExts = ['.jpg', '.jpeg', '.png', '.webp', '.bmp', '.tiff'];
+  const validExts = ['.jpg', '.jpeg', '.png', '.webp', '.bmp', '.tiff', '.kuyu'];
   const files = fs
     .readdirSync(RAW_DIR)
     .filter((f) => {
